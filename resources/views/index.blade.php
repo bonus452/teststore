@@ -11,10 +11,12 @@
                     <div class="slider__container slider--one">
                         <div class="slider__activation__wrap owl-carousel owl-theme">
                             <!-- Start Single Slide -->
-                            <div class="slide slider__full--screen slider-height-inherit slider-text-right" style="background: rgba(0, 0, 0, 0) url(storage/images/system/slider/bg/1.png) no-repeat scroll center center / cover ;">
+                            <div class="slide slider__full--screen slider-height-inherit slider-text-right"
+                                 style="background: rgba(0, 0, 0, 0) url(storage/images/system/slider/bg/1.png) no-repeat scroll center center / cover ;">
                                 <div class="container">
                                     <div class="row">
-                                        <div class="col-md-10 col-lg-8 col-md-offset-2 col-lg-offset-4 col-sm-12 col-xs-12">
+                                        <div
+                                            class="col-md-10 col-lg-8 col-md-offset-2 col-lg-offset-4 col-sm-12 col-xs-12">
                                             <div class="slider__inner">
                                                 <h1>New Product <span class="text--theme">Collection</span></h1>
                                                 <div class="slider__btn">
@@ -27,7 +29,8 @@
                             </div>
                             <!-- End Single Slide -->
                             <!-- Start Single Slide -->
-                            <div class="slide slider__full--screen slider-height-inherit  slider-text-left" style="background: rgba(0, 0, 0, 0) url(storage/images/system/slider/bg/2.png) no-repeat scroll center center / cover ;">
+                            <div class="slide slider__full--screen slider-height-inherit  slider-text-left"
+                                 style="background: rgba(0, 0, 0, 0) url(storage/images/system/slider/bg/2.png) no-repeat scroll center center / cover ;">
                                 <div class="container">
                                     <div class="row">
                                         <div class="col-md-8 col-lg-8 col-sm-12 col-xs-12">
@@ -52,232 +55,22 @@
                             <h3> Browse Categories</h3>
                         </div>
                         <div class="category-menu-list">
+
+                            @php /** @var \App\Models\Shop\Category $menu_item */ @endphp
                             <ul>
-                                <li><a href="#"><img alt="" src="storage/images/system/icons/thum2.png"> Women’s Clothing <i class="zmdi zmdi-chevron-right"></i></a>
-                                    <div class="category-menu-dropdown">
-                                        <div class="category-part-1 category-common mb--30">
-                                            <h4 class="categories-subtitle"> Jewelry & Watches</h4>
-                                            <ul>
-                                                <li><a href="#"> Men’s Clothing</a></li>
-                                                <li><a href="#"> Computer & Office</a></li>
-                                                <li><a href="#"> Jewelry & Watches</a></li>
-                                                <li><a href="#"> Bags & Shoes</a></li>
-                                                <li><a href="#"> Phones & Accessories</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="category-part-2 category-common mb--30">
-                                            <h4 class="categories-subtitle"> Jewelry & Watches</h4>
-                                            <ul>
-                                                <li><a href="#"> Men’s Clothing</a></li>
-                                                <li><a href="#"> Computer & Office</a></li>
-                                                <li><a href="#"> Jewelry & Watches</a></li>
-                                                <li><a href="#"> Bags & Shoes</a></li>
-                                                <li><a href="#"> Phones & Accessories</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="category-part-3 category-common">
-                                            <h4 class="categories-subtitle"> Jewelry & Watches</h4>
-                                            <ul>
-                                                <li><a href="#"> Men’s Clothing</a></li>
-                                                <li><a href="#"> Computer & Office</a></li>
-                                                <li><a href="#"> Jewelry & Watches</a></li>
-                                                <li><a href="#"> Bags & Shoes</a></li>
-                                                <li><a href="#"> Phones & Accessories</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="category-part-4 category-common">
-                                            <h4 class="categories-subtitle"> Jewelry & Watches</h4>
-                                            <ul>
-                                                <li><a href="#"> Men’s Clothing</a></li>
-                                                <li><a href="#"> Computer & Office</a></li>
-                                                <li><a href="#"> Jewelry & Watches</a></li>
-                                                <li><a href="#"> Bags & Shoes</a></li>
-                                                <li><a href="#"> Phones & Accessories</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li><a href="#"><img alt="" src="storage/images/system/icons/thum3.png"> Man Fashion <i class="zmdi zmdi-chevron-right"></i></a>
-                                    <div class="category-menu-dropdown">
-                                        <div class="category-part-1 category-common2 mb--30">
-                                            <h4 class="categories-subtitle"> Jewelry & Watches</h4>
-                                            <ul>
-                                                <li><a href="#"> Men’s Clothing</a></li>
-                                                <li><a href="#"> Computer & Office</a></li>
-                                                <li><a href="#"> Jewelry & Watches</a></li>
-                                                <li><a href="#"> Bags & Shoes</a></li>
-                                                <li><a href="#"> Phones & Accessories</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="category-part-2 category-common2 mb--30">
-                                            <h4 class="categories-subtitle"> Jewelry & Watches</h4>
-                                            <ul>
-                                                <li><a href="#"> Men’s Clothing</a></li>
-                                                <li><a href="#"> Computer & Office</a></li>
-                                                <li><a href="#"> Jewelry & Watches</a></li>
-                                                <li><a href="#"> Bags & Shoes</a></li>
-                                                <li><a href="#"> Phones & Accessories</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="category-part-3 category-common2 mb--30">
-                                            <h4 class="categories-subtitle">dress</h4>
-                                            <ul>
-                                                <li><a href="#"> Men’s Clothing</a></li>
-                                                <li><a href="#"> Computer & Office</a></li>
-                                                <li><a href="#"> Jewelry & Watches</a></li>
-                                                <li><a href="#"> Bags & Shoes</a></li>
-                                                <li><a href="#"> Phones & Accessories</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="mega-banner-img">
-                                            <a href="single-product.html">
-                                                <img src="storage/images/system/feature-img/5.jpg" alt="">
-                                            </a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li><a href="#"><img alt="" src="storage/images/system/icons/thum4.png"> Computer & Office <i class="zmdi zmdi-chevron-right"></i></a>
-                                    <div class="category-menu-dropdown">
-                                        <div class="category-menu-dropdown-top">
-                                            <div class="category-part-1 category-common2 mb--30">
-                                                <h4 class="categories-subtitle"> Jewelry & Watches</h4>
-                                                <ul>
-                                                    <li><a href="#"> Men’s Clothing</a></li>
-                                                    <li><a href="#"> Computer & Office</a></li>
-                                                    <li><a href="#"> Jewelry & Watches</a></li>
-                                                    <li><a href="#"> Bags & Shoes</a></li>
-                                                    <li><a href="#"> Phones & Accessories</a></li>
-                                                </ul>
+                                @foreach($catalog_menu as $menu_item)
+                                    <li>
+                                        <a href="{{ $menu_item->url }}">{{ $menu_item->title }} @if($menu_item->sub_categories->IsNotEmpty())
+                                                <i class="zmdi zmdi-chevron-right"></i>
+                                            @endif </a>
+                                        @if($menu_item->sub_categories->IsNotEmpty())
+                                            <div class="category-menu-dropdown">
+                                                @include('include.catalog_partial_menu', ['catalog_menu' => $menu_item->sub_categories, 'last_level' => false])
                                             </div>
-                                            <div class="category-part-2 category-common2 mb--30">
-                                                <h4 class="categories-subtitle"> Jewelry & Watches</h4>
-                                                <ul>
-                                                    <li><a href="#"> Men’s Clothing</a></li>
-                                                    <li><a href="#"> Computer & Office</a></li>
-                                                    <li><a href="#"> Jewelry & Watches</a></li>
-                                                    <li><a href="#"> Bags & Shoes</a></li>
-                                                    <li><a href="#"> Phones & Accessories</a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="category-part-3 category-common2 mb--30">
-                                                <h4 class="categories-subtitle">Jewelry & Watches</h4>
-                                                <ul>
-                                                    <li><a href="#"> Men’s Clothing</a></li>
-                                                    <li><a href="#"> Computer & Office</a></li>
-                                                    <li><a href="#"> Jewelry & Watches</a></li>
-                                                    <li><a href="#"> Bags & Shoes</a></li>
-                                                    <li><a href="#"> Phones & Accessories</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="category-menu-dropdown-bottom">
-                                            <div class="single-category-brand">
-                                                <a href="#"><img src="storage/images/system/brand/6.png" alt=""></a>
-                                            </div>
-                                            <div class="single-category-brand">
-                                                <a href="#"><img src="storage/images/system/brand/7.png" alt=""></a>
-                                            </div>
-                                            <div class="single-category-brand">
-                                                <a href="#"><img src="storage/images/system/brand/8.png" alt=""></a>
-                                            </div>
-                                            <div class="single-category-brand">
-                                                <a href="#"><img src="storage/images/system/brand/9.png" alt=""></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li><a href="#"><img alt="" src="storage/images/system/icons/thum5.png"> Jewelry & Watches <i class="zmdi zmdi-chevron-right"></i></a>
-                                    <div class="category-menu-dropdown">
-                                        <div class="category-menu-dropdown-left">
-                                            <div class="category-part-1 category-common mb--30">
-                                                <h4 class="categories-subtitle"> Jewelry & Watches</h4>
-                                                <ul>
-                                                    <li><a href="#"> Men’s Clothing</a></li>
-                                                    <li><a href="#"> Computer & Office</a></li>
-                                                    <li><a href="#"> Jewelry & Watches</a></li>
-                                                    <li><a href="#"> Bags & Shoes</a></li>
-                                                    <li><a href="#"> Phones & Accessories</a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="category-part-2 category-common mb--30">
-                                                <h4 class="categories-subtitle"> Jewelry & Watches</h4>
-                                                <ul>
-                                                    <li><a href="#"> Men’s Clothing</a></li>
-                                                    <li><a href="#"> Computer & Office</a></li>
-                                                    <li><a href="#"> Jewelry & Watches</a></li>
-                                                    <li><a href="#"> Bags & Shoes</a></li>
-                                                    <li><a href="#"> Phones & Accessories</a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="category-part-3 category-common">
-                                                <h4 class="categories-subtitle"> Jewelry & Watches</h4>
-                                                <ul>
-                                                    <li><a href="#"> Men’s Clothing</a></li>
-                                                    <li><a href="#"> Computer & Office</a></li>
-                                                    <li><a href="#"> Jewelry & Watches</a></li>
-                                                    <li><a href="#"> Bags & Shoes</a></li>
-                                                    <li><a href="#"> Phones & Accessories</a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="category-part-4 category-common">
-                                                <h4 class="categories-subtitle"> Jewelry & Watches</h4>
-                                                <ul>
-                                                    <li><a href="#"> Men’s Clothing</a></li>
-                                                    <li><a href="#"> Computer & Office</a></li>
-                                                    <li><a href="#"> Jewelry & Watches</a></li>
-                                                    <li><a href="#"> Bags & Shoes</a></li>
-                                                    <li><a href="#"> Phones & Accessories</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="category-menu-dropdown-right">
-                                            <div class="menu-right-img">
-                                                <a href="#"><img src="storage/images/system/feature-img/2.png" alt=""></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li><a href="#"><img alt="" src="storage/images/system/icons/thum6.png"> Men’s Clothing <i class="zmdi zmdi-chevron-right"></i></a>
-                                    <div class="category-menu-dropdown">
-                                        <div class="category-menu-dropdown-left">
-                                            <div class="category-part-1 category-common">
-                                                <h4 class="categories-subtitle"> Jewelry & Watches</h4>
-                                                <ul>
-                                                    <li><a href="#"> Men’s Clothing</a></li>
-                                                    <li><a href="#"> Computer & Office</a></li>
-                                                    <li><a href="#"> Jewelry & Watches</a></li>
-                                                    <li><a href="#"> Bags & Shoes</a></li>
-                                                    <li><a href="#"> Phones </a></li>
-                                                    <li><a href="#"> Computer & Office</a></li>
-                                                    <li><a href="#"> Phones & Accessories</a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="category-part-2 category-common">
-                                                <h4 class="categories-subtitle"> Jewelry & Watches</h4>
-                                                <ul>
-                                                    <li><a href="#"> Men’s Clothing</a></li>
-                                                    <li><a href="#"> Computer & Office</a></li>
-                                                    <li><a href="#"> Jewelry & Watches</a></li>
-                                                    <li><a href="#"> Bags & Shoes</a></li>
-                                                    <li><a href="#"> Phones </a></li>
-                                                    <li><a href="#"> Computer & Office</a></li>
-                                                    <li><a href="#"> Phones & Accessories</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="category-menu-dropdown-right">
-                                            <div class="menu-right-img">
-                                                <a href="#"><img src="storage/images/system/feature-img/1.png" alt=""></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li><a href="#"><img alt="" src="storage/images/system/icons/thum7.png"> Bags & Shoes</a></li>
-                                <li><a href="#"><img alt="" src="storage/images/system/icons/thum8.png"> Toys & Kids & Baby</a></li>
-                                <li><a href="#"><img alt="" src="storage/images/system/icons/thum9.png">  Automobiles </a></li>
-                                <li><a href="#"><img alt="" src="storage/images/system/icons/thum10.png"> Jewelry & Watches</a></li>
-                                <li><a href="#"><img alt="" src="storage/images/system/icons/thum2.png"> Consumer Electronics</a></li>
-                                <li><a href="#"><img alt="" src="storage/images/system/icons/thum3.png"> all Accessories</a></li>
+                                        @endif
+
+                                        @endforeach
+                                    </li>
                             </ul>
                         </div>
                     </div>
@@ -362,14 +155,20 @@
                                                 <div class="product__inner">
                                                     <div class="pro__thumb">
                                                         <a href="#">
-                                                            <img src="storage/images/system/product/1.png" alt="product images">
+                                                            <img src="storage/images/system/product/1.png"
+                                                                 alt="product images">
                                                         </a>
                                                     </div>
                                                     <div class="product__hover__info">
                                                         <ul class="product__action">
-                                                            <li><a data-toggle="modal" data-target="#productModal" title="Quick View" class="quick-view modal-view detail-link" href="#"><span class="ti-plus"></span></a></li>
-                                                            <li><a title="Add TO Cart" href="cart.html"><span class="ti-shopping-cart"></span></a></li>
-                                                            <li><a title="Wishlist" href="wishlist.html"><span class="ti-heart"></span></a></li>
+                                                            <li><a data-toggle="modal" data-target="#productModal"
+                                                                   title="Quick View"
+                                                                   class="quick-view modal-view detail-link"
+                                                                   href="#"><span class="ti-plus"></span></a></li>
+                                                            <li><a title="Add TO Cart" href="cart.html"><span
+                                                                        class="ti-shopping-cart"></span></a></li>
+                                                            <li><a title="Wishlist" href="wishlist.html"><span
+                                                                        class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -387,14 +186,20 @@
                                                 <div class="product__inner">
                                                     <div class="pro__thumb">
                                                         <a href="#">
-                                                            <img src="storage/images/system/product/2.png" alt="product images">
+                                                            <img src="storage/images/system/product/2.png"
+                                                                 alt="product images">
                                                         </a>
                                                     </div>
                                                     <div class="product__hover__info">
                                                         <ul class="product__action">
-                                                            <li><a data-toggle="modal" data-target="#productModal" title="Quick View" class="quick-view modal-view detail-link" href="#"><span class="ti-plus"></span></a></li>
-                                                            <li><a title="Add TO Cart" href="cart.html"><span class="ti-shopping-cart"></span></a></li>
-                                                            <li><a title="Wishlist" href="wishlist.html"><span class="ti-heart"></span></a></li>
+                                                            <li><a data-toggle="modal" data-target="#productModal"
+                                                                   title="Quick View"
+                                                                   class="quick-view modal-view detail-link"
+                                                                   href="#"><span class="ti-plus"></span></a></li>
+                                                            <li><a title="Add TO Cart" href="cart.html"><span
+                                                                        class="ti-shopping-cart"></span></a></li>
+                                                            <li><a title="Wishlist" href="wishlist.html"><span
+                                                                        class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -412,14 +217,20 @@
                                                 <div class="product__inner">
                                                     <div class="pro__thumb">
                                                         <a href="#">
-                                                            <img src="storage/images/system/product/3.png" alt="product images">
+                                                            <img src="storage/images/system/product/3.png"
+                                                                 alt="product images">
                                                         </a>
                                                     </div>
                                                     <div class="product__hover__info">
                                                         <ul class="product__action">
-                                                            <li><a data-toggle="modal" data-target="#productModal" title="Quick View" class="quick-view modal-view detail-link" href="#"><span class="ti-plus"></span></a></li>
-                                                            <li><a title="Add TO Cart" href="cart.html"><span class="ti-shopping-cart"></span></a></li>
-                                                            <li><a title="Wishlist" href="wishlist.html"><span class="ti-heart"></span></a></li>
+                                                            <li><a data-toggle="modal" data-target="#productModal"
+                                                                   title="Quick View"
+                                                                   class="quick-view modal-view detail-link"
+                                                                   href="#"><span class="ti-plus"></span></a></li>
+                                                            <li><a title="Add TO Cart" href="cart.html"><span
+                                                                        class="ti-shopping-cart"></span></a></li>
+                                                            <li><a title="Wishlist" href="wishlist.html"><span
+                                                                        class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -437,14 +248,20 @@
                                                 <div class="product__inner">
                                                     <div class="pro__thumb">
                                                         <a href="#">
-                                                            <img src="storage/images/system/product/4.png" alt="product images">
+                                                            <img src="storage/images/system/product/4.png"
+                                                                 alt="product images">
                                                         </a>
                                                     </div>
                                                     <div class="product__hover__info">
                                                         <ul class="product__action">
-                                                            <li><a data-toggle="modal" data-target="#productModal" title="Quick View" class="quick-view modal-view detail-link" href="#"><span class="ti-plus"></span></a></li>
-                                                            <li><a title="Add TO Cart" href="cart.html"><span class="ti-shopping-cart"></span></a></li>
-                                                            <li><a title="Wishlist" href="wishlist.html"><span class="ti-heart"></span></a></li>
+                                                            <li><a data-toggle="modal" data-target="#productModal"
+                                                                   title="Quick View"
+                                                                   class="quick-view modal-view detail-link"
+                                                                   href="#"><span class="ti-plus"></span></a></li>
+                                                            <li><a title="Add TO Cart" href="cart.html"><span
+                                                                        class="ti-shopping-cart"></span></a></li>
+                                                            <li><a title="Wishlist" href="wishlist.html"><span
+                                                                        class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -462,14 +279,20 @@
                                                 <div class="product__inner">
                                                     <div class="pro__thumb">
                                                         <a href="#">
-                                                            <img src="storage/images/system/product/5.png" alt="product images">
+                                                            <img src="storage/images/system/product/5.png"
+                                                                 alt="product images">
                                                         </a>
                                                     </div>
                                                     <div class="product__hover__info">
                                                         <ul class="product__action">
-                                                            <li><a data-toggle="modal" data-target="#productModal" title="Quick View" class="quick-view modal-view detail-link" href="#"><span class="ti-plus"></span></a></li>
-                                                            <li><a title="Add TO Cart" href="cart.html"><span class="ti-shopping-cart"></span></a></li>
-                                                            <li><a title="Wishlist" href="wishlist.html"><span class="ti-heart"></span></a></li>
+                                                            <li><a data-toggle="modal" data-target="#productModal"
+                                                                   title="Quick View"
+                                                                   class="quick-view modal-view detail-link"
+                                                                   href="#"><span class="ti-plus"></span></a></li>
+                                                            <li><a title="Add TO Cart" href="cart.html"><span
+                                                                        class="ti-shopping-cart"></span></a></li>
+                                                            <li><a title="Wishlist" href="wishlist.html"><span
+                                                                        class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -493,14 +316,20 @@
                                                 <div class="product__inner">
                                                     <div class="pro__thumb">
                                                         <a href="#">
-                                                            <img src="storage/images/system/product/4.png" alt="product images">
+                                                            <img src="storage/images/system/product/4.png"
+                                                                 alt="product images">
                                                         </a>
                                                     </div>
                                                     <div class="product__hover__info">
                                                         <ul class="product__action">
-                                                            <li><a data-toggle="modal" data-target="#productModal" title="Quick View" class="quick-view modal-view detail-link" href="#"><span class="ti-plus"></span></a></li>
-                                                            <li><a title="Add TO Cart" href="cart.html"><span class="ti-shopping-cart"></span></a></li>
-                                                            <li><a title="Wishlist" href="wishlist.html"><span class="ti-heart"></span></a></li>
+                                                            <li><a data-toggle="modal" data-target="#productModal"
+                                                                   title="Quick View"
+                                                                   class="quick-view modal-view detail-link"
+                                                                   href="#"><span class="ti-plus"></span></a></li>
+                                                            <li><a title="Add TO Cart" href="cart.html"><span
+                                                                        class="ti-shopping-cart"></span></a></li>
+                                                            <li><a title="Wishlist" href="wishlist.html"><span
+                                                                        class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -518,14 +347,20 @@
                                                 <div class="product__inner">
                                                     <div class="pro__thumb">
                                                         <a href="#">
-                                                            <img src="storage/images/system/product/5.png" alt="product images">
+                                                            <img src="storage/images/system/product/5.png"
+                                                                 alt="product images">
                                                         </a>
                                                     </div>
                                                     <div class="product__hover__info">
                                                         <ul class="product__action">
-                                                            <li><a data-toggle="modal" data-target="#productModal" title="Quick View" class="quick-view modal-view detail-link" href="#"><span class="ti-plus"></span></a></li>
-                                                            <li><a title="Add TO Cart" href="cart.html"><span class="ti-shopping-cart"></span></a></li>
-                                                            <li><a title="Wishlist" href="wishlist.html"><span class="ti-heart"></span></a></li>
+                                                            <li><a data-toggle="modal" data-target="#productModal"
+                                                                   title="Quick View"
+                                                                   class="quick-view modal-view detail-link"
+                                                                   href="#"><span class="ti-plus"></span></a></li>
+                                                            <li><a title="Add TO Cart" href="cart.html"><span
+                                                                        class="ti-shopping-cart"></span></a></li>
+                                                            <li><a title="Wishlist" href="wishlist.html"><span
+                                                                        class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -543,14 +378,20 @@
                                                 <div class="product__inner">
                                                     <div class="pro__thumb">
                                                         <a href="#">
-                                                            <img src="storage/images/system/product/6.png" alt="product images">
+                                                            <img src="storage/images/system/product/6.png"
+                                                                 alt="product images">
                                                         </a>
                                                     </div>
                                                     <div class="product__hover__info">
                                                         <ul class="product__action">
-                                                            <li><a data-toggle="modal" data-target="#productModal" title="Quick View" class="quick-view modal-view detail-link" href="#"><span class="ti-plus"></span></a></li>
-                                                            <li><a title="Add TO Cart" href="cart.html"><span class="ti-shopping-cart"></span></a></li>
-                                                            <li><a title="Wishlist" href="wishlist.html"><span class="ti-heart"></span></a></li>
+                                                            <li><a data-toggle="modal" data-target="#productModal"
+                                                                   title="Quick View"
+                                                                   class="quick-view modal-view detail-link"
+                                                                   href="#"><span class="ti-plus"></span></a></li>
+                                                            <li><a title="Add TO Cart" href="cart.html"><span
+                                                                        class="ti-shopping-cart"></span></a></li>
+                                                            <li><a title="Wishlist" href="wishlist.html"><span
+                                                                        class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -568,14 +409,20 @@
                                                 <div class="product__inner">
                                                     <div class="pro__thumb">
                                                         <a href="#">
-                                                            <img src="storage/images/system/product/7.png" alt="product images">
+                                                            <img src="storage/images/system/product/7.png"
+                                                                 alt="product images">
                                                         </a>
                                                     </div>
                                                     <div class="product__hover__info">
                                                         <ul class="product__action">
-                                                            <li><a data-toggle="modal" data-target="#productModal" title="Quick View" class="quick-view modal-view detail-link" href="#"><span class="ti-plus"></span></a></li>
-                                                            <li><a title="Add TO Cart" href="cart.html"><span class="ti-shopping-cart"></span></a></li>
-                                                            <li><a title="Wishlist" href="wishlist.html"><span class="ti-heart"></span></a></li>
+                                                            <li><a data-toggle="modal" data-target="#productModal"
+                                                                   title="Quick View"
+                                                                   class="quick-view modal-view detail-link"
+                                                                   href="#"><span class="ti-plus"></span></a></li>
+                                                            <li><a title="Add TO Cart" href="cart.html"><span
+                                                                        class="ti-shopping-cart"></span></a></li>
+                                                            <li><a title="Wishlist" href="wishlist.html"><span
+                                                                        class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -593,14 +440,20 @@
                                                 <div class="product__inner">
                                                     <div class="pro__thumb">
                                                         <a href="#">
-                                                            <img src="storage/images/system/product/8.png" alt="product images">
+                                                            <img src="storage/images/system/product/8.png"
+                                                                 alt="product images">
                                                         </a>
                                                     </div>
                                                     <div class="product__hover__info">
                                                         <ul class="product__action">
-                                                            <li><a data-toggle="modal" data-target="#productModal" title="Quick View" class="quick-view modal-view detail-link" href="#"><span class="ti-plus"></span></a></li>
-                                                            <li><a title="Add TO Cart" href="cart.html"><span class="ti-shopping-cart"></span></a></li>
-                                                            <li><a title="Wishlist" href="wishlist.html"><span class="ti-heart"></span></a></li>
+                                                            <li><a data-toggle="modal" data-target="#productModal"
+                                                                   title="Quick View"
+                                                                   class="quick-view modal-view detail-link"
+                                                                   href="#"><span class="ti-plus"></span></a></li>
+                                                            <li><a title="Add TO Cart" href="cart.html"><span
+                                                                        class="ti-shopping-cart"></span></a></li>
+                                                            <li><a title="Wishlist" href="wishlist.html"><span
+                                                                        class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -624,14 +477,20 @@
                                                 <div class="product__inner">
                                                     <div class="pro__thumb">
                                                         <a href="#">
-                                                            <img src="storage/images/system/product/2.png" alt="product images">
+                                                            <img src="storage/images/system/product/2.png"
+                                                                 alt="product images">
                                                         </a>
                                                     </div>
                                                     <div class="product__hover__info">
                                                         <ul class="product__action">
-                                                            <li><a data-toggle="modal" data-target="#productModal" title="Quick View" class="quick-view modal-view detail-link" href="#"><span class="ti-plus"></span></a></li>
-                                                            <li><a title="Add TO Cart" href="cart.html"><span class="ti-shopping-cart"></span></a></li>
-                                                            <li><a title="Wishlist" href="wishlist.html"><span class="ti-heart"></span></a></li>
+                                                            <li><a data-toggle="modal" data-target="#productModal"
+                                                                   title="Quick View"
+                                                                   class="quick-view modal-view detail-link"
+                                                                   href="#"><span class="ti-plus"></span></a></li>
+                                                            <li><a title="Add TO Cart" href="cart.html"><span
+                                                                        class="ti-shopping-cart"></span></a></li>
+                                                            <li><a title="Wishlist" href="wishlist.html"><span
+                                                                        class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -649,14 +508,20 @@
                                                 <div class="product__inner">
                                                     <div class="pro__thumb">
                                                         <a href="#">
-                                                            <img src="storage/images/system/product/1.png" alt="product images">
+                                                            <img src="storage/images/system/product/1.png"
+                                                                 alt="product images">
                                                         </a>
                                                     </div>
                                                     <div class="product__hover__info">
                                                         <ul class="product__action">
-                                                            <li><a data-toggle="modal" data-target="#productModal" title="Quick View" class="quick-view modal-view detail-link" href="#"><span class="ti-plus"></span></a></li>
-                                                            <li><a title="Add TO Cart" href="cart.html"><span class="ti-shopping-cart"></span></a></li>
-                                                            <li><a title="Wishlist" href="wishlist.html"><span class="ti-heart"></span></a></li>
+                                                            <li><a data-toggle="modal" data-target="#productModal"
+                                                                   title="Quick View"
+                                                                   class="quick-view modal-view detail-link"
+                                                                   href="#"><span class="ti-plus"></span></a></li>
+                                                            <li><a title="Add TO Cart" href="cart.html"><span
+                                                                        class="ti-shopping-cart"></span></a></li>
+                                                            <li><a title="Wishlist" href="wishlist.html"><span
+                                                                        class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -674,14 +539,20 @@
                                                 <div class="product__inner">
                                                     <div class="pro__thumb">
                                                         <a href="#">
-                                                            <img src="storage/images/system/product/5.png" alt="product images">
+                                                            <img src="storage/images/system/product/5.png"
+                                                                 alt="product images">
                                                         </a>
                                                     </div>
                                                     <div class="product__hover__info">
                                                         <ul class="product__action">
-                                                            <li><a data-toggle="modal" data-target="#productModal" title="Quick View" class="quick-view modal-view detail-link" href="#"><span class="ti-plus"></span></a></li>
-                                                            <li><a title="Add TO Cart" href="cart.html"><span class="ti-shopping-cart"></span></a></li>
-                                                            <li><a title="Wishlist" href="wishlist.html"><span class="ti-heart"></span></a></li>
+                                                            <li><a data-toggle="modal" data-target="#productModal"
+                                                                   title="Quick View"
+                                                                   class="quick-view modal-view detail-link"
+                                                                   href="#"><span class="ti-plus"></span></a></li>
+                                                            <li><a title="Add TO Cart" href="cart.html"><span
+                                                                        class="ti-shopping-cart"></span></a></li>
+                                                            <li><a title="Wishlist" href="wishlist.html"><span
+                                                                        class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -699,14 +570,20 @@
                                                 <div class="product__inner">
                                                     <div class="pro__thumb">
                                                         <a href="#">
-                                                            <img src="storage/images/system/product/4.png" alt="product images">
+                                                            <img src="storage/images/system/product/4.png"
+                                                                 alt="product images">
                                                         </a>
                                                     </div>
                                                     <div class="product__hover__info">
                                                         <ul class="product__action">
-                                                            <li><a data-toggle="modal" data-target="#productModal" title="Quick View" class="quick-view modal-view detail-link" href="#"><span class="ti-plus"></span></a></li>
-                                                            <li><a title="Add TO Cart" href="cart.html"><span class="ti-shopping-cart"></span></a></li>
-                                                            <li><a title="Wishlist" href="wishlist.html"><span class="ti-heart"></span></a></li>
+                                                            <li><a data-toggle="modal" data-target="#productModal"
+                                                                   title="Quick View"
+                                                                   class="quick-view modal-view detail-link"
+                                                                   href="#"><span class="ti-plus"></span></a></li>
+                                                            <li><a title="Add TO Cart" href="cart.html"><span
+                                                                        class="ti-shopping-cart"></span></a></li>
+                                                            <li><a title="Wishlist" href="wishlist.html"><span
+                                                                        class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -724,14 +601,20 @@
                                                 <div class="product__inner">
                                                     <div class="pro__thumb">
                                                         <a href="#">
-                                                            <img src="storage/images/system/product/3.png" alt="product images">
+                                                            <img src="storage/images/system/product/3.png"
+                                                                 alt="product images">
                                                         </a>
                                                     </div>
                                                     <div class="product__hover__info">
                                                         <ul class="product__action">
-                                                            <li><a data-toggle="modal" data-target="#productModal" title="Quick View" class="quick-view modal-view detail-link" href="#"><span class="ti-plus"></span></a></li>
-                                                            <li><a title="Add TO Cart" href="cart.html"><span class="ti-shopping-cart"></span></a></li>
-                                                            <li><a title="Wishlist" href="wishlist.html"><span class="ti-heart"></span></a></li>
+                                                            <li><a data-toggle="modal" data-target="#productModal"
+                                                                   title="Quick View"
+                                                                   class="quick-view modal-view detail-link"
+                                                                   href="#"><span class="ti-plus"></span></a></li>
+                                                            <li><a title="Add TO Cart" href="cart.html"><span
+                                                                        class="ti-shopping-cart"></span></a></li>
+                                                            <li><a title="Wishlist" href="wishlist.html"><span
+                                                                        class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -755,14 +638,20 @@
                                                 <div class="product__inner">
                                                     <div class="pro__thumb">
                                                         <a href="#">
-                                                            <img src="storage/images/system/product/9.png" alt="product images">
+                                                            <img src="storage/images/system/product/9.png"
+                                                                 alt="product images">
                                                         </a>
                                                     </div>
                                                     <div class="product__hover__info">
                                                         <ul class="product__action">
-                                                            <li><a data-toggle="modal" data-target="#productModal" title="Quick View" class="quick-view modal-view detail-link" href="#"><span class="ti-plus"></span></a></li>
-                                                            <li><a title="Add TO Cart" href="cart.html"><span class="ti-shopping-cart"></span></a></li>
-                                                            <li><a title="Wishlist" href="wishlist.html"><span class="ti-heart"></span></a></li>
+                                                            <li><a data-toggle="modal" data-target="#productModal"
+                                                                   title="Quick View"
+                                                                   class="quick-view modal-view detail-link"
+                                                                   href="#"><span class="ti-plus"></span></a></li>
+                                                            <li><a title="Add TO Cart" href="cart.html"><span
+                                                                        class="ti-shopping-cart"></span></a></li>
+                                                            <li><a title="Wishlist" href="wishlist.html"><span
+                                                                        class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -780,14 +669,20 @@
                                                 <div class="product__inner">
                                                     <div class="pro__thumb">
                                                         <a href="#">
-                                                            <img src="storage/images/system/product/5.png" alt="product images">
+                                                            <img src="storage/images/system/product/5.png"
+                                                                 alt="product images">
                                                         </a>
                                                     </div>
                                                     <div class="product__hover__info">
                                                         <ul class="product__action">
-                                                            <li><a data-toggle="modal" data-target="#productModal" title="Quick View" class="quick-view modal-view detail-link" href="#"><span class="ti-plus"></span></a></li>
-                                                            <li><a title="Add TO Cart" href="cart.html"><span class="ti-shopping-cart"></span></a></li>
-                                                            <li><a title="Wishlist" href="wishlist.html"><span class="ti-heart"></span></a></li>
+                                                            <li><a data-toggle="modal" data-target="#productModal"
+                                                                   title="Quick View"
+                                                                   class="quick-view modal-view detail-link"
+                                                                   href="#"><span class="ti-plus"></span></a></li>
+                                                            <li><a title="Add TO Cart" href="cart.html"><span
+                                                                        class="ti-shopping-cart"></span></a></li>
+                                                            <li><a title="Wishlist" href="wishlist.html"><span
+                                                                        class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -805,14 +700,20 @@
                                                 <div class="product__inner">
                                                     <div class="pro__thumb">
                                                         <a href="#">
-                                                            <img src="storage/images/system/product/3.png" alt="product images">
+                                                            <img src="storage/images/system/product/3.png"
+                                                                 alt="product images">
                                                         </a>
                                                     </div>
                                                     <div class="product__hover__info">
                                                         <ul class="product__action">
-                                                            <li><a data-toggle="modal" data-target="#productModal" title="Quick View" class="quick-view modal-view detail-link" href="#"><span class="ti-plus"></span></a></li>
-                                                            <li><a title="Add TO Cart" href="cart.html"><span class="ti-shopping-cart"></span></a></li>
-                                                            <li><a title="Wishlist" href="wishlist.html"><span class="ti-heart"></span></a></li>
+                                                            <li><a data-toggle="modal" data-target="#productModal"
+                                                                   title="Quick View"
+                                                                   class="quick-view modal-view detail-link"
+                                                                   href="#"><span class="ti-plus"></span></a></li>
+                                                            <li><a title="Add TO Cart" href="cart.html"><span
+                                                                        class="ti-shopping-cart"></span></a></li>
+                                                            <li><a title="Wishlist" href="wishlist.html"><span
+                                                                        class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -830,14 +731,20 @@
                                                 <div class="product__inner">
                                                     <div class="pro__thumb">
                                                         <a href="#">
-                                                            <img src="storage/images/system/product/4.png" alt="product images">
+                                                            <img src="storage/images/system/product/4.png"
+                                                                 alt="product images">
                                                         </a>
                                                     </div>
                                                     <div class="product__hover__info">
                                                         <ul class="product__action">
-                                                            <li><a data-toggle="modal" data-target="#productModal" title="Quick View" class="quick-view modal-view detail-link" href="#"><span class="ti-plus"></span></a></li>
-                                                            <li><a title="Add TO Cart" href="cart.html"><span class="ti-shopping-cart"></span></a></li>
-                                                            <li><a title="Wishlist" href="wishlist.html"><span class="ti-heart"></span></a></li>
+                                                            <li><a data-toggle="modal" data-target="#productModal"
+                                                                   title="Quick View"
+                                                                   class="quick-view modal-view detail-link"
+                                                                   href="#"><span class="ti-plus"></span></a></li>
+                                                            <li><a title="Add TO Cart" href="cart.html"><span
+                                                                        class="ti-shopping-cart"></span></a></li>
+                                                            <li><a title="Wishlist" href="wishlist.html"><span
+                                                                        class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -855,14 +762,20 @@
                                                 <div class="product__inner">
                                                     <div class="pro__thumb">
                                                         <a href="#">
-                                                            <img src="storage/images/system/product/2.png" alt="product images">
+                                                            <img src="storage/images/system/product/2.png"
+                                                                 alt="product images">
                                                         </a>
                                                     </div>
                                                     <div class="product__hover__info">
                                                         <ul class="product__action">
-                                                            <li><a data-toggle="modal" data-target="#productModal" title="Quick View" class="quick-view modal-view detail-link" href="#"><span class="ti-plus"></span></a></li>
-                                                            <li><a title="Add TO Cart" href="cart.html"><span class="ti-shopping-cart"></span></a></li>
-                                                            <li><a title="Wishlist" href="wishlist.html"><span class="ti-heart"></span></a></li>
+                                                            <li><a data-toggle="modal" data-target="#productModal"
+                                                                   title="Quick View"
+                                                                   class="quick-view modal-view detail-link"
+                                                                   href="#"><span class="ti-plus"></span></a></li>
+                                                            <li><a title="Add TO Cart" href="cart.html"><span
+                                                                        class="ti-shopping-cart"></span></a></li>
+                                                            <li><a title="Wishlist" href="wishlist.html"><span
+                                                                        class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -960,14 +873,20 @@
                                                 <div class="product__inner">
                                                     <div class="pro__thumb">
                                                         <a href="#">
-                                                            <img src="storage/images/system/product/1.png" alt="product images">
+                                                            <img src="storage/images/system/product/1.png"
+                                                                 alt="product images">
                                                         </a>
                                                     </div>
                                                     <div class="product__hover__info">
                                                         <ul class="product__action">
-                                                            <li><a data-toggle="modal" data-target="#productModal" title="Quick View" class="quick-view modal-view detail-link" href="#"><span class="ti-plus"></span></a></li>
-                                                            <li><a title="Add TO Cart" href="cart.html"><span class="ti-shopping-cart"></span></a></li>
-                                                            <li><a title="Wishlist" href="wishlist.html"><span class="ti-heart"></span></a></li>
+                                                            <li><a data-toggle="modal" data-target="#productModal"
+                                                                   title="Quick View"
+                                                                   class="quick-view modal-view detail-link"
+                                                                   href="#"><span class="ti-plus"></span></a></li>
+                                                            <li><a title="Add TO Cart" href="cart.html"><span
+                                                                        class="ti-shopping-cart"></span></a></li>
+                                                            <li><a title="Wishlist" href="wishlist.html"><span
+                                                                        class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -985,14 +904,20 @@
                                                 <div class="product__inner">
                                                     <div class="pro__thumb">
                                                         <a href="#">
-                                                            <img src="storage/images/system/product/2.png" alt="product images">
+                                                            <img src="storage/images/system/product/2.png"
+                                                                 alt="product images">
                                                         </a>
                                                     </div>
                                                     <div class="product__hover__info">
                                                         <ul class="product__action">
-                                                            <li><a data-toggle="modal" data-target="#productModal" title="Quick View" class="quick-view modal-view detail-link" href="#"><span class="ti-plus"></span></a></li>
-                                                            <li><a title="Add TO Cart" href="cart.html"><span class="ti-shopping-cart"></span></a></li>
-                                                            <li><a title="Wishlist" href="wishlist.html"><span class="ti-heart"></span></a></li>
+                                                            <li><a data-toggle="modal" data-target="#productModal"
+                                                                   title="Quick View"
+                                                                   class="quick-view modal-view detail-link"
+                                                                   href="#"><span class="ti-plus"></span></a></li>
+                                                            <li><a title="Add TO Cart" href="cart.html"><span
+                                                                        class="ti-shopping-cart"></span></a></li>
+                                                            <li><a title="Wishlist" href="wishlist.html"><span
+                                                                        class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -1010,14 +935,20 @@
                                                 <div class="product__inner">
                                                     <div class="pro__thumb">
                                                         <a href="#">
-                                                            <img src="storage/images/system/product/3.png" alt="product images">
+                                                            <img src="storage/images/system/product/3.png"
+                                                                 alt="product images">
                                                         </a>
                                                     </div>
                                                     <div class="product__hover__info">
                                                         <ul class="product__action">
-                                                            <li><a data-toggle="modal" data-target="#productModal" title="Quick View" class="quick-view modal-view detail-link" href="#"><span class="ti-plus"></span></a></li>
-                                                            <li><a title="Add TO Cart" href="cart.html"><span class="ti-shopping-cart"></span></a></li>
-                                                            <li><a title="Wishlist" href="wishlist.html"><span class="ti-heart"></span></a></li>
+                                                            <li><a data-toggle="modal" data-target="#productModal"
+                                                                   title="Quick View"
+                                                                   class="quick-view modal-view detail-link"
+                                                                   href="#"><span class="ti-plus"></span></a></li>
+                                                            <li><a title="Add TO Cart" href="cart.html"><span
+                                                                        class="ti-shopping-cart"></span></a></li>
+                                                            <li><a title="Wishlist" href="wishlist.html"><span
+                                                                        class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -1035,14 +966,20 @@
                                                 <div class="product__inner">
                                                     <div class="pro__thumb">
                                                         <a href="#">
-                                                            <img src="storage/images/system/product/4.png" alt="product images">
+                                                            <img src="storage/images/system/product/4.png"
+                                                                 alt="product images">
                                                         </a>
                                                     </div>
                                                     <div class="product__hover__info">
                                                         <ul class="product__action">
-                                                            <li><a data-toggle="modal" data-target="#productModal" title="Quick View" class="quick-view modal-view detail-link" href="#"><span class="ti-plus"></span></a></li>
-                                                            <li><a title="Add TO Cart" href="cart.html"><span class="ti-shopping-cart"></span></a></li>
-                                                            <li><a title="Wishlist" href="wishlist.html"><span class="ti-heart"></span></a></li>
+                                                            <li><a data-toggle="modal" data-target="#productModal"
+                                                                   title="Quick View"
+                                                                   class="quick-view modal-view detail-link"
+                                                                   href="#"><span class="ti-plus"></span></a></li>
+                                                            <li><a title="Add TO Cart" href="cart.html"><span
+                                                                        class="ti-shopping-cart"></span></a></li>
+                                                            <li><a title="Wishlist" href="wishlist.html"><span
+                                                                        class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -1060,14 +997,20 @@
                                                 <div class="product__inner">
                                                     <div class="pro__thumb">
                                                         <a href="#">
-                                                            <img src="storage/images/system/product/5.png" alt="product images">
+                                                            <img src="storage/images/system/product/5.png"
+                                                                 alt="product images">
                                                         </a>
                                                     </div>
                                                     <div class="product__hover__info">
                                                         <ul class="product__action">
-                                                            <li><a data-toggle="modal" data-target="#productModal" title="Quick View" class="quick-view modal-view detail-link" href="#"><span class="ti-plus"></span></a></li>
-                                                            <li><a title="Add TO Cart" href="cart.html"><span class="ti-shopping-cart"></span></a></li>
-                                                            <li><a title="Wishlist" href="wishlist.html"><span class="ti-heart"></span></a></li>
+                                                            <li><a data-toggle="modal" data-target="#productModal"
+                                                                   title="Quick View"
+                                                                   class="quick-view modal-view detail-link"
+                                                                   href="#"><span class="ti-plus"></span></a></li>
+                                                            <li><a title="Add TO Cart" href="cart.html"><span
+                                                                        class="ti-shopping-cart"></span></a></li>
+                                                            <li><a title="Wishlist" href="wishlist.html"><span
+                                                                        class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -1091,14 +1034,20 @@
                                                 <div class="product__inner">
                                                     <div class="pro__thumb">
                                                         <a href="#">
-                                                            <img src="storage/images/system/product/4.png" alt="product images">
+                                                            <img src="storage/images/system/product/4.png"
+                                                                 alt="product images">
                                                         </a>
                                                     </div>
                                                     <div class="product__hover__info">
                                                         <ul class="product__action">
-                                                            <li><a data-toggle="modal" data-target="#productModal" title="Quick View" class="quick-view modal-view detail-link" href="#"><span class="ti-plus"></span></a></li>
-                                                            <li><a title="Add TO Cart" href="cart.html"><span class="ti-shopping-cart"></span></a></li>
-                                                            <li><a title="Wishlist" href="wishlist.html"><span class="ti-heart"></span></a></li>
+                                                            <li><a data-toggle="modal" data-target="#productModal"
+                                                                   title="Quick View"
+                                                                   class="quick-view modal-view detail-link"
+                                                                   href="#"><span class="ti-plus"></span></a></li>
+                                                            <li><a title="Add TO Cart" href="cart.html"><span
+                                                                        class="ti-shopping-cart"></span></a></li>
+                                                            <li><a title="Wishlist" href="wishlist.html"><span
+                                                                        class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -1116,14 +1065,20 @@
                                                 <div class="product__inner">
                                                     <div class="pro__thumb">
                                                         <a href="#">
-                                                            <img src="storage/images/system/product/5.png" alt="product images">
+                                                            <img src="storage/images/system/product/5.png"
+                                                                 alt="product images">
                                                         </a>
                                                     </div>
                                                     <div class="product__hover__info">
                                                         <ul class="product__action">
-                                                            <li><a data-toggle="modal" data-target="#productModal" title="Quick View" class="quick-view modal-view detail-link" href="#"><span class="ti-plus"></span></a></li>
-                                                            <li><a title="Add TO Cart" href="cart.html"><span class="ti-shopping-cart"></span></a></li>
-                                                            <li><a title="Wishlist" href="wishlist.html"><span class="ti-heart"></span></a></li>
+                                                            <li><a data-toggle="modal" data-target="#productModal"
+                                                                   title="Quick View"
+                                                                   class="quick-view modal-view detail-link"
+                                                                   href="#"><span class="ti-plus"></span></a></li>
+                                                            <li><a title="Add TO Cart" href="cart.html"><span
+                                                                        class="ti-shopping-cart"></span></a></li>
+                                                            <li><a title="Wishlist" href="wishlist.html"><span
+                                                                        class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -1141,14 +1096,20 @@
                                                 <div class="product__inner">
                                                     <div class="pro__thumb">
                                                         <a href="#">
-                                                            <img src="storage/images/system/product/6.png" alt="product images">
+                                                            <img src="storage/images/system/product/6.png"
+                                                                 alt="product images">
                                                         </a>
                                                     </div>
                                                     <div class="product__hover__info">
                                                         <ul class="product__action">
-                                                            <li><a data-toggle="modal" data-target="#productModal" title="Quick View" class="quick-view modal-view detail-link" href="#"><span class="ti-plus"></span></a></li>
-                                                            <li><a title="Add TO Cart" href="cart.html"><span class="ti-shopping-cart"></span></a></li>
-                                                            <li><a title="Wishlist" href="wishlist.html"><span class="ti-heart"></span></a></li>
+                                                            <li><a data-toggle="modal" data-target="#productModal"
+                                                                   title="Quick View"
+                                                                   class="quick-view modal-view detail-link"
+                                                                   href="#"><span class="ti-plus"></span></a></li>
+                                                            <li><a title="Add TO Cart" href="cart.html"><span
+                                                                        class="ti-shopping-cart"></span></a></li>
+                                                            <li><a title="Wishlist" href="wishlist.html"><span
+                                                                        class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -1166,14 +1127,20 @@
                                                 <div class="product__inner">
                                                     <div class="pro__thumb">
                                                         <a href="#">
-                                                            <img src="storage/images/system/product/7.png" alt="product images">
+                                                            <img src="storage/images/system/product/7.png"
+                                                                 alt="product images">
                                                         </a>
                                                     </div>
                                                     <div class="product__hover__info">
                                                         <ul class="product__action">
-                                                            <li><a data-toggle="modal" data-target="#productModal" title="Quick View" class="quick-view modal-view detail-link" href="#"><span class="ti-plus"></span></a></li>
-                                                            <li><a title="Add TO Cart" href="cart.html"><span class="ti-shopping-cart"></span></a></li>
-                                                            <li><a title="Wishlist" href="wishlist.html"><span class="ti-heart"></span></a></li>
+                                                            <li><a data-toggle="modal" data-target="#productModal"
+                                                                   title="Quick View"
+                                                                   class="quick-view modal-view detail-link"
+                                                                   href="#"><span class="ti-plus"></span></a></li>
+                                                            <li><a title="Add TO Cart" href="cart.html"><span
+                                                                        class="ti-shopping-cart"></span></a></li>
+                                                            <li><a title="Wishlist" href="wishlist.html"><span
+                                                                        class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -1191,14 +1158,20 @@
                                                 <div class="product__inner">
                                                     <div class="pro__thumb">
                                                         <a href="#">
-                                                            <img src="storage/images/system/product/8.png" alt="product images">
+                                                            <img src="storage/images/system/product/8.png"
+                                                                 alt="product images">
                                                         </a>
                                                     </div>
                                                     <div class="product__hover__info">
                                                         <ul class="product__action">
-                                                            <li><a data-toggle="modal" data-target="#productModal" title="Quick View" class="quick-view modal-view detail-link" href="#"><span class="ti-plus"></span></a></li>
-                                                            <li><a title="Add TO Cart" href="cart.html"><span class="ti-shopping-cart"></span></a></li>
-                                                            <li><a title="Wishlist" href="wishlist.html"><span class="ti-heart"></span></a></li>
+                                                            <li><a data-toggle="modal" data-target="#productModal"
+                                                                   title="Quick View"
+                                                                   class="quick-view modal-view detail-link"
+                                                                   href="#"><span class="ti-plus"></span></a></li>
+                                                            <li><a title="Add TO Cart" href="cart.html"><span
+                                                                        class="ti-shopping-cart"></span></a></li>
+                                                            <li><a title="Wishlist" href="wishlist.html"><span
+                                                                        class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -1216,14 +1189,20 @@
                                                 <div class="product__inner">
                                                     <div class="pro__thumb">
                                                         <a href="#">
-                                                            <img src="storage/images/system/product/9.png" alt="product images">
+                                                            <img src="storage/images/system/product/9.png"
+                                                                 alt="product images">
                                                         </a>
                                                     </div>
                                                     <div class="product__hover__info">
                                                         <ul class="product__action">
-                                                            <li><a data-toggle="modal" data-target="#productModal" title="Quick View" class="quick-view modal-view detail-link" href="#"><span class="ti-plus"></span></a></li>
-                                                            <li><a title="Add TO Cart" href="cart.html"><span class="ti-shopping-cart"></span></a></li>
-                                                            <li><a title="Wishlist" href="wishlist.html"><span class="ti-heart"></span></a></li>
+                                                            <li><a data-toggle="modal" data-target="#productModal"
+                                                                   title="Quick View"
+                                                                   class="quick-view modal-view detail-link"
+                                                                   href="#"><span class="ti-plus"></span></a></li>
+                                                            <li><a title="Add TO Cart" href="cart.html"><span
+                                                                        class="ti-shopping-cart"></span></a></li>
+                                                            <li><a title="Wishlist" href="wishlist.html"><span
+                                                                        class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -1247,14 +1226,20 @@
                                                 <div class="product__inner">
                                                     <div class="pro__thumb">
                                                         <a href="#">
-                                                            <img src="storage/images/system/product/2.png" alt="product images">
+                                                            <img src="storage/images/system/product/2.png"
+                                                                 alt="product images">
                                                         </a>
                                                     </div>
                                                     <div class="product__hover__info">
                                                         <ul class="product__action">
-                                                            <li><a data-toggle="modal" data-target="#productModal" title="Quick View" class="quick-view modal-view detail-link" href="#"><span class="ti-plus"></span></a></li>
-                                                            <li><a title="Add TO Cart" href="cart.html"><span class="ti-shopping-cart"></span></a></li>
-                                                            <li><a title="Wishlist" href="wishlist.html"><span class="ti-heart"></span></a></li>
+                                                            <li><a data-toggle="modal" data-target="#productModal"
+                                                                   title="Quick View"
+                                                                   class="quick-view modal-view detail-link"
+                                                                   href="#"><span class="ti-plus"></span></a></li>
+                                                            <li><a title="Add TO Cart" href="cart.html"><span
+                                                                        class="ti-shopping-cart"></span></a></li>
+                                                            <li><a title="Wishlist" href="wishlist.html"><span
+                                                                        class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -1272,14 +1257,20 @@
                                                 <div class="product__inner">
                                                     <div class="pro__thumb">
                                                         <a href="#">
-                                                            <img src="storage/images/system/product/1.png" alt="product images">
+                                                            <img src="storage/images/system/product/1.png"
+                                                                 alt="product images">
                                                         </a>
                                                     </div>
                                                     <div class="product__hover__info">
                                                         <ul class="product__action">
-                                                            <li><a data-toggle="modal" data-target="#productModal" title="Quick View" class="quick-view modal-view detail-link" href="#"><span class="ti-plus"></span></a></li>
-                                                            <li><a title="Add TO Cart" href="cart.html"><span class="ti-shopping-cart"></span></a></li>
-                                                            <li><a title="Wishlist" href="wishlist.html"><span class="ti-heart"></span></a></li>
+                                                            <li><a data-toggle="modal" data-target="#productModal"
+                                                                   title="Quick View"
+                                                                   class="quick-view modal-view detail-link"
+                                                                   href="#"><span class="ti-plus"></span></a></li>
+                                                            <li><a title="Add TO Cart" href="cart.html"><span
+                                                                        class="ti-shopping-cart"></span></a></li>
+                                                            <li><a title="Wishlist" href="wishlist.html"><span
+                                                                        class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -1297,14 +1288,20 @@
                                                 <div class="product__inner">
                                                     <div class="pro__thumb">
                                                         <a href="#">
-                                                            <img src="storage/images/system/product/5.png" alt="product images">
+                                                            <img src="storage/images/system/product/5.png"
+                                                                 alt="product images">
                                                         </a>
                                                     </div>
                                                     <div class="product__hover__info">
                                                         <ul class="product__action">
-                                                            <li><a data-toggle="modal" data-target="#productModal" title="Quick View" class="quick-view modal-view detail-link" href="#"><span class="ti-plus"></span></a></li>
-                                                            <li><a title="Add TO Cart" href="cart.html"><span class="ti-shopping-cart"></span></a></li>
-                                                            <li><a title="Wishlist" href="wishlist.html"><span class="ti-heart"></span></a></li>
+                                                            <li><a data-toggle="modal" data-target="#productModal"
+                                                                   title="Quick View"
+                                                                   class="quick-view modal-view detail-link"
+                                                                   href="#"><span class="ti-plus"></span></a></li>
+                                                            <li><a title="Add TO Cart" href="cart.html"><span
+                                                                        class="ti-shopping-cart"></span></a></li>
+                                                            <li><a title="Wishlist" href="wishlist.html"><span
+                                                                        class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -1322,14 +1319,20 @@
                                                 <div class="product__inner">
                                                     <div class="pro__thumb">
                                                         <a href="#">
-                                                            <img src="storage/images/system/product/4.png" alt="product images">
+                                                            <img src="storage/images/system/product/4.png"
+                                                                 alt="product images">
                                                         </a>
                                                     </div>
                                                     <div class="product__hover__info">
                                                         <ul class="product__action">
-                                                            <li><a data-toggle="modal" data-target="#productModal" title="Quick View" class="quick-view modal-view detail-link" href="#"><span class="ti-plus"></span></a></li>
-                                                            <li><a title="Add TO Cart" href="cart.html"><span class="ti-shopping-cart"></span></a></li>
-                                                            <li><a title="Wishlist" href="wishlist.html"><span class="ti-heart"></span></a></li>
+                                                            <li><a data-toggle="modal" data-target="#productModal"
+                                                                   title="Quick View"
+                                                                   class="quick-view modal-view detail-link"
+                                                                   href="#"><span class="ti-plus"></span></a></li>
+                                                            <li><a title="Add TO Cart" href="cart.html"><span
+                                                                        class="ti-shopping-cart"></span></a></li>
+                                                            <li><a title="Wishlist" href="wishlist.html"><span
+                                                                        class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -1347,14 +1350,20 @@
                                                 <div class="product__inner">
                                                     <div class="pro__thumb">
                                                         <a href="#">
-                                                            <img src="storage/images/system/product/3.png" alt="product images">
+                                                            <img src="storage/images/system/product/3.png"
+                                                                 alt="product images">
                                                         </a>
                                                     </div>
                                                     <div class="product__hover__info">
                                                         <ul class="product__action">
-                                                            <li><a data-toggle="modal" data-target="#productModal" title="Quick View" class="quick-view modal-view detail-link" href="#"><span class="ti-plus"></span></a></li>
-                                                            <li><a title="Add TO Cart" href="cart.html"><span class="ti-shopping-cart"></span></a></li>
-                                                            <li><a title="Wishlist" href="wishlist.html"><span class="ti-heart"></span></a></li>
+                                                            <li><a data-toggle="modal" data-target="#productModal"
+                                                                   title="Quick View"
+                                                                   class="quick-view modal-view detail-link"
+                                                                   href="#"><span class="ti-plus"></span></a></li>
+                                                            <li><a title="Add TO Cart" href="cart.html"><span
+                                                                        class="ti-shopping-cart"></span></a></li>
+                                                            <li><a title="Wishlist" href="wishlist.html"><span
+                                                                        class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -1372,14 +1381,20 @@
                                                 <div class="product__inner">
                                                     <div class="pro__thumb">
                                                         <a href="#">
-                                                            <img src="storage/images/system/product/7.png" alt="product images">
+                                                            <img src="storage/images/system/product/7.png"
+                                                                 alt="product images">
                                                         </a>
                                                     </div>
                                                     <div class="product__hover__info">
                                                         <ul class="product__action">
-                                                            <li><a data-toggle="modal" data-target="#productModal" title="Quick View" class="quick-view modal-view detail-link" href="#"><span class="ti-plus"></span></a></li>
-                                                            <li><a title="Add TO Cart" href="cart.html"><span class="ti-shopping-cart"></span></a></li>
-                                                            <li><a title="Wishlist" href="wishlist.html"><span class="ti-heart"></span></a></li>
+                                                            <li><a data-toggle="modal" data-target="#productModal"
+                                                                   title="Quick View"
+                                                                   class="quick-view modal-view detail-link"
+                                                                   href="#"><span class="ti-plus"></span></a></li>
+                                                            <li><a title="Add TO Cart" href="cart.html"><span
+                                                                        class="ti-shopping-cart"></span></a></li>
+                                                            <li><a title="Wishlist" href="wishlist.html"><span
+                                                                        class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -1403,14 +1418,20 @@
                                                 <div class="product__inner">
                                                     <div class="pro__thumb">
                                                         <a href="#">
-                                                            <img src="storage/images/system/product/9.png" alt="product images">
+                                                            <img src="storage/images/system/product/9.png"
+                                                                 alt="product images">
                                                         </a>
                                                     </div>
                                                     <div class="product__hover__info">
                                                         <ul class="product__action">
-                                                            <li><a data-toggle="modal" data-target="#productModal" title="Quick View" class="quick-view modal-view detail-link" href="#"><span class="ti-plus"></span></a></li>
-                                                            <li><a title="Add TO Cart" href="cart.html"><span class="ti-shopping-cart"></span></a></li>
-                                                            <li><a title="Wishlist" href="wishlist.html"><span class="ti-heart"></span></a></li>
+                                                            <li><a data-toggle="modal" data-target="#productModal"
+                                                                   title="Quick View"
+                                                                   class="quick-view modal-view detail-link"
+                                                                   href="#"><span class="ti-plus"></span></a></li>
+                                                            <li><a title="Add TO Cart" href="cart.html"><span
+                                                                        class="ti-shopping-cart"></span></a></li>
+                                                            <li><a title="Wishlist" href="wishlist.html"><span
+                                                                        class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -1428,14 +1449,20 @@
                                                 <div class="product__inner">
                                                     <div class="pro__thumb">
                                                         <a href="#">
-                                                            <img src="storage/images/system/product/5.png" alt="product images">
+                                                            <img src="storage/images/system/product/5.png"
+                                                                 alt="product images">
                                                         </a>
                                                     </div>
                                                     <div class="product__hover__info">
                                                         <ul class="product__action">
-                                                            <li><a data-toggle="modal" data-target="#productModal" title="Quick View" class="quick-view modal-view detail-link" href="#"><span class="ti-plus"></span></a></li>
-                                                            <li><a title="Add TO Cart" href="cart.html"><span class="ti-shopping-cart"></span></a></li>
-                                                            <li><a title="Wishlist" href="wishlist.html"><span class="ti-heart"></span></a></li>
+                                                            <li><a data-toggle="modal" data-target="#productModal"
+                                                                   title="Quick View"
+                                                                   class="quick-view modal-view detail-link"
+                                                                   href="#"><span class="ti-plus"></span></a></li>
+                                                            <li><a title="Add TO Cart" href="cart.html"><span
+                                                                        class="ti-shopping-cart"></span></a></li>
+                                                            <li><a title="Wishlist" href="wishlist.html"><span
+                                                                        class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -1453,14 +1480,20 @@
                                                 <div class="product__inner">
                                                     <div class="pro__thumb">
                                                         <a href="#">
-                                                            <img src="storage/images/system/product/3.png" alt="product images">
+                                                            <img src="storage/images/system/product/3.png"
+                                                                 alt="product images">
                                                         </a>
                                                     </div>
                                                     <div class="product__hover__info">
                                                         <ul class="product__action">
-                                                            <li><a data-toggle="modal" data-target="#productModal" title="Quick View" class="quick-view modal-view detail-link" href="#"><span class="ti-plus"></span></a></li>
-                                                            <li><a title="Add TO Cart" href="cart.html"><span class="ti-shopping-cart"></span></a></li>
-                                                            <li><a title="Wishlist" href="wishlist.html"><span class="ti-heart"></span></a></li>
+                                                            <li><a data-toggle="modal" data-target="#productModal"
+                                                                   title="Quick View"
+                                                                   class="quick-view modal-view detail-link"
+                                                                   href="#"><span class="ti-plus"></span></a></li>
+                                                            <li><a title="Add TO Cart" href="cart.html"><span
+                                                                        class="ti-shopping-cart"></span></a></li>
+                                                            <li><a title="Wishlist" href="wishlist.html"><span
+                                                                        class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -1478,14 +1511,20 @@
                                                 <div class="product__inner">
                                                     <div class="pro__thumb">
                                                         <a href="#">
-                                                            <img src="storage/images/system/product/4.png" alt="product images">
+                                                            <img src="storage/images/system/product/4.png"
+                                                                 alt="product images">
                                                         </a>
                                                     </div>
                                                     <div class="product__hover__info">
                                                         <ul class="product__action">
-                                                            <li><a data-toggle="modal" data-target="#productModal" title="Quick View" class="quick-view modal-view detail-link" href="#"><span class="ti-plus"></span></a></li>
-                                                            <li><a title="Add TO Cart" href="cart.html"><span class="ti-shopping-cart"></span></a></li>
-                                                            <li><a title="Wishlist" href="wishlist.html"><span class="ti-heart"></span></a></li>
+                                                            <li><a data-toggle="modal" data-target="#productModal"
+                                                                   title="Quick View"
+                                                                   class="quick-view modal-view detail-link"
+                                                                   href="#"><span class="ti-plus"></span></a></li>
+                                                            <li><a title="Add TO Cart" href="cart.html"><span
+                                                                        class="ti-shopping-cart"></span></a></li>
+                                                            <li><a title="Wishlist" href="wishlist.html"><span
+                                                                        class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -1503,14 +1542,20 @@
                                                 <div class="product__inner">
                                                     <div class="pro__thumb">
                                                         <a href="#">
-                                                            <img src="storage/images/system/product/2.png" alt="product images">
+                                                            <img src="storage/images/system/product/2.png"
+                                                                 alt="product images">
                                                         </a>
                                                     </div>
                                                     <div class="product__hover__info">
                                                         <ul class="product__action">
-                                                            <li><a data-toggle="modal" data-target="#productModal" title="Quick View" class="quick-view modal-view detail-link" href="#"><span class="ti-plus"></span></a></li>
-                                                            <li><a title="Add TO Cart" href="cart.html"><span class="ti-shopping-cart"></span></a></li>
-                                                            <li><a title="Wishlist" href="wishlist.html"><span class="ti-heart"></span></a></li>
+                                                            <li><a data-toggle="modal" data-target="#productModal"
+                                                                   title="Quick View"
+                                                                   class="quick-view modal-view detail-link"
+                                                                   href="#"><span class="ti-plus"></span></a></li>
+                                                            <li><a title="Add TO Cart" href="cart.html"><span
+                                                                        class="ti-shopping-cart"></span></a></li>
+                                                            <li><a title="Wishlist" href="wishlist.html"><span
+                                                                        class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -1528,14 +1573,20 @@
                                                 <div class="product__inner">
                                                     <div class="pro__thumb">
                                                         <a href="#">
-                                                            <img src="storage/images/system/product/7.png" alt="product images">
+                                                            <img src="storage/images/system/product/7.png"
+                                                                 alt="product images">
                                                         </a>
                                                     </div>
                                                     <div class="product__hover__info">
                                                         <ul class="product__action">
-                                                            <li><a data-toggle="modal" data-target="#productModal" title="Quick View" class="quick-view modal-view detail-link" href="#"><span class="ti-plus"></span></a></li>
-                                                            <li><a title="Add TO Cart" href="cart.html"><span class="ti-shopping-cart"></span></a></li>
-                                                            <li><a title="Wishlist" href="wishlist.html"><span class="ti-heart"></span></a></li>
+                                                            <li><a data-toggle="modal" data-target="#productModal"
+                                                                   title="Quick View"
+                                                                   class="quick-view modal-view detail-link"
+                                                                   href="#"><span class="ti-plus"></span></a></li>
+                                                            <li><a title="Add TO Cart" href="cart.html"><span
+                                                                        class="ti-shopping-cart"></span></a></li>
+                                                            <li><a title="Wishlist" href="wishlist.html"><span
+                                                                        class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -1636,14 +1687,20 @@
                                                 <div class="product__inner">
                                                     <div class="pro__thumb">
                                                         <a href="#">
-                                                            <img src="storage/images/system/product/3.png" alt="product images">
+                                                            <img src="storage/images/system/product/3.png"
+                                                                 alt="product images">
                                                         </a>
                                                     </div>
                                                     <div class="product__hover__info">
                                                         <ul class="product__action">
-                                                            <li><a data-toggle="modal" data-target="#productModal" title="Quick View" class="quick-view modal-view detail-link" href="#"><span class="ti-plus"></span></a></li>
-                                                            <li><a title="Add TO Cart" href="cart.html"><span class="ti-shopping-cart"></span></a></li>
-                                                            <li><a title="Wishlist" href="wishlist.html"><span class="ti-heart"></span></a></li>
+                                                            <li><a data-toggle="modal" data-target="#productModal"
+                                                                   title="Quick View"
+                                                                   class="quick-view modal-view detail-link"
+                                                                   href="#"><span class="ti-plus"></span></a></li>
+                                                            <li><a title="Add TO Cart" href="cart.html"><span
+                                                                        class="ti-shopping-cart"></span></a></li>
+                                                            <li><a title="Wishlist" href="wishlist.html"><span
+                                                                        class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -1661,14 +1718,20 @@
                                                 <div class="product__inner">
                                                     <div class="pro__thumb">
                                                         <a href="#">
-                                                            <img src="storage/images/system/product/4.png" alt="product images">
+                                                            <img src="storage/images/system/product/4.png"
+                                                                 alt="product images">
                                                         </a>
                                                     </div>
                                                     <div class="product__hover__info">
                                                         <ul class="product__action">
-                                                            <li><a data-toggle="modal" data-target="#productModal" title="Quick View" class="quick-view modal-view detail-link" href="#"><span class="ti-plus"></span></a></li>
-                                                            <li><a title="Add TO Cart" href="cart.html"><span class="ti-shopping-cart"></span></a></li>
-                                                            <li><a title="Wishlist" href="wishlist.html"><span class="ti-heart"></span></a></li>
+                                                            <li><a data-toggle="modal" data-target="#productModal"
+                                                                   title="Quick View"
+                                                                   class="quick-view modal-view detail-link"
+                                                                   href="#"><span class="ti-plus"></span></a></li>
+                                                            <li><a title="Add TO Cart" href="cart.html"><span
+                                                                        class="ti-shopping-cart"></span></a></li>
+                                                            <li><a title="Wishlist" href="wishlist.html"><span
+                                                                        class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -1686,14 +1749,20 @@
                                                 <div class="product__inner">
                                                     <div class="pro__thumb">
                                                         <a href="#">
-                                                            <img src="storage/images/system/product/5.png" alt="product images">
+                                                            <img src="storage/images/system/product/5.png"
+                                                                 alt="product images">
                                                         </a>
                                                     </div>
                                                     <div class="product__hover__info">
                                                         <ul class="product__action">
-                                                            <li><a data-toggle="modal" data-target="#productModal" title="Quick View" class="quick-view modal-view detail-link" href="#"><span class="ti-plus"></span></a></li>
-                                                            <li><a title="Add TO Cart" href="cart.html"><span class="ti-shopping-cart"></span></a></li>
-                                                            <li><a title="Wishlist" href="wishlist.html"><span class="ti-heart"></span></a></li>
+                                                            <li><a data-toggle="modal" data-target="#productModal"
+                                                                   title="Quick View"
+                                                                   class="quick-view modal-view detail-link"
+                                                                   href="#"><span class="ti-plus"></span></a></li>
+                                                            <li><a title="Add TO Cart" href="cart.html"><span
+                                                                        class="ti-shopping-cart"></span></a></li>
+                                                            <li><a title="Wishlist" href="wishlist.html"><span
+                                                                        class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -1717,14 +1786,20 @@
                                                 <div class="product__inner">
                                                     <div class="pro__thumb">
                                                         <a href="#">
-                                                            <img src="storage/images/system/product/4.png" alt="product images">
+                                                            <img src="storage/images/system/product/4.png"
+                                                                 alt="product images">
                                                         </a>
                                                     </div>
                                                     <div class="product__hover__info">
                                                         <ul class="product__action">
-                                                            <li><a data-toggle="modal" data-target="#productModal" title="Quick View" class="quick-view modal-view detail-link" href="#"><span class="ti-plus"></span></a></li>
-                                                            <li><a title="Add TO Cart" href="cart.html"><span class="ti-shopping-cart"></span></a></li>
-                                                            <li><a title="Wishlist" href="wishlist.html"><span class="ti-heart"></span></a></li>
+                                                            <li><a data-toggle="modal" data-target="#productModal"
+                                                                   title="Quick View"
+                                                                   class="quick-view modal-view detail-link"
+                                                                   href="#"><span class="ti-plus"></span></a></li>
+                                                            <li><a title="Add TO Cart" href="cart.html"><span
+                                                                        class="ti-shopping-cart"></span></a></li>
+                                                            <li><a title="Wishlist" href="wishlist.html"><span
+                                                                        class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -1742,14 +1817,20 @@
                                                 <div class="product__inner">
                                                     <div class="pro__thumb">
                                                         <a href="#">
-                                                            <img src="storage/images/system/product/5.png" alt="product images">
+                                                            <img src="storage/images/system/product/5.png"
+                                                                 alt="product images">
                                                         </a>
                                                     </div>
                                                     <div class="product__hover__info">
                                                         <ul class="product__action">
-                                                            <li><a data-toggle="modal" data-target="#productModal" title="Quick View" class="quick-view modal-view detail-link" href="#"><span class="ti-plus"></span></a></li>
-                                                            <li><a title="Add TO Cart" href="cart.html"><span class="ti-shopping-cart"></span></a></li>
-                                                            <li><a title="Wishlist" href="wishlist.html"><span class="ti-heart"></span></a></li>
+                                                            <li><a data-toggle="modal" data-target="#productModal"
+                                                                   title="Quick View"
+                                                                   class="quick-view modal-view detail-link"
+                                                                   href="#"><span class="ti-plus"></span></a></li>
+                                                            <li><a title="Add TO Cart" href="cart.html"><span
+                                                                        class="ti-shopping-cart"></span></a></li>
+                                                            <li><a title="Wishlist" href="wishlist.html"><span
+                                                                        class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -1767,14 +1848,20 @@
                                                 <div class="product__inner">
                                                     <div class="pro__thumb">
                                                         <a href="#">
-                                                            <img src="storage/images/system/product/6.png" alt="product images">
+                                                            <img src="storage/images/system/product/6.png"
+                                                                 alt="product images">
                                                         </a>
                                                     </div>
                                                     <div class="product__hover__info">
                                                         <ul class="product__action">
-                                                            <li><a data-toggle="modal" data-target="#productModal" title="Quick View" class="quick-view modal-view detail-link" href="#"><span class="ti-plus"></span></a></li>
-                                                            <li><a title="Add TO Cart" href="cart.html"><span class="ti-shopping-cart"></span></a></li>
-                                                            <li><a title="Wishlist" href="wishlist.html"><span class="ti-heart"></span></a></li>
+                                                            <li><a data-toggle="modal" data-target="#productModal"
+                                                                   title="Quick View"
+                                                                   class="quick-view modal-view detail-link"
+                                                                   href="#"><span class="ti-plus"></span></a></li>
+                                                            <li><a title="Add TO Cart" href="cart.html"><span
+                                                                        class="ti-shopping-cart"></span></a></li>
+                                                            <li><a title="Wishlist" href="wishlist.html"><span
+                                                                        class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -1798,14 +1885,20 @@
                                                 <div class="product__inner">
                                                     <div class="pro__thumb">
                                                         <a href="#">
-                                                            <img src="storage/images/system/product/2.png" alt="product images">
+                                                            <img src="storage/images/system/product/2.png"
+                                                                 alt="product images">
                                                         </a>
                                                     </div>
                                                     <div class="product__hover__info">
                                                         <ul class="product__action">
-                                                            <li><a data-toggle="modal" data-target="#productModal" title="Quick View" class="quick-view modal-view detail-link" href="#"><span class="ti-plus"></span></a></li>
-                                                            <li><a title="Add TO Cart" href="cart.html"><span class="ti-shopping-cart"></span></a></li>
-                                                            <li><a title="Wishlist" href="wishlist.html"><span class="ti-heart"></span></a></li>
+                                                            <li><a data-toggle="modal" data-target="#productModal"
+                                                                   title="Quick View"
+                                                                   class="quick-view modal-view detail-link"
+                                                                   href="#"><span class="ti-plus"></span></a></li>
+                                                            <li><a title="Add TO Cart" href="cart.html"><span
+                                                                        class="ti-shopping-cart"></span></a></li>
+                                                            <li><a title="Wishlist" href="wishlist.html"><span
+                                                                        class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -1823,14 +1916,20 @@
                                                 <div class="product__inner">
                                                     <div class="pro__thumb">
                                                         <a href="#">
-                                                            <img src="storage/images/system/product/1.png" alt="product images">
+                                                            <img src="storage/images/system/product/1.png"
+                                                                 alt="product images">
                                                         </a>
                                                     </div>
                                                     <div class="product__hover__info">
                                                         <ul class="product__action">
-                                                            <li><a data-toggle="modal" data-target="#productModal" title="Quick View" class="quick-view modal-view detail-link" href="#"><span class="ti-plus"></span></a></li>
-                                                            <li><a title="Add TO Cart" href="cart.html"><span class="ti-shopping-cart"></span></a></li>
-                                                            <li><a title="Wishlist" href="wishlist.html"><span class="ti-heart"></span></a></li>
+                                                            <li><a data-toggle="modal" data-target="#productModal"
+                                                                   title="Quick View"
+                                                                   class="quick-view modal-view detail-link"
+                                                                   href="#"><span class="ti-plus"></span></a></li>
+                                                            <li><a title="Add TO Cart" href="cart.html"><span
+                                                                        class="ti-shopping-cart"></span></a></li>
+                                                            <li><a title="Wishlist" href="wishlist.html"><span
+                                                                        class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -1848,14 +1947,20 @@
                                                 <div class="product__inner">
                                                     <div class="pro__thumb">
                                                         <a href="#">
-                                                            <img src="storage/images/system/product/5.png" alt="product images">
+                                                            <img src="storage/images/system/product/5.png"
+                                                                 alt="product images">
                                                         </a>
                                                     </div>
                                                     <div class="product__hover__info">
                                                         <ul class="product__action">
-                                                            <li><a data-toggle="modal" data-target="#productModal" title="Quick View" class="quick-view modal-view detail-link" href="#"><span class="ti-plus"></span></a></li>
-                                                            <li><a title="Add TO Cart" href="cart.html"><span class="ti-shopping-cart"></span></a></li>
-                                                            <li><a title="Wishlist" href="wishlist.html"><span class="ti-heart"></span></a></li>
+                                                            <li><a data-toggle="modal" data-target="#productModal"
+                                                                   title="Quick View"
+                                                                   class="quick-view modal-view detail-link"
+                                                                   href="#"><span class="ti-plus"></span></a></li>
+                                                            <li><a title="Add TO Cart" href="cart.html"><span
+                                                                        class="ti-shopping-cart"></span></a></li>
+                                                            <li><a title="Wishlist" href="wishlist.html"><span
+                                                                        class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -1879,14 +1984,20 @@
                                                 <div class="product__inner">
                                                     <div class="pro__thumb">
                                                         <a href="#">
-                                                            <img src="storage/images/system/product/9.png" alt="product images">
+                                                            <img src="storage/images/system/product/9.png"
+                                                                 alt="product images">
                                                         </a>
                                                     </div>
                                                     <div class="product__hover__info">
                                                         <ul class="product__action">
-                                                            <li><a data-toggle="modal" data-target="#productModal" title="Quick View" class="quick-view modal-view detail-link" href="#"><span class="ti-plus"></span></a></li>
-                                                            <li><a title="Add TO Cart" href="cart.html"><span class="ti-shopping-cart"></span></a></li>
-                                                            <li><a title="Wishlist" href="wishlist.html"><span class="ti-heart"></span></a></li>
+                                                            <li><a data-toggle="modal" data-target="#productModal"
+                                                                   title="Quick View"
+                                                                   class="quick-view modal-view detail-link"
+                                                                   href="#"><span class="ti-plus"></span></a></li>
+                                                            <li><a title="Add TO Cart" href="cart.html"><span
+                                                                        class="ti-shopping-cart"></span></a></li>
+                                                            <li><a title="Wishlist" href="wishlist.html"><span
+                                                                        class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -1904,14 +2015,20 @@
                                                 <div class="product__inner">
                                                     <div class="pro__thumb">
                                                         <a href="#">
-                                                            <img src="storage/images/system/product/8.png" alt="product images">
+                                                            <img src="storage/images/system/product/8.png"
+                                                                 alt="product images">
                                                         </a>
                                                     </div>
                                                     <div class="product__hover__info">
                                                         <ul class="product__action">
-                                                            <li><a data-toggle="modal" data-target="#productModal" title="Quick View" class="quick-view modal-view detail-link" href="#"><span class="ti-plus"></span></a></li>
-                                                            <li><a title="Add TO Cart" href="cart.html"><span class="ti-shopping-cart"></span></a></li>
-                                                            <li><a title="Wishlist" href="wishlist.html"><span class="ti-heart"></span></a></li>
+                                                            <li><a data-toggle="modal" data-target="#productModal"
+                                                                   title="Quick View"
+                                                                   class="quick-view modal-view detail-link"
+                                                                   href="#"><span class="ti-plus"></span></a></li>
+                                                            <li><a title="Add TO Cart" href="cart.html"><span
+                                                                        class="ti-shopping-cart"></span></a></li>
+                                                            <li><a title="Wishlist" href="wishlist.html"><span
+                                                                        class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -1929,14 +2046,20 @@
                                                 <div class="product__inner">
                                                     <div class="pro__thumb">
                                                         <a href="#">
-                                                            <img src="storage/images/system/product/7.png" alt="product images">
+                                                            <img src="storage/images/system/product/7.png"
+                                                                 alt="product images">
                                                         </a>
                                                     </div>
                                                     <div class="product__hover__info">
                                                         <ul class="product__action">
-                                                            <li><a data-toggle="modal" data-target="#productModal" title="Quick View" class="quick-view modal-view detail-link" href="#"><span class="ti-plus"></span></a></li>
-                                                            <li><a title="Add TO Cart" href="cart.html"><span class="ti-shopping-cart"></span></a></li>
-                                                            <li><a title="Wishlist" href="wishlist.html"><span class="ti-heart"></span></a></li>
+                                                            <li><a data-toggle="modal" data-target="#productModal"
+                                                                   title="Quick View"
+                                                                   class="quick-view modal-view detail-link"
+                                                                   href="#"><span class="ti-plus"></span></a></li>
+                                                            <li><a title="Add TO Cart" href="cart.html"><span
+                                                                        class="ti-shopping-cart"></span></a></li>
+                                                            <li><a title="Wishlist" href="wishlist.html"><span
+                                                                        class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -1966,7 +2089,8 @@
                 <div class="col-xs-12">
                     <div class="section__title section__title--2 text-center">
                         <h2 class="title__line">Latest News</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod temp incididunt ut labore et dolore magna aliqua. </p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod temp incididunt ut
+                            labore et dolore magna aliqua. </p>
                     </div>
                 </div>
             </div>
@@ -1989,7 +2113,8 @@
                                 </div>
                                 <div class="blog__hover__info">
                                     <div class="blog__hover__action">
-                                        <p class="blog__des"><a href="blog-details.html">Lorem ipsum dolor sit consectetu.</a></p>
+                                        <p class="blog__des"><a href="blog-details.html">Lorem ipsum dolor sit
+                                                consectetu.</a></p>
                                         <ul class="bl__meta">
                                             <li>By :<a href="#">Admin</a></li>
                                             <li>Product</li>
@@ -2020,7 +2145,8 @@
                                 </div>
                                 <div class="blog__hover__info">
                                     <div class="blog__hover__action">
-                                        <p class="blog__des"><a href="blog-details.html">Lorem ipsum dolor sit consectetu.</a></p>
+                                        <p class="blog__des"><a href="blog-details.html">Lorem ipsum dolor sit
+                                                consectetu.</a></p>
                                         <ul class="bl__meta">
                                             <li>By :<a href="#">Admin</a></li>
                                             <li>Product</li>
@@ -2051,7 +2177,8 @@
                                 </div>
                                 <div class="blog__hover__info">
                                     <div class="blog__hover__action">
-                                        <p class="blog__des"><a href="blog-details.html">Lorem ipsum dolor sit consectetu.</a></p>
+                                        <p class="blog__des"><a href="blog-details.html">Lorem ipsum dolor sit
+                                                consectetu.</a></p>
                                         <ul class="bl__meta">
                                             <li>By :<a href="#">Admin</a></li>
                                             <li>Product</li>

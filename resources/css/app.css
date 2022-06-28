@@ -1,0 +1,36 @@
+.clear-color {
+    color: black !important;
+    background-color: white !important;
+    padding: 0px !important;
+    margin-bottom: 15px;
+}
+
+.htc__login__register form #remember{
+    width: auto;
+    height: auto;
+}
+.htc__login__btn button:hover {
+    background: #ff4136;
+    color: #fff;
+    border: 1px solid #ff4136;
+}
+.htc__login__btn button {
+    border: 1px solid #d5d5d5;
+    display: inline-block;
+    font-size: 20px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    text-transform: capitalize;
+    transition: all 0.5s ease 0s;
+    width: 150px;
+    color: #4b4b4b;
+    text-transform: uppercase;
+    background-color: white;
+}
+.invalid-feedback{
+    color: red;
+}
+.not-click{
+    cursor: context-menu;
+}

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Shop\ProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,10 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
 
-Auth::routes();
+include 'include\admin.php';
+include 'include\catalog.php';
+include 'include\user.php';
+include 'include\static_pages.php';
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

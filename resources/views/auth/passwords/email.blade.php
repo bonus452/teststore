@@ -1,50 +1,53 @@
-@extends('layouts.old.app')
+@extends('layouts.app')
 
 @section('content')
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">{{ __('Reset Password') }}</div>
 
-                    <div class="card-body">
-                        @if (session('status'))
-                            <div class="alert alert-success" role="alert">
-                                {{ session('status') }}
-                            </div>
-                        @endif
+    <div class="htc__login__register bg__white ptb--130">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <ul class="login__register__menu" role="tablist">
+                        <li role="presentation" class="login active"><a href="javascript:void(0);" class="not-click">Reset Password</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Start Login Register Content -->
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <div class="htc__login__register__wrap">
+                        <!-- Start Single Content -->
+                        <div id="login" class="single__tabs__panel tab-pane fade active in">
+                            @include('include.status_message', ['mark' => 'status'])
+                            <form class="login" method="POST" action="{{ route('password.email') }}">
+                                @csrf
 
-                        <form method="POST" action="{{ route('password.email') }}">
-                            @csrf
-
-                            <div class="row mb-3">
-                                <label for="email"
-                                       class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
-
-                                <div class="col-md-6">
-                                    <input id="email" type="email"
-                                           class="form-control @error('email') is-invalid @enderror" name="email"
-                                           value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-                                    @error('email')
-                                    <span class="invalid-feedback" role="alert">
+                                @error('email')
+                                <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                                    @enderror
-                                </div>
-                            </div>
+                                @enderror
+                                <input id="email" type="email"
+                                       @error('email') class="is-invalid" @enderror name="email"
+                                       value="{{ old('email') }}" required autocomplete="email" autofocus  placeholder="Email*">
 
-                            <div class="row mb-0">
-                                <div class="col-md-6 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
-                                        {{ __('Send Password Reset Link') }}
+                                <div class="htc__login__btn mt--30">
+                                    <button type="submit">
+                                        Submit
                                     </button>
                                 </div>
-                            </div>
-                        </form>
+                            </form>
+                        </div>
+                        <!-- End Single Content -->
                     </div>
                 </div>
             </div>
+            <!-- End Login Register Content -->
         </div>
     </div>
+
+
+
+
+
+
 @endsection

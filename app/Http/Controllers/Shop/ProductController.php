@@ -33,6 +33,9 @@ class ProductController extends Controller
 
     public function index()
     {
+
+
+
         $category = new Category();
         $category->title = 'Catalog';
         $inner_categories = CategoryRepository::getRootCategories();

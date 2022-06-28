@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Shop\Offer;
+use App\Models\Shop\Product;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -13,11 +15,15 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
         $this->call([
             CategorySeeder::class,
             UserSeeder::class,
             RoleSeeder::class
+        ]);
+        Product::factory(500)->create();
+        Offer::factory(2500)->create();
+        $this->call([
+            PropertySeeder::class
         ]);
     }
 }

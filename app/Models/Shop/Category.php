@@ -38,6 +38,8 @@ use stdClass;
  * @method static Builder|Category whereHref($value)
  * @property string $url
  * @method static Builder|Category whereUrl($value)
+ * @property-read \Illuminate\Database\Eloquent\Collection|Category[] $child
+ * @property-read int|null $child_count
  */
 class Category extends Model
 {

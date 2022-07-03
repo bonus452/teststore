@@ -18,10 +18,19 @@ Breadcrumbs::for('home', function ($trail) {
     $trail->push('Home', route('home'));
 });
 
+//Home->Login
 Breadcrumbs::for('login', function ($trail) {
     $trail->parent('home');
     $trail->push('Login & Register', route('login'));
 });
+
+//Home->Login
+Breadcrumbs::for('personal.index', function ($trail) {
+    $trail->parent('home');
+    $trail->push('Personal', route('personal.index'));
+});
+
+
 
 //Catalog
 Breadcrumbs::for('catalog.index', function ($trail) {

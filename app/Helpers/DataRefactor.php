@@ -31,7 +31,7 @@ class DataRefactor
             $category->url = $url.'/'.$category->slug;
             $category->update();
             if ($category->sub_categories->isNotEmpty()) {
-                self::setCategoryUrl($category->sub_categories, $category->url);
+                self::setCategoryUrl($category->sub_categories, $category->getRawOriginal('url'));
             }
         }
     }

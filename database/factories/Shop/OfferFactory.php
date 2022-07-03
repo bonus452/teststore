@@ -19,7 +19,6 @@ class OfferFactory extends Factory
             'name' => $name,
             'article' => $this->faker->unique()->text(20),
             'price' => rand(3, 500000) / rand(3, 10),
-            'description' => $this->faker->text(),
             'product_id' => rand(1,500)
         ];
     }

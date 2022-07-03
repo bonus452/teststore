@@ -34,4 +34,10 @@
 .not-click{
     cursor: context-menu;
 }
+.pagination-products{
+    text-align: center;
+}
+.pagination-products .pagination{
+    margin-top: 30px;
+}
 

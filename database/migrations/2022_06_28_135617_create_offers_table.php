@@ -18,7 +18,6 @@ class CreateOffersTable extends Migration
             $table->string('name');
             $table->string('article')->unique();
             $table->unsignedFloat('price');
-            $table->text('description')->nullable();
             $table->unsignedBigInteger('product_id');
             $table->timestamps();
 

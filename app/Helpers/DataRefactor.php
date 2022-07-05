@@ -11,7 +11,7 @@ class DataRefactor
 {
     public static function refreshCategoriesUrl($category_id = 1)
     {
-        $category_tree = (new CategoryRepository())->getCategoriesTree($category_id);
+        $category_tree = CategoryRepository::getCategoriesTree($category_id);
         $rootCategory = Category::find($category_id);
         $from_root_href = '';
         if (!is_null($rootCategory)) {
@@ -30,8 +30,8 @@ class DataRefactor
         foreach ($categories as $category) {
             $category->url = $url.'/'.$category->slug;
             $category->update();
-            if ($category->sub_categories->isNotEmpty()) {
-                self::setCategoryUrl($category->sub_categories, $category->getRawOriginal('url'));
+            if ($category->getSubCategories()->isNotEmpty()) {
+                self::setCategoryUrl($category->getSubCategories(), $category->getRawOriginal('url'));
             }
         }
     }

@@ -16,11 +16,15 @@ class ProductRepository
         return static::$instance ?? (static::$instance = new Model());
     }
 
-    public static function getForListPage($category_id)
+    public static function getWithPaginate($category_id = false): object
     {
 
-        $products = self::getInstance()->with(['offers', 'category'])
-            ->paginate(12);
+        $products = self::getInstance()->with(['offers', 'category']);
+        if($category_id){
+            $categories = CategoryRepository::getAllChildsList($category_id);
+            $products = $products->whereIn('category_id', $categories);
+        }
+        $products = $products->paginate(12);
 
         $result = (object)[
             'products' => $products,
@@ -29,6 +33,12 @@ class ProductRepository
                 . " - " . $products->currentPage() * $products->perPage()
                 . " of " . $products->total() . " results "
         ];
+        return $result;
+    }
+
+    public static function getCountByCategories(array $categories) :int
+    {
+        $result = self::getInstance()->whereIn('category_id', $categories)->count();
         return $result;
     }
 

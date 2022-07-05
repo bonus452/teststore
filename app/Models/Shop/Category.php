@@ -45,8 +45,29 @@ class Category extends Model
 {
     use HasFactory;
 
-    public $sub_categories;
+    private Collection $sub_categories;
+    private int $count_products;
     protected $fillable = ['title', 'url'];
+
+
+    public function getCountProducts(): int
+    {
+        return $this->count_products;
+    }
+    public function setCountProducts(int $count_products): Category
+    {
+        $this->count_products = $count_products;
+        return $this;
+    }
+
+    public function getSubCategories(): Collection
+    {
+        return $this->sub_categories;
+    }
+    public function setSubCategories(Collection $sub_categories): void
+    {
+        $this->sub_categories = $sub_categories;
+    }
 
     public function __construct(array $attributes = [])
     {

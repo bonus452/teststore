@@ -28,7 +28,7 @@ class ViewServiceProvider extends ServiceProvider
     public function boot()
     {
         View::composer('include.top_menu', function ($view){
-            $catalog_menu = CategoryRepository::getRootCategories();
+            $catalog_menu = Category::where('category_id', 1)->get();
             $view->with('catalog_menu', $catalog_menu);
         });
     }

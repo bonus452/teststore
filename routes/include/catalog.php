@@ -1,8 +1,8 @@
 <?php
 
-use App\Http\Controllers\Shop\ProductController;
+use App\Http\Controllers\Shop\CatalogController;
 
-Route::group(['as' => 'catalog.', 'prefix' => CATALOG_PATH, 'controller' => ProductController::class] ,function (){
+Route::group(['as' => 'catalog.', 'prefix' => CATALOG_PATH, 'controller' => CatalogController::class] ,function (){
     Route::get('', 'index')
         ->name('index');
 

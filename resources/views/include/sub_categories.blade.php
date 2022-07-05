@@ -4,7 +4,7 @@
         <ul class="sidebar__list">
             @php /** @var \App\Models\Shop\Category $category */ @endphp
             @foreach($inner_categories as $category)
-                <li><a href="{{ $category->url }}">{{ $category->title }} <span>?</span></a></li>
+                <li><a href="{{ $category->url }}">{{ $category->title }} <span>{{ $category->getCountProducts() }}</span></a></li>
             @endforeach
         </ul>
     </div>

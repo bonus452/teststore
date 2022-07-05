@@ -4,6 +4,8 @@
 @section('h1', $product->title)
 
 @section('content')
+
+    @php /** @var \App\Models\Shop\Product $product */ @endphp
     <!-- Start Product Details -->
     <section class="htc__product__details pt--100 pb--100 bg__white">
         <div class="container">
@@ -25,7 +27,7 @@
                     <div class="sidebar-active col-md-5 col-lg-5 col-sm-7 col-xs-12 xmt-30">
                         <div class="htc__product__details__inner ">
                             <div class="pro__detl__title">
-                                <h2>Black Clock</h2>
+                                <h2>{{ $product->name }}</h2>
                             </div>
                             <div class="pro__dtl__rating">
                                 <ul class="pro__rating">
@@ -38,11 +40,11 @@
                                 <span class="rat__qun">(Based on 0 Ratings)</span>
                             </div>
                             <div class="pro__details">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit, sed do eiusmod temf incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, nostr exercitation ullamco laboris nisi ut aliquip ex ea. </p>
+                                <p>{{ $product->description }}</p>
                             </div>
                             <ul class="pro__dtl__prize">
                                 <li class="old__prize">$15.21</li>
-                                <li>$10.00</li>
+                                <li>${{ $product->offers->first()->price }}</li>
                             </ul>
                             <div class="pro__dtl__color">
                                 <h2 class="title__5">Choose Colour</h2>

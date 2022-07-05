@@ -60,12 +60,12 @@
                             <ul>
                                 @foreach($catalog_menu as $menu_item)
                                     <li>
-                                        <a href="{{ $menu_item->url }}">{{ $menu_item->title }} @if($menu_item->sub_categories->IsNotEmpty())
+                                        <a href="{{ $menu_item->url }}">{{ $menu_item->title }} @if($menu_item->getSubCategories()->IsNotEmpty())
                                                 <i class="zmdi zmdi-chevron-right"></i>
                                             @endif </a>
-                                        @if($menu_item->sub_categories->IsNotEmpty())
+                                        @if($menu_item->getSubCategories()->IsNotEmpty())
                                             <div class="category-menu-dropdown">
-                                                @include('include.catalog_partial_menu', ['catalog_menu' => $menu_item->sub_categories, 'last_level' => false])
+                                                @include('include.catalog_partial_menu', ['catalog_menu' => $menu_item->getSubCategories(), 'last_level' => false])
                                             </div>
                                         @endif
 

@@ -2,6 +2,7 @@
 
 namespace App\Models\Shop;
 
+use App\Interfaces\RowGetteble;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -34,7 +35,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property string|null $description
  * @method static \Illuminate\Database\Eloquent\Builder|Product whereDescription($value)
  */
-class Product extends Model
+class Product extends Model implements RowGetteble
 {
     use HasFactory;
 

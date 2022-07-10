@@ -2,6 +2,7 @@
 
 namespace App\Models\Shop;
 
+use App\Interfaces\RowGetteble;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -41,14 +42,13 @@ use stdClass;
  * @property-read \Illuminate\Database\Eloquent\Collection|Category[] $child
  * @property-read int|null $child_count
  */
-class Category extends Model
+class Category extends Model implements RowGetteble
 {
     use HasFactory;
 
     private Collection $sub_categories;
     private int $count_products;
-    protected $fillable = ['title', 'url'];
-
+    protected $fillable = ['title', 'slug', 'url', 'img', 'parent_id'];
 
     public function getCountProducts(): int
     {
@@ -94,6 +94,14 @@ class Category extends Model
 
     public function getUrlAttribute($value){
         return '/' . CATALOG_PATH . $value;
+    }
+
+    public function getAdminUrlAttribute(){
+        return '/admin'  . $this->url;
+    }
+
+    public function getEditUrlAttribute(){
+        return '/admin/catalog/category-edit/'.$this->id;
     }
 
 }

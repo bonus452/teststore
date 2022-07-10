@@ -6,11 +6,11 @@ Route::group(['as' => 'catalog.', 'prefix' => CATALOG_PATH, 'controller' => Cata
     Route::get('', 'index')
         ->name('index');
 
-    Route::get('/{category}/{sublevels?}/detail-product/{product}', 'detail')
+    Route::get('/{sublevels?}/detail-product/{product}', 'detail')
         ->where('sublevels', '.*')
         ->name('detail');
 
-    Route::get('/{category}/{sublevels?}', 'list')
+    Route::get('/{sublevels?}', 'list')
         ->where('sublevels', '.*')
         ->name('list');
 });

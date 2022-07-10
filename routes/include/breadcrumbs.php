@@ -7,10 +7,12 @@ Breadcrumbs::for('admin.index', function ($trail) {
     $trail->push('Admin', route('admin.index'));
 });
 //Admin->Category
-Breadcrumbs::for('admin.catalog.list', function ($trail) {
+Breadcrumbs::for('admin.catalog.index', function ($trail) {
     $trail->parent('admin.index');
-    $trail->push('Catalog', route('admin.catalog.list'));
+    $trail->push('Catalog', route('admin.catalog.index'));
 });
+
+
 
 //Public
 //Home

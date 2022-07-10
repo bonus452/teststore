@@ -25,6 +25,8 @@
     <link rel="stylesheet" href="/adminlte/plugins/daterangepicker/daterangepicker.css">
     <!-- summernote -->
     <link rel="stylesheet" href="/adminlte/plugins/summernote/summernote-bs4.min.css">
+
+    <link rel="stylesheet" href="/adminlte/dist/css/custom.css">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -118,7 +120,11 @@
                         <h1 class="m-0">@yield('h1', 'Dashboard')</h1>
                     </div><!-- /.col -->
                     <!-- /.col -->
-                    {{ Breadcrumbs::render() }}
+                    @if(!isset($breadcrumbs))
+                        {{ Breadcrumbs::render() }}
+                    @else
+                        @include('include.admin_breadcrumbs')
+                    @endif
                 </div><!-- /.row -->
             </div><!-- /.container-fluid -->
         </div>

@@ -1,29 +1,31 @@
 <?php
 
 namespace App\Repository;
-use App\Models\Shop\Category;
 use App\Models\Shop\Category as Model;
 use Illuminate\Support\Collection;
 
 
-class CategoryRepository
+class CategoryRepository extends CatalogRepository
 {
 
-    private static $instance;
-
-    private static function getInstance() : Model
+    function getModelClass() :string
     {
-        return static::$instance ?? (static::$instance = new Model());
+        return Model::class;
     }
 
-    public static function getFromUrl($href) : Model
+    protected function getInstance() :Model
+    {
+        return clone $this->instance;
+    }
+
+    public function getFromUrl($href) : Model
     {
         $curent_slug = collect(explode('/', $href))->last();
         $result = Model::where('slug', $curent_slug)->first();
         return $result ?? new Model();
     }
 
-    public static function getParents(Category $category) :Collection
+    public function getParents(Model $category) :Collection
     {
         $result[] = $category;
         while ($category = $category->parent){
@@ -32,84 +34,45 @@ class CategoryRepository
         return collect(array_reverse($result));
     }
 
-    public static function getBreadcrumb(Category $category){
-        $url = trim($category->getRawOriginal('url'), '/');
-        $slugs = explode('/', $url);
-        $categories = self::getInstance()->whereIn('slug', $slugs)->get();
-        $result = collect($slugs)->map(function ($slug) use($categories){
-            return $categories->where('slug', $slug)->first();
-        });
-        self::addSubBreadcrumb($result);
+    public function getBreadcrumb(Model $category){
+        $result = $this->breadcrumbRepository->getBreadcrumb($category);
         return $result;
     }
 
-    public static function getAllChildsList($parent_id, Collection $categories = null): array
+
+
+    public function getCategoriesTree($pid = 1) :Collection
     {
-        $categories = $categories ?? self::getInstance()->all();
-        $result = self::getChilds($categories, [$parent_id]);
-        $result->add(['id' => $parent_id]);
-        return $result->toArray();
+        $categories = $this->getInstance()->all();
+        return $this->buildTree($categories, $pid);
     }
 
-    public static function getCategoriesTree($pid = 1) :Collection
-    {
-        $categories = self::getInstance()->all();
-        return self::buildTree($categories, $pid);
-    }
-
-    public static function getChildrenWithCount(Category $parent){
+    public function getChildrenWithCount(Model $parent){
         $result = $parent->child()->get();
-        $all_categories = self::getInstance()->all();
-        $result->transform(function (Category $item) use($all_categories){
-            $children = self::getAllChildsList($item->id, $all_categories);
-            $count_products = ProductRepository::getCountByCategories($children);
+        $all_categories = $this->getInstance()->all();
+        $result->transform(function (Model $item) use($all_categories){
+            $children = $this->getAllChildsList($item->id, $all_categories);
+            $count_products = $this->getCountByCategories($children);
             return $item->setCountProducts($count_products);
         });
         return $result;
     }
 
-    public static function getRootCategory() : Category
-    {
-        $result = self::getInstance()
-            ->withoutGlobalScope('withoutroot')
-            ->find(1);
-        $result->title = 'Catalog';
-        return $result;
-    }
 
 
 
-    private static function addSubBreadcrumb(&$result){
-        $result->prepend(
-                (object)[
-                    'title' => 'Catalog',
-                    'url' => '/'.CATALOG_PATH
-                ]
-            );
-        $result->prepend(
-            (object)[
-                'title' => 'Home',
-                'url' => '/'
-            ]
-        );
-    }
-
-    private static function getChilds(Collection $categories, $parents) :Collection
-    {
-        $childs = $categories->whereIn('category_id', $parents)->pluck('id');
-        if($childs->isNotEmpty()){
-            $result = self::getChilds($categories, $childs->toArray());
-            $childs = $result->merge($childs);
-        }
-        return $childs;
-    }
-
-    private static function buildTree(Collection $categories, $pid) {
+    private function buildTree(Collection $categories, $pid) {
         $found = $categories->where('category_id', $pid);
         foreach ($found as &$cat) {
-            $cat->setSubCategories(self::buildTree($categories, $cat->id));
+            $cat->setSubCategories($this->buildTree($categories, $cat->id));
         }
         return $found;
+    }
+
+    public function getWithPaginate(Model $category = null)
+    {
+
+        return $this->getInstance()->paginate(12);
     }
 
 }

@@ -4,23 +4,22 @@ namespace App\Http\Controllers\Shop;
 
 use App\Helpers\DataRefactor;
 use App\Http\Controllers\Controller;
-use App\Models\Shop\Category;
-use App\Models\Shop\Product;
-use App\Repository\CategoryRepository;
-use App\Repository\ProductRepository;
+use App\Traits\HasCatalogRepositories;
 use Illuminate\Http\Request;
 
 class CatalogController extends Controller
 {
 
-    public function list(Request $request, $category, $sub_categories = null)
+    use HasCatalogRepositories;
+
+    public function list(Request $request, $sub_categories)
     {
 
         $request_url = $request->getPathInfo();
-        $category = CategoryRepository::getFromUrl($request_url);
-        $breadcrumbs = CategoryRepository::getBreadcrumb($category);
-        $products_box = ProductRepository::getWithPaginate($category->id);
-        $inner_categories = CategoryRepository::getChildrenWithCount($category);
+        $category = $this->categoryRepository->getFromUrl($request_url);
+        $breadcrumbs = $this->categoryRepository->getBreadcrumb($category);
+        $products_box = $this->productRepository->getPaginateWithSublevelsProducts($category->id);
+        $inner_categories = $this->categoryRepository->getChildrenWithCount($category);
 
         if($request_url !== $category->url){
             abort( 404);
@@ -29,12 +28,12 @@ class CatalogController extends Controller
         }
     }
 
-    public function detail($category_id, $sub_categories = null, $product)
+    public function detail($sub_categories, $product)
     {
 
-        $product = ProductRepository::getForDetailPage($product);
+        $product = $this->productRepository->getForDetailPage($product);
 
-        $breadcrumbs = ProductRepository::getBreadcrumb($product);
+        $breadcrumbs = $this->productRepository->getBreadcrumb($product);
 
         return view('shop.detail', compact('product', 'breadcrumbs'));
     }
@@ -42,9 +41,9 @@ class CatalogController extends Controller
     public function index()
     {
 
-        $products_box = ProductRepository::getWithPaginate();
-        $category = CategoryRepository::getRootCategory();
-        $inner_categories = CategoryRepository::getChildrenWithCount($category);
+        $products_box = $this->productRepository->getPaginateWithSublevelsProducts();
+        $category = $this->categoryRepository->getRootCategory();
+        $inner_categories = $this->categoryRepository->getChildrenWithCount($category);
         return view('shop.section', compact('category', 'inner_categories', 'products_box'));
     }
 

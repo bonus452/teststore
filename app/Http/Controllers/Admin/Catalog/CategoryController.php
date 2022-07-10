@@ -32,10 +32,7 @@ class CategoryController extends Controller
 
     public function createForm(Request $request){
 
-
-        $category = Category::find(2);
-        $breadcrumbs = $this->categoryRepository->getBreadcrumb($category);
-        return view('admin.catalog.category.create_form', compact('category', 'breadcrumbs'));
+        return view('admin.catalog.category.create_form');
 
     }
 

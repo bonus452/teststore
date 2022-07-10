@@ -11,6 +11,11 @@ Breadcrumbs::for('admin.catalog.index', function ($trail) {
     $trail->parent('admin.index');
     $trail->push('Catalog', route('admin.catalog.index'));
 });
+//Admin->Create
+Breadcrumbs::for('admin.catalog.create_form', function ($trail) {
+    $trail->parent('admin.catalog.index');
+    $trail->push('New category', route('admin.catalog.create_form'));
+});
 
 
 

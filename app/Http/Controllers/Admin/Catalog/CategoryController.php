@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers\Admin\Catalog;
 
+use App\Helpers\DataRefactor;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CategoryRequest;
 use App\Models\Shop\Category;
 use App\Traits\HasAdminCatalogRepository;
+use Exception;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -31,13 +34,26 @@ class CategoryController extends Controller
     }
 
     public function createForm(Request $request){
-
-        return view('admin.catalog.category.create_form');
-
+        $perview_url = redirect()->back()->getTargetUrl();
+        $selectedCategory = $this->categoryRepository->getFromUrl($perview_url);
+        $categoriesTree = $this->categoryRepository->getForCombobox($selectedCategory);
+        return view('admin.catalog.category.create_form', compact('categoriesTree'));
     }
 
-    public function create(Request $request){
-        dd($request->all(), __METHOD__);
+    public function create(CategoryRequest $request){
+
+        try {
+            $category = $this->categoryService->store($request->all());
+        }catch (Exception $exception){
+            return back()
+                ->withInput()
+                ->withErrors(['category' => $exception->getMessage()]);
+        }
+
+        return redirect()
+            ->route('admin.catalog.edit_form', compact('category'))
+            ->with([RESULT_MESSAGE => 'Category created successfully']);
+
     }
 
 }

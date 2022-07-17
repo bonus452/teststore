@@ -3,16 +3,17 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Illuminate\Http\Request;
 use Spatie\Permission\Exceptions\UnauthorizedException;
 
 class PermissionMiddleware
 {
-    public function handle($request, Closure $next, $permission, $guard = null)
+    public function handle(Request $request, Closure $next, $permission, $guard = null)
     {
         $authGuard = app('auth')->guard($guard);
 
         if ($authGuard->guest()) {
-            return redirect()->route('login');
+            return redirect()->route('login')->withHeaders(['referer' => $request->getUri()]);
         }
 
         $permissions = is_array($permission)

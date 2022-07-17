@@ -3,8 +3,9 @@
 namespace App\Repository;
 
 use App\Models\Shop\Category;
+use App\Models\Shop\Product;
 use App\Repository\Breadcrumbs\CoreBreadcrumb;
-use App\Repository\Breadcrumbs\Public\CategoryBreadcrumb;
+use App\Repository\Breadcrumbs\Shop\CategoryBreadcrumb;
 use Illuminate\Support\Collection;
 
 abstract class CatalogRepository
@@ -23,7 +24,8 @@ abstract class CatalogRepository
 
     public function getCountByCategories(array $categories) :int
     {
-        $result = (new Category())->whereIn('category_id', $categories)->count();
+        $result = (new Product())->whereIn('category_id', $categories);
+        $result = $result->count();
         return $result;
     }
 

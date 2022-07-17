@@ -13,7 +13,7 @@ class RoleMiddleware
         $authGuard = Auth::guard($guard);
 
         if ($authGuard->guest()) {
-            redirect()->route('login');
+            redirect()->route('login')->withHeaders(['referer' => $request->getUri()]);
         }
 
         $roles = is_array($role)

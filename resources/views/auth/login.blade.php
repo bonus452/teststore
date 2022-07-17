@@ -82,23 +82,23 @@
                             <form class="login" method="POST" action="{{ route('register') }}">
                                 @csrf
 
-                                @include('include.error_message', ['field' => 'name'])
+                                @include('include.messages.error_message', ['field' => 'name'])
                                 <input id="name" type="text"
                                        @error('name') class="is-invalid" @enderror name="name"
                                        value="{{ old('name') }}" required autocomplete="name" autofocus
                                        placeholder="Name*">
 
-                                @include('include.error_message', ['field' => 'email'])
+                                @include('include.messages.error_message', ['field' => 'email'])
                                 <input id="email" type="email"
                                        @error('email') class="is-invalid" @enderror name="email"
                                        value="{{ old('email') }}" required autocomplete="email" placeholder="Email*">
 
-                                @include('include.error_message', ['field' => 'password'])
+                                @include('include.messages.error_message', ['field' => 'password'])
                                 <input id="password" type="password"
                                        @error('password') class="is-invalid" @enderror name="password"
                                        required placeholder="Password*">
 
-                                @include('include.error_message', ['field' => 'password'])
+                                @include('include.messages.error_message', ['field' => 'password'])
                                 <input id="password-confirm" type="password"
                                        name="password_confirmation" required placeholder="Password confirm*">
 

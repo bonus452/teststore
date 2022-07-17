@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Shop;
 
 use App\Helpers\DataRefactor;
 use App\Http\Controllers\Controller;
+use App\Models\Shop\Category;
 use App\Traits\HasCatalogRepositories;
 use Illuminate\Http\Request;
 
@@ -30,16 +31,15 @@ class CatalogController extends Controller
 
     public function detail($sub_categories, $product)
     {
-
         $product = $this->productRepository->getForDetailPage($product);
-
         $breadcrumbs = $this->productRepository->getBreadcrumb($product);
-
         return view('shop.detail', compact('product', 'breadcrumbs'));
     }
 
     public function index()
     {
+        $test = new Category();
+        $test->where('slug', 'reilly')->get();
 
         $products_box = $this->productRepository->getPaginateWithSublevelsProducts();
         $category = $this->categoryRepository->getRootCategory();

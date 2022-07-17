@@ -6,6 +6,9 @@ use App\Models\Shop\Category;
 use App\Models\Shop\Product as Model;
 use Illuminate\Support\Collection;
 
+
+
+
 class ProductRepository extends CatalogRepository
 {
 
@@ -41,7 +44,6 @@ class ProductRepository extends CatalogRepository
 
     public function getPaginateWithCategories(Category $parent = null)
     {
-
 
         $parent = $parent ?? $this->getRootCategory();
         $categories = $parent->child()

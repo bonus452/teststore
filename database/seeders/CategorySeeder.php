@@ -22,8 +22,8 @@ class CategorySeeder extends Seeder
 
         DB::table('categories')->insert([
             'title' => 'Коренева директорія',
-            'slug' => '_',
-            'url' => '_'
+            'slug' => '',
+            'url' => ''
         ]);
 
         for ($num = 1; $num < 100; $num++) {

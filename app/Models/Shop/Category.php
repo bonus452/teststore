@@ -41,14 +41,26 @@ use stdClass;
  * @method static Builder|Category whereUrl($value)
  * @property-read \Illuminate\Database\Eloquent\Collection|Category[] $child
  * @property-read int|null $child_count
+ * @property-read mixed $admin_url
+ * @property-read mixed $edit_url
  */
 class Category extends Model implements RowGetteble
 {
     use HasFactory;
 
-    private Collection $sub_categories;
-    private int $count_products;
-    protected $fillable = ['title', 'slug', 'url', 'img', 'parent_id'];
+    protected Collection $sub_categories;
+    protected int $count_products;
+    protected $fillable = ['title', 'slug', 'url', 'img'];
+
+    protected $customProperties = [];
+
+    public function getCustomProp($key){
+        return $this->customProperties[$key] ?? null;
+    }
+
+    public function setCustomProp($key, $value){
+        $this->customProperties[$key] = $value;
+    }
 
     public function getCountProducts(): int
     {

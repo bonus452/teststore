@@ -5,6 +5,7 @@
 @section('title', $category->title)
 @section('h1', $category->title)
 
+
 @section('content')
     <!-- Start Our ShopSide Area -->
     <section class="htc__shop__sidebar bg__white ptb--120">
@@ -149,12 +150,12 @@
                                                         </ul>
                                                     </div>
                                                 </div>
+
                                                 <div class="product__details">
                                                     <h2><a href="{{ $product->url }}">{{ $product->name }}</a></h2>
                                                     <ul class="product__price">
                                                         <li class="old__price">$16.00</li>
-                                                        <li class="new__price">
-                                                            ${{ $product->offers->first()->price }}</li>
+                                                        <li class="new__price">${{ !is_null($product->offers->first()) ? $product->offers->first()->price : '' }}</li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -188,7 +189,7 @@
                                                     <h2><a href="product-details.html">{{ $product->name }}</a></h2>
                                                     <p>{{ $product->description }}</p>
                                                     <span
-                                                        class="product__price">${{ $product->offers->first()->price }}</span>
+                                                        class="product__price">${{ !is_null($product->offers->first()) ? $product->offers->first()->price : '' }}</span>
                                                     <div class="shop__btn">
                                                         <a class="htc__btn" href="cart.html"><span
                                                                 class="ti-shopping-cart"></span>Add to Cart</a>

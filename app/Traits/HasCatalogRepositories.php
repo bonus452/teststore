@@ -2,8 +2,8 @@
 
 namespace App\Traits;
 
-use App\Repository\Breadcrumbs\Public\CategoryBreadcrumb;
-use App\Repository\Breadcrumbs\Public\ProductBreadcrumb;
+use App\Repository\Breadcrumbs\Shop\CategoryBreadcrumb;
+use App\Repository\Breadcrumbs\Shop\ProductBreadcrumb;
 use App\Repository\CategoryRepository;
 use App\Repository\ProductRepository;
 

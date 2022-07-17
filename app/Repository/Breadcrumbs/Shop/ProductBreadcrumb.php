@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repository\Breadcrumbs\Public;
+namespace App\Repository\Breadcrumbs\Shop;
 
 use App\Interfaces\RowGetteble;
 

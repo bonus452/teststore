@@ -18,8 +18,8 @@ class CreateOfferPropertyTable extends Migration
             $table->unsignedBigInteger('property_id');
             $table->string('value');
 
-            $table->foreign('offer_id')->on('offers')->references('id');
-            $table->foreign('property_id')->on('properties')->references('id');
+            $table->foreign('offer_id')->references('id')->on('offers')->cascadeOnDelete();
+            $table->foreign('property_id')->references('id')->on('properties');
 
             $table->primary(['offer_id', 'property_id']);
         });
@@ -32,8 +32,6 @@ class CreateOfferPropertyTable extends Migration
      */
     public function down()
     {
-        Schema::table('offer_property', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('offer_property');
     }
 }

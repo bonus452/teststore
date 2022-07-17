@@ -89,16 +89,16 @@
                          with font-awesome or any other icon font library -->
                     <li class="nav-item">
                         <a href="{{ route('admin.catalog.list') }}" class="nav-link">
-                            <i class="nav-icon fas fas fa-folder"></i>
+                            <i class="nav-icon fas fa-store"></i>
                             <p>
-                                Catalog
+                                Shop
                                 <i class="right fas fa-angle-left"></i>
                             </p>
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
                                 <a href="{{ route('admin.catalog.list') }}" class="nav-link">
-                                    <p>Categories</p>
+                                    <p>Catalog</p>
                                 </a>
                             </li>
                         </ul>

@@ -21,16 +21,15 @@ Route::group([
 
 
                 Route::get('category-create', array(CategoryController::class, 'createForm'))
-                    ->where('sublevels', '.*')
                     ->name('create_form');
                 Route::post('category-create', array(CategoryController::class, 'create'))
-                    ->where('sublevels', '.*')
                     ->name('create');
 
 
                 Route::get('category-edit/{category}', array(CategoryController::class, 'editForm'))
-                    ->where('sublevels', '.*')
                     ->name('edit_form');
+                Route::patch('category-edit/{category}', array(CategoryController::class, 'update'))
+                    ->name('update');
 
                 Route::get('{sublevels?}', array(CategoryController::class, 'list'))
                     ->where('sublevels', '.*')

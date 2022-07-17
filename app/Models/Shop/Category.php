@@ -8,8 +8,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Collection;
-use stdClass;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 /**
  * App\Models\Shop\Category
@@ -43,6 +45,9 @@ use stdClass;
  * @property-read int|null $child_count
  * @property-read mixed $admin_url
  * @property-read mixed $edit_url
+ * @property-read mixed $img_src
+ * @property-read mixed $path_system
+ * @property-read mixed $img_path_system
  */
 class Category extends Model implements RowGetteble
 {
@@ -50,7 +55,7 @@ class Category extends Model implements RowGetteble
 
     protected Collection $sub_categories;
     protected int $count_products;
-    protected $fillable = ['title', 'slug', 'url', 'img'];
+    protected $fillable = ['title', 'slug', 'url', 'img', 'category_id'];
 
     protected $customProperties = [];
 
@@ -114,6 +119,31 @@ class Category extends Model implements RowGetteble
 
     public function getEditUrlAttribute(){
         return '/admin/catalog/category-edit/'.$this->id;
+    }
+
+    public function getImgAttribute($value){
+        $result = $value instanceof UploadedFile
+            ? $value
+            : '/storage/'. $value;
+        return $result;
+    }
+
+    public function getImgPathSystemAttribute(){
+        $src = $this->getRawOriginal('img');
+        if (!empty($src)){
+            $is_windows = strripos(php_uname() ,'windows') !== false;
+            $path = Storage::disk('public')->path($src);
+            return $is_windows ?
+                Str::replace("/", "\\",  $path) :
+                $path;
+        }else{
+            return false;
+        }
+
+    }
+
+    public function getResizedImage(){
+        $image = Image::make($this->img);
     }
 
 }

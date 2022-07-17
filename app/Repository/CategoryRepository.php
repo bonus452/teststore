@@ -63,7 +63,9 @@ class CategoryRepository extends CatalogRepository
     private function markSelectedCategory(Collection $categories, $selectedCategoryId)
     {
         $categories->transform(function ($category) use ($selectedCategoryId) {
-            if (in_array($category->id, [old('category_id'), $selectedCategoryId])) {
+
+            $check_category = old('category_id') ?? $selectedCategoryId;
+            if ($category->id == $check_category) {
                 $category->setCustomProp('selected', 'selected');
             }
             if ($category->getSubCategories()->isNotEmpty()) {

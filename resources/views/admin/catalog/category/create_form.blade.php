@@ -23,13 +23,15 @@
                 @include('include.form_blocks.input_text', [
                     'name' => 'title',
                     'label' => 'Title',
-                    'placeholder' => 'Enter title'
+                    'placeholder' => 'Enter title',
+                    'value' => old('title')
                 ])
 
                 @include('include.form_blocks.input_text', [
                     'name' => 'slug',
                     'label' => 'Slug',
-                    'placeholder' => 'Enter slug'
+                    'placeholder' => 'Enter slug',
+                    'value' => old('slug')
                 ])
 
                 <div class="form-group">

@@ -4,3 +4,8 @@
 .pagination-products nav{
     display: inline-block;
 }
+
+.preview-image{
+    height: 200px;
+    display: block;
+}

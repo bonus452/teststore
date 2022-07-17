@@ -40,7 +40,7 @@
                         @php /** @var \App\Models\Shop\Category $innerCAtegory */ @endphp
                         @foreach($categoriesTree as $innerCAtegory)
                             <option value="{{ $innerCAtegory->id }}" {{ $innerCAtegory->getCustomProp('selected') }}> {{ $innerCAtegory->title }}</option>
-                            @include('include.recursive_options', ['categories' => $innerCAtegory->getSubCategories(), 'level' => 1])
+                            @include('include.recursive_options', ['categories' => $innerCAtegory->getCustomProp('sub_categories'), 'level' => 1])
                         @endforeach
                     </select>
                 </div>

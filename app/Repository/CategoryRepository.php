@@ -51,7 +51,7 @@ class CategoryRepository extends CatalogRepository
     {
         $categories = $this->getCategoriesTree(1);
         $result = $this->getRootCategory();
-        $result->setSubCategories($categories);
+        $result->setCustomProp('sub_categories', $categories);
         $result = collect([$result]);
 
         $selectedCategoryId = $selectedCategory ? $selectedCategory->id : 0;
@@ -62,15 +62,19 @@ class CategoryRepository extends CatalogRepository
 
     private function markSelectedCategory(Collection $categories, $selectedCategoryId)
     {
+
+
         $categories->transform(function ($category) use ($selectedCategoryId) {
+            /** @var \App\Models\Shop\Category $category */
 
             $check_category = old('category_id') ?? $selectedCategoryId;
             if ($category->id == $check_category) {
                 $category->setCustomProp('selected', 'selected');
             }
-            if ($category->getSubCategories()->isNotEmpty()) {
-                $category->setSubCategories(
-                    $this->markSelectedCategory($category->getSubCategories(), $selectedCategoryId)
+            $sub_categories = $category->getCustomProp('sub_categories');
+            if ($sub_categories->isNotEmpty()) {
+                $category->setCustomProp('sub_categories',
+                    $this->markSelectedCategory($sub_categories, $selectedCategoryId)
                 );
             }
             return $category;
@@ -85,17 +89,18 @@ class CategoryRepository extends CatalogRepository
         $result->transform(function (Model $item) use ($all_categories) {
             $children = $this->getAllChildsList($item->id, $all_categories);
             $count_products = $this->getCountByCategories($children);
-            return $item->setCountProducts($count_products);
+            return $item->setCustomProp('count_products', $count_products);
         });
         return $result;
     }
 
-
     private function buildTree(Collection $categories, $pid)
     {
+        /** @var \App\Models\Shop\Category $cat */
+
         $found = $categories->where('category_id', $pid);
         foreach ($found as &$cat) {
-            $cat->setSubCategories($this->buildTree($categories, $cat->id));
+            $cat->setCustomProp('sub_categories', $this->buildTree($categories, $cat->id));
         }
         return $found;
     }

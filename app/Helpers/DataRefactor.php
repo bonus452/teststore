@@ -28,8 +28,8 @@ class DataRefactor
         foreach ($categories as $category) {
             $category->url = $url.'/'.$category->slug;
             $category->update();
-            if ($category->getSubCategories()->isNotEmpty()) {
-                self::setCategoryUrl($category->getSubCategories(), $category->getRawOriginal('url'));
+            if ($category->getCustomProp('sub_categories')->isNotEmpty()) {
+                self::setCategoryUrl($category->getCustomProp('sub_categories'), $category->getRawOriginal('url'));
             }
         }
     }

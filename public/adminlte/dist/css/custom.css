@@ -9,3 +9,55 @@
     height: 200px;
     display: block;
 }
+
+/*------------------------Product Card----------------------*/
+.edit-product-box{
+    border-right: 1px solid rgba(0,0,0,.125);
+}
+.card-footer{
+    background-color: white !important;
+}
+
+.offer-block{
+    border: 1px solid gray;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    background-color: rgba(0,0,0,.03);
+}
+.offer-block span,.offer-block  h6{
+    font-weight: bold;
+}
+.offer-block .prop-block>div, .offer-block  .offer-main>div{
+    display: inline-block;
+}
+.offer-block  .offer-main>div{
+    width: 49%;
+}
+.offer-block  h6{
+    margin-top: 10px;
+}
+.offer-props .card-title{
+    font-weight: bold !important;
+}
+.offer-props{
+    margin-top: 10px;
+}
+.prop-name{
+    width: 50%;
+    vertical-align: middle;
+}
+.offer-props table td{
+    border-top: none !important;
+}
+.offer-props table td.prop-name{
+    width: 50%;
+    vertical-align: middle;
+}
+.offer-props .card-header{
+    border-bottom: none !important;
+}
+.offer-props table td:last-child{
+    padding-bottom: 15px;
+}

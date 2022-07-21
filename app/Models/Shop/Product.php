@@ -49,9 +49,13 @@ class Product extends Model implements RowGetteble
         return $this->belongsTo(Category::class);
     }
 
-    public function getUrlAttribute(){
-        $category_url = $this->category->getRawOriginal('url');
-        return '/'. CATALOG_PATH . $category_url . '/detail-product/' . $this->slug;
+    public function getUrlAttribute($value){
+        $category_url = $this->category->url;
+        return $category_url . '/detail-product/' . $this->slug;
+    }
+
+    public function getAdminUrl(){
+        return '/admin/catalog/edit-product/' . $this->slug;
     }
 
 }

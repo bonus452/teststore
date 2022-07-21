@@ -94,11 +94,11 @@ class Category extends Model implements RowGetteble
         return '/' . CATALOG_PATH . $value;
     }
 
-    public function getAdminUrlAttribute(){
+    public function getAdminUrl(){
         return '/admin'  . $this->url;
     }
 
-    public function getEditUrlAttribute(){
+    public function getEditUrl(){
         return '/admin/catalog/category-edit/'.$this->id;
     }
 
@@ -120,11 +120,5 @@ class Category extends Model implements RowGetteble
         }else{
             return false;
         }
-
     }
-
-    public function getResizedImage(){
-        $image = Image::make($this->img);
-    }
-
 }

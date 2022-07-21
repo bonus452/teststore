@@ -14,7 +14,8 @@
                 <div class="card-header">
                     {{--                    <h3 class="card-title">Responsive Hover Table</h3>--}}
 
-                    <a href="{{ route('admin.catalog.create_form') }}" class="btn btn-primary">Create category</a>
+                    <a href="{{ route('admin.catalog.product.create_form') }}" class="btn btn-primary">Create product</a>
+                    <a href="{{ route('admin.catalog.category.create_form') }}" class="btn btn-default">Create category</a>
 
                     <div class="card-tools">
                         <div class="input-group input-group-sm" style="width: 150px;">
@@ -51,13 +52,13 @@
                                 <td>{{ $item->id }}</td>
                                 <td>
                                     @if($item->type == 'category')
-                                        <a href="{{ $item->edit_url }}">
+                                        <a href="{{ $item->getEditUrl() }}">
                                             <i class="fas fa-edit"></i>
                                         </a>
                                     @endif
                                 </td>
                                 <td>
-                                    <a href="{{ $item->admin_url }}">
+                                    <a href="{{ $item->getAdminUrl() }}">
                                         @if($item->type == 'category')
                                             <i class="fas fa-folder"></i>
                                         @elseif($item->type == 'product')

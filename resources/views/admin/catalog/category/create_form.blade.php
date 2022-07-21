@@ -16,7 +16,7 @@
 
 
         <!-- form start -->
-        <form action="{{ route('admin.catalog.create') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('admin.catalog.category.create') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="card-body">
 
@@ -57,7 +57,7 @@
             <!-- /.card-body -->
 
             <div class="card-footer">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Create</button>
             </div>
         </form>
     </div>

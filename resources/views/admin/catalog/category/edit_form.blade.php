@@ -19,7 +19,7 @@
 
 
         <!-- form start -->
-        <form action="{{ route('admin.catalog.update', $category) }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('admin.catalog.category.update', $category) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('patch')
             <div class="card-body">
@@ -68,7 +68,7 @@
             <!-- /.card-body -->
 
             <div class="card-footer">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Update</button>
             </div>
         </form>
     </div>

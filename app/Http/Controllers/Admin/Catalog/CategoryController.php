@@ -49,7 +49,7 @@ class CategoryController extends Controller
         }
 
         return redirect()
-            ->route('admin.catalog.edit_form', compact('category'))
+            ->route('admin.catalog.category.edit_form', compact('category'))
             ->with([RESULT_MESSAGE => 'Category updated successfully']);
     }
 
@@ -75,7 +75,7 @@ class CategoryController extends Controller
         }
 
         return redirect()
-            ->route('admin.catalog.edit_form', compact('category'))
+            ->route('admin.catalog.category.edit_form', compact('category'))
             ->with([RESULT_MESSAGE => 'Category created successfully']);
     }
 

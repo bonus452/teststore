@@ -14,9 +14,7 @@ class OfferFactory extends Factory
      */
     public function definition()
     {
-        $name = $this->faker->unique()->name();
         return [
-            'name' => $name,
             'article' => $this->faker->unique()->text(20),
             'price' => rand(3, 500000) / rand(3, 10),
             'product_id' => rand(1,500)

@@ -88,7 +88,7 @@ CodeMirror.defineMode('powershell', function() {
     /Limit-EventLog/,
     /Measure-(Command|Object)/,
     /Move-Item(Property)?/,
-    new RegExp('New-(Alias|Event|EventLog|Item(Property)?|Module|ModuleManifest|Object|PSDrive|PSSession|PSSessionConfigurationFile'
+    new RegExp('New-(Alias|Event|EventLog|Item(PropertyValue)?|Module|ModuleManifest|Object|PSDrive|PSSession|PSSessionConfigurationFile'
       + '|PSSessionOption|PSTransportOption|Service|TimeSpan|Variable|WebServiceProxy|WinEvent)'),
     /Out-(Default|File|GridView|Host|Null|Printer|String)/,
     /Pause/,
@@ -106,7 +106,7 @@ CodeMirror.defineMode('powershell', function() {
     /Save-Help/,
     /Select-(Object|String|Xml)/,
     /Send-MailMessage/,
-    new RegExp('Set-(Acl|Alias|AuthenticodeSignature|Content|Date|ExecutionPolicy|Item(Property)?|Location|PSBreakpoint|PSDebug' +
+    new RegExp('Set-(Acl|Alias|AuthenticodeSignature|Content|Date|ExecutionPolicy|Item(PropertyValue)?|Location|PSBreakpoint|PSDebug' +
                '|PSSessionConfiguration|Service|StrictMode|TraceSource|Variable|WmiInstance)'),
     /Show-(Command|ControlPanelItem|EventLog)/,
     /Sort-Object/,

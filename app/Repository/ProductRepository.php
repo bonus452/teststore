@@ -70,7 +70,19 @@ class ProductRepository extends CatalogRepository
 
     public function getForDetailPage($product): Model
     {
-        $product = $this->getInstance()->where('slug', $product)->first();
+        $product = $this->getInstance()->where('slug', $product)
+            ->with(['offers' => function($query){
+                $query->with(['properties' => function($query){
+                    $query->with('property_name');
+                }]);
+            }])
+            ->with(['properties' => function($query){
+                $query->with('property_name');
+            }])
+            ->first();
+
+
+
         return $product;
     }
 

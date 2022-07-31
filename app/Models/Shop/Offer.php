@@ -34,6 +34,10 @@ class Offer extends Model
 {
     use HasFactory;
 
+    public function properties(){
+        return $this->morphToMany(PropertyValue::class,'propertable');
+    }
+
     public function getPriceAttribute($value){
         $value = floatval($value);
         return number_format($value, 2, '.', ' ');

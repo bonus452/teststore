@@ -1275,7 +1275,7 @@ $.extend( ColReorder.prototype, {
 	/**
 	 * Get cursor position regardless of mouse or touch input
 	 * @param  {Event}  e    jQuery Event
-	 * @param  {string} prop Property to get
+	 * @param  {string} prop PropertyValue to get
 	 * @return {number}      Value
 	 */
 	_fnCursorPosition: function ( e, prop ) {

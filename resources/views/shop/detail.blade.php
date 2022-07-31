@@ -6,7 +6,7 @@
 @section('content')
 
     @php /** @var \App\Models\Shop\Product $product */ @endphp
-    <!-- Start Product Details -->
+        <!-- Start Product Details -->
     <section class="htc__product__details pt--100 pb--100 bg__white">
         <div class="container">
             <div class="scroll-active">
@@ -44,7 +44,7 @@
                             </div>
                             <ul class="pro__dtl__prize">
                                 <li class="old__prize">$15.21</li>
-                                <li>${{ $product->offers->first()->price }}</li>
+                                {{--                                <li>${{ $product->offers->first()->price }}</li>--}}
                             </ul>
                             <div class="pro__dtl__color">
                                 <h2 class="title__5">Choose Colour</h2>
@@ -71,7 +71,8 @@
                                     <form id='myform' method='POST' action='#'>
                                         <div class="product-quantity">
                                             <div class="cart-plus-minus">
-                                                <input class="cart-plus-minus-box" type="text" name="qtybutton" value="02">
+                                                <input class="cart-plus-minus-box" type="text" name="qtybutton"
+                                                       value="02">
                                             </div>
                                         </div>
                                     </form>
@@ -107,9 +108,11 @@
                         <li role="presentation" class="active">
                             <a href="#description" role="tab" data-toggle="tab">Description</a>
                         </li>
-                        <li role="presentation">
-                            <a href="#sheet" role="tab" data-toggle="tab">Data sheet</a>
-                        </li>
+                        @if($product->properties->isNotEmpty())
+                            <li role="presentation">
+                                <a href="#sheet" role="tab" data-toggle="tab">Characteristics</a>
+                            </li>
+                        @endif
                         <li role="presentation">
                             <a href="#reviews" role="tab" data-toggle="tab">Reviews</a>
                         </li>
@@ -124,35 +127,44 @@
                             <div class="product__description__wrap">
                                 <div class="product__desc">
                                     <h2 class="title__6">Details</h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis noexercit ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id.</p>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                                        noexercit ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                                        irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                                        nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
+                                        qui officia deserunt mollit anim id.</p>
                                 </div>
                                 <div class="pro__feature">
                                     <h2 class="title__6">Features</h2>
                                     <ul class="feature__list">
-                                        <li><a href="#"><i class="zmdi zmdi-play-circle"></i>Duis aute irure dolor in reprehenderit in voluptate velit esse</a></li>
-                                        <li><a href="#"><i class="zmdi zmdi-play-circle"></i>Irure dolor in reprehenderit in voluptate velit esse</a></li>
-                                        <li><a href="#"><i class="zmdi zmdi-play-circle"></i>Sed do eiusmod tempor incididunt ut labore et </a></li>
-                                        <li><a href="#"><i class="zmdi zmdi-play-circle"></i>Nisi ut aliquip ex ea commodo consequat.</a></li>
+                                        <li><a href="#"><i class="zmdi zmdi-play-circle"></i>Duis aute irure dolor in
+                                                reprehenderit in voluptate velit esse</a></li>
+                                        <li><a href="#"><i class="zmdi zmdi-play-circle"></i>Irure dolor in
+                                                reprehenderit in voluptate velit esse</a></li>
+                                        <li><a href="#"><i class="zmdi zmdi-play-circle"></i>Sed do eiusmod tempor
+                                                incididunt ut labore et </a></li>
+                                        <li><a href="#"><i class="zmdi zmdi-play-circle"></i>Nisi ut aliquip ex ea
+                                                commodo consequat.</a></li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                         <!-- End Single Content -->
                         <!-- Start Single Content -->
-                        <div role="tabpanel" id="sheet" class="product__tab__content fade">
-                            <div class="pro__feature">
-                                <h2 class="title__6">Data sheet</h2>
-                                <ul class="feature__list">
-                                    <li><a href="#"><i class="zmdi zmdi-play-circle"></i>Duis aute irure dolor in reprehenderit in voluptate velit esse</a></li>
-                                    <li><a href="#"><i class="zmdi zmdi-play-circle"></i>Irure dolor in reprehenderit in voluptate velit esse</a></li>
-                                    <li><a href="#"><i class="zmdi zmdi-play-circle"></i>Irure dolor in reprehenderit in voluptate velit esse</a></li>
-                                    <li><a href="#"><i class="zmdi zmdi-play-circle"></i>Sed do eiusmod tempor incididunt ut labore et </a></li>
-                                    <li><a href="#"><i class="zmdi zmdi-play-circle"></i>Sed do eiusmod tempor incididunt ut labore et </a></li>
-                                    <li><a href="#"><i class="zmdi zmdi-play-circle"></i>Nisi ut aliquip ex ea commodo consequat.</a></li>
-                                    <li><a href="#"><i class="zmdi zmdi-play-circle"></i>Nisi ut aliquip ex ea commodo consequat.</a></li>
-                                </ul>
+                        @if($product->properties->isNotEmpty())
+                            <div role="tabpanel" id="sheet" class="product__tab__content fade">
+                                <div class="pro__feature">
+                                    <h2 class="title__6">Characteristics</h2>
+                                    <ul class="feature__list">
+                                        @foreach($product->properties as $property)
+                                            <li><strong>{{ $property->property_name->name }}
+                                                    :</strong> {{ $property->value }}</li>
+
+                                        @endforeach
+                                    </ul>
+                                </div>
                             </div>
-                        </div>
+                        @endif
                         <!-- End Single Content -->
                         <!-- Start Single Content -->
                         <div role="tabpanel" id="reviews" class="product__tab__content fade">
@@ -180,7 +192,9 @@
                                         <div class="review__date">
                                             <span>27 Jun, 2016 at 2:30pm</span>
                                         </div>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer accumsan egestas elese ifend. Phasellus a felis at estei to bibendum feugiat ut eget eni Praesent et messages in con sectetur posuere dolor non.</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer accumsan
+                                            egestas elese ifend. Phasellus a felis at estei to bibendum feugiat ut eget
+                                            eni Praesent et messages in con sectetur posuere dolor non.</p>
                                     </div>
                                 </div>
                                 <!-- End Single Review -->
@@ -207,14 +221,16 @@
                                         <div class="review__date">
                                             <span>27 Jun, 2016 at 2:30pm</span>
                                         </div>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer accumsan egestas elese ifend. Phasellus a felis at estei to bibendum feugiat ut eget eni Praesent et messages in con sectetur posuere dolor non.</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer accumsan
+                                            egestas elese ifend. Phasellus a felis at estei to bibendum feugiat ut eget
+                                            eni Praesent et messages in con sectetur posuere dolor non.</p>
                                     </div>
                                 </div>
                                 <!-- End Single Review -->
                             </div>
                             <!-- Start RAting Area -->
                             <div class="rating__wrap">
-                                <h2 class="rating-title">Write  A review</h2>
+                                <h2 class="rating-title">Write A review</h2>
                                 <h4 class="rating-title-2">Your Rating</h4>
                                 <div class="rating__list">
                                     <!-- Start Single List -->

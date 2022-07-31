@@ -356,7 +356,7 @@
       }
       if (type && type.charAt(0) == "@") {
 
-        // Property Lookup
+        // PropertyValue Lookup
         if (stream.indentation() > 0 && wordIsProperty(stream.current().slice(1))) {
           override = "variable-2";
           return "block";

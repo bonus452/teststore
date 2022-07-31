@@ -2370,7 +2370,7 @@
             }
         };
         /**
-         * Gets the selection list from the previous state and stores it in the selectionList Property
+         * Gets the selection list from the previous state and stores it in the selectionList PropertyValue
          */
         SearchPanes.prototype._getState = function () {
             var loadedFilter = this.s.dt.state.loaded();

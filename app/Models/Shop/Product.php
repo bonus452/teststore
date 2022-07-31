@@ -34,6 +34,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property-read int|null $offers_count
  * @property string|null $description
  * @method static \Illuminate\Database\Eloquent\Builder|Product whereDescription($value)
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Shop\PropertyValue[] $properties
+ * @property-read int|null $properties_count
  */
 class Product extends Model implements RowGetteble
 {
@@ -47,6 +49,10 @@ class Product extends Model implements RowGetteble
     public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class);
+    }
+
+    public function properties(){
+        return $this->morphToMany(PropertyValue::class,'propertable');
     }
 
     public function getUrlAttribute(){

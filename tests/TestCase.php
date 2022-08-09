@@ -2,6 +2,12 @@
 
 namespace Tests;
 
+use App\Models\Shop\Offer;
+use App\Models\Shop\Product;
+use Database\Seeders\CategorySeeder;
+use Database\Seeders\PropertySeeder;
+use Database\Seeders\RoleSeeder;
+use Database\Seeders\UserSeeder;
 use Faker\Factory;
 use Faker\Generator;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
@@ -12,21 +18,11 @@ abstract class TestCase extends BaseTestCase
 {
     use CreatesApplication, DatabaseMigrations;
 
-    private Generator $faker;
 
-    public function setUp()
-    : void {
-
-        parent::setUp();
-        $this->faker = Factory::create();
-        Artisan::call('migrate:refresh');
-    }
-
-//    public function __get($key) {
-//
-//        if ($key === 'faker')
-//            return $this->faker;
-//        throw new Exception('Unknown Key Requested');
+//    public function setUp(): void
+//    {
+//        parent::setUp();
+////        Artisan::call('migrate:refresh');
 //    }
 
 }

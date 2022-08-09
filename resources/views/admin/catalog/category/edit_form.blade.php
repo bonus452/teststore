@@ -49,7 +49,7 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    @isset($category->img)
+                    @if(!empty($category->img_path_system))
                         <label for="img">Change image</label>
                         <img src="{{ $category->img }}" alt="{{ $category->title }}" class="preview-image">
                         <br>

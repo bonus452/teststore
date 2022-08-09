@@ -1,63 +1,237 @@
-.pagination-products{
+.pagination-products {
     text-align: center;
 }
-.pagination-products nav{
+
+.pagination-products nav {
     display: inline-block;
 }
 
-.preview-image{
+.preview-image {
     height: 200px;
     display: block;
 }
 
 /*------------------------Product Card----------------------*/
-.edit-product-box{
-    border-right: 1px solid rgba(0,0,0,.125);
+.edit-product-box {
+    border-right: 1px solid rgba(0, 0, 0, .125);
 }
-.card-footer{
+
+.card-footer {
     background-color: white !important;
 }
 
-.offer-block{
+.offer-block {
     border: 1px solid gray;
     padding: 10px;
     border-radius: 5px;
-    cursor: pointer;
     margin-bottom: 10px;
-    background-color: rgba(0,0,0,.03);
+    background-color: rgba(0, 0, 0, .03);
 }
-.offer-block span,.offer-block  h6{
+
+.rolled-up {
+    cursor: pointer;
+}
+
+.offer-block span, .offer-block h6 {
     font-weight: bold;
 }
-.offer-block .prop-block>div, .offer-block  .offer-main>div{
+
+.offer-block .prop-block > div, .offer-block .offer-main > div {
     display: inline-block;
 }
-.offer-block  .offer-main>div{
-    width: 49%;
+
+.offer-block .offer-main > div.article, .offer-block .offer-main > div.price {
+    width: 40%;
 }
-.offer-block  h6{
+
+.offer-block h6 {
     margin-top: 10px;
 }
-.offer-props .card-title{
+
+.new-offer {
+    text-align: center;
+
+}
+
+.new-offer > a > img {
+    height: 25px;
+}
+
+.new-offer > a {
+    font-weight: bold;
+    color: black;
+}
+
+.offer-props .card-title {
     font-weight: bold !important;
 }
-.offer-props{
+
+.offer-props {
     margin-top: 10px;
 }
-.prop-name{
+.offer-props input{
+    float: left;
+}
+.delete-btn-prop{
+    margin-top: 1px !important;
+    height: 35px;
+}
+
+.prop-name {
     width: 50%;
     vertical-align: middle;
 }
-.offer-props table td{
+
+div[class="list-values"]{
+    margin-top: 38px;
+}
+
+.offer-props table td {
     border-top: none !important;
 }
-.offer-props table td.prop-name{
+
+.offer-props table td.prop-name {
     width: 50%;
     vertical-align: middle;
 }
-.offer-props .card-header{
+
+.offer-props .card-header {
     border-bottom: none !important;
 }
-.offer-props table td:last-child{
+
+.offer-props table td:last-child {
     padding-bottom: 15px;
+}
+
+.offer-main {
+    padding-bottom: 15px;
+}
+
+.offer-main .text-value, .offer-main input {
+    display: inline-block;
+}
+
+.offer-block.rolled-up {
+    height: 45px;
+    overflow: hidden;
+}
+
+.new-offer {
+    height: 45px;
+    cursor: pointer;
+}
+
+.delete-btn, .delete-btn-prop {
+    display: inline-block;
+    width: 35px;
+    float: right;
+    margin-top: -4px;
+}
+
+.delete-btn-prop{
+    float: left;
+}
+
+.offer-block .form-control {
+    width: 140px;
+    margin-right: 5px;
+}
+
+.btn-add-prop{
+    width: 50%;
+    margin: 0 auto;
+}
+
+.btn-add-prop-popup{
+    margin: 0 auto;
+    margin-top: 12px;
+    display: block;
+}
+
+
+/*-------------------------------------dinamic dropdown-box----------------------*/
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #BBB #EEE;
+}
+
+*::-webkit-scrollbar {
+    width: 10px;
+}
+
+*::-webkit-scrollbar-track {
+    background: #C0C3C6;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 10px;
+    border: 3px solid #C0C3C6;
+}
+
+table {
+    width: 400px;
+    margin: 0 auto;
+    background: #EEE;
+    font-family: Arial;
+    padding: 10px 30px;
+    border-radius: 5px;
+    box-shadow: 0 5px 5px -5px #000;
+    --border: 1px solid #ABC;
+}
+table td {
+    padding-bottom: 10px;
+}
+table h4 {
+    text-align: center;
+    color: #567;
+    border: 1px solid #567;
+    border-radius: 3px;
+    padding: 15px 0;
+}
+input {
+    padding: 10px;
+    font-size: 1em;
+    width: calc(100% - 20px);
+    border: var(--border);
+    border-radius: 3px;
+}
+input[list]:focus {
+    outline: none;
+}
+input[list] + div[list] {
+    display: none;
+    position: absolute;
+    width: 100%;
+    max-height: 164px;
+    overflow-y: auto;
+    max-width: 330px;
+    background: #FFF;
+    border: var(--border);
+    border-top: none;
+    border-radius: 0 0 5px 5px;
+    box-shadow: 0 3px 3px -3px #333;
+    z-index: 100;
+}
+input[list] + div[list] span {
+    display: block;
+    padding: 7px 5px 7px 20px;
+    color: #069;
+    text-decoration: none;
+    cursor: pointer;
+}
+input[list] + div[list] span:not(:last-child) {
+    border-bottom: 1px solid #EEE;
+}
+input[list] + div[list] span:hover {
+    background: rgba(100, 120, 140, .2);
+}
+
+table .instructions {
+    font-size: .9em;
+    color: #900;
+}
+table .instructions b {
+    color: #123;
 }

@@ -18,13 +18,13 @@ class CatalogController extends Controller
 
         $request_url = $request->getPathInfo();
         $category = $this->categoryRepository->getFromUrl($request_url);
-        $breadcrumbs = $this->categoryRepository->getBreadcrumb($category);
-        $products_box = $this->productRepository->getPaginateWithSublevelsProducts($category->id);
-        $inner_categories = $this->categoryRepository->getChildrenWithCount($category);
 
-        if($request_url !== $category->url){
+        if(is_null($category) || $request_url !== $category->url){
             abort( 404);
         }else{
+            $breadcrumbs = $this->categoryRepository->getBreadcrumb($category);
+            $products_box = $this->productRepository->getPaginateWithSublevelsProducts($category->id);
+            $inner_categories = $this->categoryRepository->getChildrenWithCount($category);
             return view('shop.section', compact('category', 'breadcrumbs', 'inner_categories', 'products_box'));
         }
     }

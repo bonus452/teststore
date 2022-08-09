@@ -17,9 +17,10 @@ class CategoryObserver
      */
     public function creating(Category $category)
     {
-        $img = $category->img;
-        if ($img) {
-            $category->img = $img->store('images/category_images', 'public');
+        if ($category->img instanceof UploadedFile) {
+            if ($category->img) {
+                $category->img = $category->img->store('images/category_images', 'public');
+            }
         }
         return $category;
     }
@@ -38,9 +39,8 @@ class CategoryObserver
             File::delete($old_img);
         }
         if ($category->img instanceof UploadedFile) {
-            $img = $category->img;
-            if ($img) {
-                $category->img = $img->store('images/category_images', 'public');
+            if ($category->img) {
+                $category->img = $category->img->store('images/category_images', 'public');
             }
         }
         return $category;

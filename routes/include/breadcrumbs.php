@@ -11,6 +11,16 @@ Breadcrumbs::for('admin.catalog.index', function ($trail) {
     $trail->parent('admin.index');
     $trail->push('Catalog', route('admin.catalog.index'));
 });
+//Admin->Category->create
+Breadcrumbs::for('admin.catalog.category.create_form', function ($trail) {
+    $trail->parent('admin.catalog.index');
+    $trail->push('New Category', route('admin.catalog.category.create_form'));
+});
+//Admin->Product->create
+Breadcrumbs::for('admin.catalog.product.create_form', function ($trail) {
+    $trail->parent('admin.catalog.index');
+    $trail->push('New Product', route('admin.catalog.product.create_form'));
+});
 
 
 

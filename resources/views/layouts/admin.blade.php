@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title', 'Admin Panel | Dashboard')</title>
 
     <!-- Google Font: Source Sans Pro -->
@@ -15,8 +16,8 @@
     <link rel="stylesheet" href="/adminlte/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
     <!-- iCheck -->
     <link rel="stylesheet" href="/adminlte/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
-    <!-- JQVMap -->
-    <link rel="stylesheet" href="/adminlte/plugins/jqvmap/jqvmap.min.css">
+{{--    <!-- JQVMap -->--}}
+{{--    <link rel="stylesheet" href="/adminlte/plugins/jqvmap/jqvmap.min.css">--}}
     <!-- Theme style -->
     <link rel="stylesheet" href="/adminlte/dist/css/adminlte.min.css">
     <!-- overlayScrollbars -->
@@ -25,6 +26,8 @@
     <link rel="stylesheet" href="/adminlte/plugins/daterangepicker/daterangepicker.css">
     <!-- summernote -->
     <link rel="stylesheet" href="/adminlte/plugins/summernote/summernote-bs4.min.css">
+
+    <link rel="stylesheet" href="/adminlte/plugins/ekko-lightbox/ekko-lightbox.css">
 
     <link rel="stylesheet" href="/adminlte/dist/css/custom.css">
 </head>
@@ -170,8 +173,8 @@
 <!-- Sparkline -->
 <script src="/adminlte/plugins/sparklines/sparkline.js"></script>
 <!-- JQVMap -->
-<script src="/adminlte/plugins/jqvmap/jquery.vmap.min.js"></script>
-<script src="/adminlte/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+{{--<script src="/adminlte/plugins/jqvmap/jquery.vmap.min.js"></script>--}}
+{{--<script src="/adminlte/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>--}}
 <!-- jQuery Knob Chart -->
 <script src="/adminlte/plugins/jquery-knob/jquery.knob.min.js"></script>
 <!-- daterangepicker -->
@@ -188,8 +191,13 @@
 <!-- AdminLTE for demo purposes -->
 <script src="/adminlte/dist/js/demo.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="/adminlte/dist/js/pages/dashboard.js"></script>
+{{--<script src="/adminlte/dist/js/pages/dashboard.js"></script>--}}
+
+<script src="/adminlte/plugins/ekko-lightbox/ekko-lightbox.js"></script>
 
 <script src="/adminlte/custom.js"></script>
+
+@yield('custom-scripts')
+
 </body>
 </html>

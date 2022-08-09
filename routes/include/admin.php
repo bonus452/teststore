@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\Catalog\CategoryController;
 use App\Http\Controllers\Admin\Catalog\ProductController;
+use App\Http\Controllers\Admin\Catalog\PropertyController;
 use App\Http\Controllers\Admin\IndexController;
 
 Route::group([
@@ -10,9 +11,7 @@ Route::group([
     'as' => 'admin.'],
     function () {
 
-
         Route::get('/', [IndexController::class, 'index'])->name('index');
-
 
         Route::group([
             'prefix' => 'catalog',
@@ -21,31 +20,42 @@ Route::group([
                 Route::get('', array(CategoryController::class, 'index'))->name('index');
 
                 Route::group([
-                    'as' => 'category.'
+                    'as' => 'category.',
+                    'controller' => CategoryController::class
                 ], function () {
-                    Route::get('category-create', array(CategoryController::class, 'createForm'))
+                    Route::get('category-create','createForm')
                         ->name('create_form');
-                    Route::post('category-create', array(CategoryController::class, 'create'))
+                    Route::post('category-create','create')
                         ->name('create');
 
-                    Route::get('category-edit/{category}', array(CategoryController::class, 'editForm'))
+                    Route::get('category-edit/{category}','editForm')
                         ->name('edit_form');
-                    Route::patch('category-edit/{category}', array(CategoryController::class, 'update'))
+                    Route::patch('category-edit/{category}','update')
                         ->name('update');
                 });
 
                 Route::group([
-                    'as' => 'product.'
+                    'as' => 'product.',
+                    'controller' => ProductController::class
                 ], function () {
-                    Route::get('product-create', array(ProductController::class, 'showFormCreate'))
+                    Route::get('product-create', 'showFormCreate')
                         ->name('create_form');
-                    Route::patch('product-create', array(ProductController::class, 'create'))
+                    Route::post('product-create','create')
                         ->name('create');
 
-                    Route::get('product-update/{product}', array(ProductController::class, 'showFormUpdate'))
+                    Route::get('product-edit/{product}','showFormUpdate')
                         ->name('edit_form');
-                    Route::patch('product-update/{product}', array(ProductController::class, 'update'))
+                    Route::patch('product-update/{product}','update')
                         ->name('update');
+
+                });
+
+                Route::group([
+                    'as' => 'property.',
+                    'controller' => PropertyController::class
+                ], function () {
+                    Route::get('get-properties','getPropertyPopup')->name('get_properties');
+                    Route::post('set-property','setProperty');
                 });
 
 

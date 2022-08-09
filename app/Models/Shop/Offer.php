@@ -4,6 +4,7 @@ namespace App\Models\Shop;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\MorphToMany;
 
 /**
  * App\Models\Shop\Offer
@@ -29,18 +30,22 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Offer whereProductId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Offer whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Shop\PropertyValue[] $properties
+ * @property-read int|null $properties_count
  */
 class Offer extends Model
 {
     use HasFactory;
+    protected $fillable = ['article', 'price'];
 
-    public function properties(){
+    public function properties() : MorphToMany
+    {
         return $this->morphToMany(PropertyValue::class,'propertable');
     }
 
     public function getPriceAttribute($value){
         $value = floatval($value);
-        return number_format($value, 2, '.', ' ');
+        return number_format($value, 2, '.', '');
     }
 
 }

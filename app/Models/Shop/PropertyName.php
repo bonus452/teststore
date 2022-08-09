@@ -4,6 +4,7 @@ namespace App\Models\Shop;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * App\Models\Shop\PropertyName
@@ -24,4 +25,12 @@ use Illuminate\Database\Eloquent\Model;
 class PropertyName extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['name'];
+
+    public function propertyValues(): HasMany
+    {
+        return $this->hasMany(PropertyValue::class);
+    }
+
 }

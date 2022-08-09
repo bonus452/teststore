@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\MorphToMany;
 
 /**
  * App\Models\Shop\Product
@@ -41,6 +42,8 @@ class Product extends Model implements RowGetteble
 {
     use HasFactory;
 
+    protected $fillable = ['name', 'description', 'category_id', 'slug'];
+
     public function offers(): HasMany
     {
         return $this->hasMany(Offer::class);
@@ -51,7 +54,8 @@ class Product extends Model implements RowGetteble
         return $this->belongsTo(Category::class);
     }
 
-    public function properties(){
+    public function properties() : MorphToMany
+    {
         return $this->morphToMany(PropertyValue::class,'propertable');
     }
 
@@ -61,7 +65,7 @@ class Product extends Model implements RowGetteble
     }
 
     public function getAdminUrl(){
-        return '/admin/catalog/edit-product/' . $this->slug;
+        return '/admin/catalog/product-edit/' . $this->id;
     }
 
 }

@@ -47,11 +47,11 @@
                         <div class="form-group">
                             <label for="category_id">Parent category</label>
                             <select class="custom-select" id="category_id" name="category_id">
-                                @php /** @var \App\Models\Shop\Category $innerCAtegory */ @endphp
-                                @foreach($categoriesTree as $innerCAtegory)
+                                @php /** @var \App\Models\Shop\Category $innerCategory */ @endphp
+                                @foreach($categoriesTree as $innerCategory)
                                     <option
-                                        value="{{ $innerCAtegory->id }}" {{ $innerCAtegory->getCustomProp('selected') }}> {{ $innerCAtegory->title }}</option>
-                                    @include('include.recursive_options', ['categories' => $innerCAtegory->getCustomProp('sub_categories'), 'level' => 1])
+                                        value="{{ $innerCategory->id }}" {{ $innerCategory->getCustomProp('selected') }}> {{ $innerCategory->title }}</option>
+                                        @include('include.recursive_options', ['categories' => $innerCategory->getCustomProp('sub_categories'), 'level' => 1])
                                 @endforeach
                             </select>
                         </div>
@@ -64,53 +64,18 @@
                         {{--                        </div>--}}
                         {{--                    </div>--}}
                         {{--                </div>--}}
+                        <label for="description">Description</label>
+                        <textarea class="form-control" rows="6" name="description" placeholder="Description ...">{{ old('description') }}</textarea>
+
                     </div>
-                    <div class="col-md-6 card-body">
+                    <div class="col-md-6 card-body offers-block">
                         <h5>Product offers</h5>
 
-                        <div class="offer-block">
-                            <div class="offer-main">
-                                <div class="article"><span>Article</span>: R6554324</div>
-                                <div class="price"><span>Price</span>: 1 543 $</div>
-                            </div>
-                            <div class="offer-props">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h3 class="card-title">Properties</h3>
-                                    </div>
-                                    <!-- /.card-header -->
-                                    <div class="card-body p-0">
-                                        <table class="table table-sm">
-                                            <tbody>
-                                            <tr>
-                                                <td class="prop-name">Color</td>
-                                                <td>
-                                                    <input type="text" class="form-control" name="color" value="red">
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Size</td>
-                                                <td>
-                                                    <input type="text" class="form-control" name="size" value="XXL">
-                                                </td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <!-- /.card-body -->
-                                </div>
-                            </div>
-                        </div>
+                        @include('include.form_blocks.offer_card')
 
-                        <div class="offer-block">
-                            <div class="offer-main">
-                                <div class="article"></div>
-                                <div class="price"></div>
-                            </div>
-                            <div class="offer-props">
-                                <div class="prop-name"></div>
-                                <div class="prop-value"></div>
-                            </div>
+
+                        <div class="new-offer">
+                            <button type="button" class="btn btn-block btn-dark btn-flat">Add new offer</button>
                         </div>
 
                     </div>
@@ -119,10 +84,14 @@
             <!-- /.card-body -->
 
             <div class="card-footer">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Create</button>
             </div>
         </form>
 
     </div>
 
+@endsection
+
+@section('custom-scripts')
+    @include('scripts.admin.start_state_for_offers')
 @endsection

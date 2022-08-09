@@ -34,6 +34,8 @@ class PropertyValue extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['value'];
+
     public function property_name(){
         return $this->belongsTo(PropertyName::class);
     }

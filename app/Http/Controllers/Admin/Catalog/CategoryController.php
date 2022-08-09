@@ -57,10 +57,16 @@ class CategoryController extends Controller
     {
         $perview_url = redirect()->back()->getTargetUrl();
         $selectedCategory = $this->categoryRepository->getFromUrl($perview_url);
-
         $categoriesTree = $this->categoryRepository->getForCombobox($selectedCategory);
-        $breadcrumbs = $this->categoryRepository->getBreadcrumb($selectedCategory);
-        return view('admin.catalog.category.create_form', compact('categoriesTree', 'breadcrumbs'));
+
+        if(!is_null($selectedCategory)){
+            $breadcrumbs = $this->categoryRepository->getBreadcrumb($selectedCategory);
+            return view('admin.catalog.category.create_form',
+                compact('categoriesTree', 'breadcrumbs'));
+        }else{
+            return view('admin.catalog.category.create_form',
+                compact('categoriesTree'));
+        }
     }
 
     public function create(CategoryRequest $request)

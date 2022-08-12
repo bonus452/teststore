@@ -5,7 +5,7 @@ namespace App\Rules;
 use App\Models\Shop\PropertyName;
 use Illuminate\Contracts\Validation\Rule;
 
-class PropertyExist implements Rule
+class PropertyExistInDB implements Rule
 {
     /**
      * Create a new rule instance.
@@ -27,7 +27,7 @@ class PropertyExist implements Rule
     public function passes($attribute, $value)
     {
         $property_ids = array_keys($value);
-        if (PropertyName::whereIn('id', $property_ids)->exists()){
+        if (empty($value) || PropertyName::whereIn('id', $property_ids)->exists()){
             return true;
         }else{
             return false;

@@ -3,7 +3,7 @@
 namespace App\Http\Requests;
 
 use App\Rules\ArticlesUnique;
-use App\Rules\PropertyExist;
+use App\Rules\PropertyExistInDB;
 use Illuminate\Foundation\Http\FormRequest;
 
 class ProductRequest extends FormRequest
@@ -23,9 +23,11 @@ class ProductRequest extends FormRequest
         $offers = $this->offers;
         foreach ($offers as &$offer){
             $offer['properties'] = $offer['properties'] ?? array();
-            foreach ($offer['properties'] as &$property){
-                if(empty($property)){
-                    unset($property);
+            if (is_array($offer['properties'])) {
+                foreach ($offer['properties'] as &$property) {
+                    if (empty($property)) {
+                        unset($property);
+                    }
                 }
             }
         }
@@ -46,6 +48,7 @@ class ProductRequest extends FormRequest
             'slug' => 'nullable|string|max:255',
             'description' => 'nullable|string|max:65535',
             'offers' => [
+                'bail',
                 'array',
                 'required',
                 new ArticlesUnique()
@@ -58,7 +61,7 @@ class ProductRequest extends FormRequest
             'offers.*.price' => 'required|numeric|min:0|max:99999999',
             'offers.*.id' => 'exists:offers',
             'offers.*.properties.*' => 'string|max:255',
-            'offers.*.properties' => new PropertyExist(),
+            'offers.*.properties' => ['bail', 'array', new PropertyExistInDB()],
 
         ];
     }

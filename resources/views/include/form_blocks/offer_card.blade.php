@@ -1,6 +1,6 @@
 @php /** @var \App\Models\Shop\Product $product */ @endphp
 
-@if($product->offers->isNotEmpty())
+@if(isset($product) && $product->offers->isNotEmpty())
 
     @foreach($product->offers as $offer)
         <div class="offer-block">

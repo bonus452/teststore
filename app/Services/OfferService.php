@@ -22,8 +22,10 @@ class OfferService
         $result = new ElCollection();
         foreach ($offers as $arr_offer) {
             $offer = $product->offers()->create($arr_offer);
-            $property_values = $this->propertyService->findOrCreateValues($arr_offer['properties']);
-            $offer->properties()->sync($property_values);
+            if(isset($arr_offer['properties'])){
+                $property_values = $this->propertyService->findOrCreateValues($arr_offer['properties']);
+                $offer->properties()->sync($property_values);
+            }
             $result->add($offer);
         }
         return $result;
@@ -35,8 +37,10 @@ class OfferService
         foreach ($offers as $offer) {
             $db_offer = $db_offers->find($offer['id']);
             $db_offer->update($offer);
-            $property_values = $this->propertyService->findOrCreateValues($offer['properties']);
-            $db_offer->properties()->sync($property_values);
+            if(isset($offer['properties'])) {
+                $property_values = $this->propertyService->findOrCreateValues($offer['properties']);
+                $db_offer->properties()->sync($property_values);
+            }
         }
     }
 

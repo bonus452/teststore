@@ -50,7 +50,7 @@ class ProductController extends Controller
             compact('product', 'categoriesTree', 'breadcrumbs'));
     }
 
-    public function update(Product $product, Request $request)
+    public function update(Product $product, ProductRequest $request)
     {
         try {
             $this->productService->update($product, $request->except('offers'));

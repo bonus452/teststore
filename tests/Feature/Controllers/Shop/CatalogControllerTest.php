@@ -15,40 +15,6 @@ use Tests\TestCase;
 class CatalogControllerTest extends TestCase
 {
 
-    public function setUp(): void
-    {
-        $faker = Factory::create();
-
-        parent::setUp();
-
-        $this->seed(CategorySeeder::class);
-        PropertyName::factory(3)
-            ->state(new Sequence(
-                ['name' => 'Class'],
-                ['name' => 'Color'],
-                ['name' => 'Model']
-            ))
-            ->has(
-                PropertyValue::factory(5)
-                    ->state(function (array $attributes, PropertyName $prop) use($faker){
-                        if ($prop->id == 1){
-                            return ['value' => $faker->unique()->word];
-                        }elseif ($prop->id == 2){
-                            return ['value' => $faker->unique()->colorName];
-                        }elseif ($prop->id == 3){
-                            return ['value' => $faker->unique()->userName];
-                        }
-                    })
-            )
-            ->create();
-
-        Product::factory(5)
-            ->hasOffers(5)
-            ->create();
-
-        $this->seed(PropertySeeder::class);
-    }
-
     public function testCatalog404()
     {
         $response = $this->get('/catalog/not_exist/not_exist/not_exist/not_exist');
@@ -57,12 +23,18 @@ class CatalogControllerTest extends TestCase
 
     public function testindex()
     {
+        $this->withCategories()
+            ->withProducts();
+
         $response = $this->get('/catalog');
         $response->assertStatus(200);
     }
 
     public function testlist()
     {
+        $this->withCategories()
+            ->withProducts();
+
         $category = Category::find(rand(2, 99));
         $response = $this->get($category->url);
         $response->assertStatus(200);
@@ -70,8 +42,12 @@ class CatalogControllerTest extends TestCase
 
     public function testdetail()
     {
-        $category = Category::find(rand(2, 99));
-        $response = $this->get($category->url);
+        $this->withCategories()
+            ->withProducts()
+            ->withProperties();
+
+        $product = Product::find(1);
+        $response = $this->get($product->url);
         $response->assertStatus(200);
     }
 

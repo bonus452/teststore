@@ -10,13 +10,6 @@ use Tests\TestCase;
 class IndexControllerTest extends TestCase
 {
 
-    public function setUp(): void
-    {
-        parent::setUp();
-        $this->seed(UserSeeder::class);
-        $this->seed(RoleSeeder::class);
-    }
-
     public function test_redirect()
     {
         $response = $this->get('/admin');
@@ -24,6 +17,8 @@ class IndexControllerTest extends TestCase
     }
     public function test_index()
     {
+        $this->withUsers();
+
         $admin = User::find(1);
         $response = $this->actingAs($admin)->get('/admin');
         $response->assertStatus(200);

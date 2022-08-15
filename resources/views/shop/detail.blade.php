@@ -1,11 +1,13 @@
 @extends('layouts.app')
 
-@section('title', $product->title)
-@section('h1', $product->title)
+@php /** @var \App\Models\Shop\Product $product */ @endphp
+
+@section('title', $product->name)
+@section('h1', $product->name)
 
 @section('content')
 
-    @php /** @var \App\Models\Shop\Product $product */ @endphp
+
         <!-- Start Product Details -->
     <section class="htc__product__details pt--100 pb--100 bg__white">
         <div class="container">

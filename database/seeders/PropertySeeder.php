@@ -23,7 +23,6 @@ class PropertySeeder extends Seeder
 
         $properties = PropertyName::with('propertyValues')->get();
         $offers = Offer::all();
-
         foreach ($offers as $offer) {
             foreach ($properties as $property) {
                 $offer->properties()->save($property->propertyValues->random());

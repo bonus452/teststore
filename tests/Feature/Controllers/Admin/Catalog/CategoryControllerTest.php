@@ -7,29 +7,21 @@ use App\Models\User;
 use Database\Seeders\CategorySeeder;
 use Database\Seeders\RoleSeeder;
 use Database\Seeders\UserSeeder;
+use Illuminate\Contracts\Console\Kernel;
+use Illuminate\Foundation\Testing\RefreshDatabaseState;
 use Tests\TestCase;
 
 class CategoryControllerTest extends TestCase
 {
 
-    public function setUp(): void
-    {
-        parent::setUp();
-        $this->seed(UserSeeder::class);
-        $this->seed(RoleSeeder::class);
-        $this->seed(CategorySeeder::class);
-
-    }
-
-    public function test_index()
-    {
-        $admin = User::find(1);
-        $response = $this->actingAs($admin)->get('/admin/catalog');
-        $response->assertStatus(200);
+    private function setUpData(){
+        $this->withCategories()->withUsers();
     }
 
     public function test_inner_category()
     {
+        $this->setUpData();
+
         $category = Category::find(rand(2, 99));
         $admin = User::find(1);
 
@@ -37,8 +29,19 @@ class CategoryControllerTest extends TestCase
         $response->assertStatus(200);
     }
 
+    public function test_index()
+    {
+        $this->setUpData();
+
+        $admin = User::find(1);
+        $response = $this->actingAs($admin)->get('/admin/catalog');
+        $response->assertStatus(200);
+    }
+
     public function test_edit_form()
     {
+        $this->setUpData();
+
         $category = Category::find(rand(2, 99));
         $admin = User::find(1);
 
@@ -48,6 +51,8 @@ class CategoryControllerTest extends TestCase
 
     public function test_update()
     {
+        $this->setUpData();
+
         $category = Category::find(rand(2, 99));
         $admin = User::find(1);
         $new_title = 'Testing title';
@@ -65,6 +70,8 @@ class CategoryControllerTest extends TestCase
 
     public function test_create_form()
     {
+        $this->setUpData();
+
         $admin = User::find(1);
         $response = $this->actingAs($admin)->get(route('admin.catalog.category.create_form'));
         $response->assertStatus(200);
@@ -72,6 +79,8 @@ class CategoryControllerTest extends TestCase
 
     public function test_create()
     {
+        $this->setUpData();
+
         $admin = User::find(1);
         $new_title = "Test Title";
         $new_slug = 'test-title';

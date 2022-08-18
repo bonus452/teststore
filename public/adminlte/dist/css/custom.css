@@ -235,3 +235,7 @@ table .instructions {
 table .instructions b {
     color: #123;
 }
+
+.nav-links{
+    margin-bottom: 10px;
+}

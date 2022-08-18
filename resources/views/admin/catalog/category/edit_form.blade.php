@@ -7,9 +7,13 @@
 
 @section('content')
 
-
-
     @include('include.messages.top_error_message')
+
+    <div class="nav-links">
+        <a href="{{ $category->parent->getAdminUrl() }}" class="btn btn-primary">Back to list</a>
+        <a href="{{ route('admin.catalog.category.create') }}" class="btn btn-default">Add new category</a>
+        <a href="{{ $category->url }}" class="btn btn-default" target="_blank"><i class="far fa-eye"></i></a>
+    </div>
 
     <div class="card card-primary">
         <div class="card-header">
@@ -19,7 +23,8 @@
 
 
         <!-- form start -->
-        <form action="{{ route('admin.catalog.category.update', $category) }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('admin.catalog.category.update', $category) }}" method="POST"
+              enctype="multipart/form-data">
             @csrf
             @method('patch')
             <div class="card-body">
@@ -43,7 +48,8 @@
                     <select class="custom-select" id="category_id" name="category_id">
                         @php /** @var \App\Models\Shop\Category $innerCategory */ @endphp
                         @foreach($categoriesTree as $innerCategory)
-                            <option value="{{ $innerCategory->id }}" {{ $innerCategory->getCustomProp('selected') }}> {{ $innerCategory->title }}</option>
+                            <option
+                                value="{{ $innerCategory->id }}" {{ $innerCategory->getCustomProp('selected') }}> {{ $innerCategory->title }}</option>
                             @include('include.recursive_options', ['categories' => $innerCategory->getCustomProp('sub_categories'), 'level' => 1])
                         @endforeach
                     </select>

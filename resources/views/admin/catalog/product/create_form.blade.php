@@ -7,6 +7,11 @@
 
     @include('include.messages.top_error_message')
 
+
+    <div class="nav-links">
+        <a href="{{ back()->getTargetUrl() }}" class="btn btn-primary">Back to list</a>
+    </div>
+
     <div class="card card-primary">
         <div class="card-header">
             <h3 class="card-title">Create new product</h3>

@@ -9,6 +9,12 @@
 
     @include('include.messages.top_error_message')
 
+    <div class="nav-links">
+        <a href="{{ $product->category->getAdminUrl() }}" class="btn btn-primary">Back to list</a>
+        <a href="{{ route('admin.catalog.product.create') }}" class="btn btn-default">Add new product</a>
+        <a href="{{ $product->url }}" class="btn btn-default" target="_blank"><i class="far fa-eye"></i></a>
+    </div>
+
     <div class="card card-primary">
         <div class="card-header">
             <h3 class="card-title">Update product "{{ $product->name }}"</h3>

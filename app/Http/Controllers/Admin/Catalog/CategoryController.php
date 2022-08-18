@@ -62,7 +62,7 @@ class CategoryController extends Controller
         if(!is_null($selectedCategory)){
             $breadcrumbs = $this->categoryRepository->getBreadcrumb($selectedCategory);
             return view('admin.catalog.category.create_form',
-                compact('categoriesTree', 'breadcrumbs'));
+                compact('categoriesTree', 'breadcrumbs', 'selectedCategory'));
         }else{
             return view('admin.catalog.category.create_form',
                 compact('categoriesTree'));

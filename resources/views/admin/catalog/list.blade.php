@@ -55,6 +55,11 @@
                                         <a href="{{ $item->getEditUrl() }}">
                                             <i class="fas fa-edit"></i>
                                         </a>
+
+                                    @elseif($item->type == 'product')
+                                        <a href="{{ $item->url }}" target="_blank">
+                                            <i class="far fa-eye"></i>
+                                        </a>
                                     @endif
                                 </td>
                                 <td>

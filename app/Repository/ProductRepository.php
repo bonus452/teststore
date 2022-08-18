@@ -47,10 +47,11 @@ class ProductRepository extends CatalogRepository
 
         $parent = $parent ?? $this->getRootCategory();
         $categories = $parent->child()
-            ->selectRaw("id, title, slug, created_at, updated_at, url, 'category' as `type`");
+            ->selectRaw("id, category_id, title, slug, created_at, updated_at, url, 'category' as `type`");
         $result = $this->getInstance()
             ->where('category_id', $parent->id)
-            ->selectRaw("id, name as title, slug, created_at, updated_at, 'url' as `url`, 'product' as `type`")
+            ->selectRaw("id, category_id, name as title, slug, created_at, updated_at, 'url' as `url`, 'product' as `type`")
+            ->with('category')
             ->union($categories)
             ->orderBy('type', 'asc')
             ->paginate(12);

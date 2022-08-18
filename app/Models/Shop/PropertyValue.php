@@ -29,6 +29,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|PropertyValue whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|PropertyValue whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|PropertyValue whereValue($value)
+ * @method static \Database\Factories\Shop\PropertyValueFactory factory(...$parameters)
  */
 class PropertyValue extends Model
 {

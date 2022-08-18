@@ -5,6 +5,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>@yield('title', 'Головна сторінка')</title>
     <meta name="description" content="@yield('description')">
+    <meta name="keywords" content="@yield('keywords')">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Place favicon.ico in the root directory -->

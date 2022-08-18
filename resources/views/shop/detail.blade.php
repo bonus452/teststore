@@ -2,7 +2,10 @@
 
 @php /** @var \App\Models\Shop\Product $product */ @endphp
 
-@section('title', $product->name)
+@section('title', $product->seo_title ?: $product->name)
+@section('description', $product->seo_description ?: $product->description)
+@section('keywords', $product->seo_keywords)
+
 @section('h1', $product->name)
 
 @section('content')

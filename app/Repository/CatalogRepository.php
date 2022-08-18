@@ -24,7 +24,7 @@ abstract class CatalogRepository
 
     public function getCountByCategories(array $categories) :int
     {
-        $result = (new Product())->whereIn('category_id', $categories);
+        $result = Product::active()->whereIn('category_id', $categories);
         $result = $result->count();
         return $result;
     }

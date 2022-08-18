@@ -48,13 +48,19 @@ use Illuminate\Support\Str;
  * @property-read mixed $img_src
  * @property-read mixed $path_system
  * @property-read mixed $img_path_system
+ * @property string|null $seo_title
+ * @property string|null $seo_description
+ * @property string|null $seo_keywords
+ * @method static Builder|Category whereSeoDescription($value)
+ * @method static Builder|Category whereSeoKeywords($value)
+ * @method static Builder|Category whereSeoTitle($value)
  */
 class Category extends Model implements RowGetteble
 {
     use HasFactory;
 
     protected Collection $sub_categories;
-    protected $fillable = ['title', 'slug', 'url', 'img', 'category_id'];
+    protected $fillable = ['title', 'slug', 'url', 'img', 'category_id', 'seo_title', 'seo_description', 'seo_keywords'];
 
     protected $customProperties = [];
 

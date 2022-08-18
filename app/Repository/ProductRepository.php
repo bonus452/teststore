@@ -25,7 +25,7 @@ class ProductRepository extends CatalogRepository
     public function getPaginateWithSublevelsProducts($category_id = false): object
     {
 
-        $products = $this->getInstance()->with(['offers', 'category']);
+        $products = $this->getInstance()->active()->with(['offers', 'category']);
         if ($category_id) {
             $categories = $this->getAllChildsList($category_id);
             $products = $products->whereIn('category_id', $categories);
@@ -71,7 +71,7 @@ class ProductRepository extends CatalogRepository
 
     public function getForDetailPage($product): Model
     {
-        $product = $this->getInstance()->where('slug', $product)
+        $product = $this->getInstance()->where('slug', $product)->active()
             ->with(['offers' => function($query){
                 $query->with(['properties' => function($query){
                     $query->with('property_name');

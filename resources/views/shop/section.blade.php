@@ -2,7 +2,10 @@
 
 @php /** @var \App\Models\Shop\Category $category */ @endphp
 
-@section('title', $category->title)
+@section('title', $category->seo_title ?: $category->title)
+@section('description', $category->seo_description)
+@section('keywords', $category->seo_keywords)
+
 @section('h1', $category->title)
 
 

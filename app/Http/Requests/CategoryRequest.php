@@ -29,6 +29,9 @@ class CategoryRequest extends FormRequest
         return [
             'title' => 'required',
             'category_id' => 'exists:categories,id|required',
+            'seo_title' => 'nullable|string',
+            'seo_description' => 'nullable|string',
+            'seo_keywords' => 'nullable|string',
             'img' => 'mimes:jpeg,bmp,png'
         ];
     }

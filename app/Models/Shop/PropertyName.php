@@ -21,6 +21,9 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @method static \Illuminate\Database\Eloquent\Builder|PropertyName whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|PropertyName whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Shop\PropertyValue[] $propertyValues
+ * @property-read int|null $property_values_count
+ * @method static \Database\Factories\Shop\PropertyNameFactory factory(...$parameters)
  */
 class PropertyName extends Model
 {

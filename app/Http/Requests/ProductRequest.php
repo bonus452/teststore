@@ -47,6 +47,10 @@ class ProductRequest extends FormRequest
             'img' => 'mimes:jpeg,bmp,png',
             'slug' => 'nullable|string|max:255',
             'description' => 'nullable|string|max:65535',
+            'active' => 'required|boolean',
+            'seo_title' => 'nullable|string',
+            'seo_description' => 'nullable|string',
+            'seo_keywords' => 'nullable|string',
             'offers' => [
                 'bail',
                 'array',

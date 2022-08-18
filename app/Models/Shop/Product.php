@@ -3,6 +3,7 @@
 namespace App\Models\Shop;
 
 use App\Interfaces\RowGetteble;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -37,12 +38,27 @@ use Illuminate\Database\Eloquent\Relations\MorphToMany;
  * @method static \Illuminate\Database\Eloquent\Builder|Product whereDescription($value)
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Shop\PropertyValue[] $properties
  * @property-read int|null $properties_count
+ * @property int $active
+ * @method static \Illuminate\Database\Eloquent\Builder|Product whereActive($value)
+ * @method static Builder|Product active()
+ * @property string|null $seo_title
+ * @property string|null $seo_description
+ * @property string|null $seo_keywords
+ * @method static Builder|Product whereSeoDescription($value)
+ * @method static Builder|Product whereSeoKeywords($value)
+ * @method static Builder|Product whereSeoTitle($value)
  */
 class Product extends Model implements RowGetteble
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'description', 'category_id', 'slug'];
+    protected $fillable = ['name', 'description', 'category_id', 'slug', 'active', 'seo_title', 'seo_description', 'seo_keywords'];
+
+
+    public function scopeActive($query)
+    {
+        return $query->where('active', 1);
+    }
 
     public function offers(): HasMany
     {
@@ -54,17 +70,19 @@ class Product extends Model implements RowGetteble
         return $this->belongsTo(Category::class);
     }
 
-    public function properties() : MorphToMany
+    public function properties(): MorphToMany
     {
-        return $this->morphToMany(PropertyValue::class,'propertable');
+        return $this->morphToMany(PropertyValue::class, 'propertable');
     }
 
-    public function getUrlAttribute($value){
+    public function getUrlAttribute($value)
+    {
         $category_url = $this->category->url;
         return $category_url . '/detail-product/' . $this->slug;
     }
 
-    public function getAdminUrl(){
+    public function getAdminUrl()
+    {
         return '/admin/catalog/product-edit/' . $this->id;
     }
 

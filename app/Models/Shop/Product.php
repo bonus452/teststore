@@ -47,6 +47,8 @@ use Illuminate\Database\Eloquent\Relations\MorphToMany;
  * @method static Builder|Product whereSeoDescription($value)
  * @method static Builder|Product whereSeoKeywords($value)
  * @method static Builder|Product whereSeoTitle($value)
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Shop\Image[] $images
+ * @property-read int|null $images_count
  */
 class Product extends Model implements RowGetteble
 {
@@ -63,6 +65,11 @@ class Product extends Model implements RowGetteble
     public function offers(): HasMany
     {
         return $this->hasMany(Offer::class);
+    }
+
+    public function images(): HasMany
+    {
+        return $this->hasMany(Image::class);
     }
 
     public function category(): BelongsTo

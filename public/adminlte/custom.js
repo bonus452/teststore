@@ -296,7 +296,11 @@ $(document).ready(function () {
     })
 
 
-
+    /*--------------Delete image--------------*/
+    $(".delete-image").on('click', function (event) {
+        event.preventDefault();
+        $(this).parent().remove();
+    });
 
 
 });

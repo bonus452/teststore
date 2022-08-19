@@ -19,7 +19,7 @@ class CategoryObserver
     {
         if ($category->img instanceof UploadedFile) {
             if ($category->img) {
-                $category->img = $category->img->store('images/category_images', 'public');
+                $category->img = $category->img->storePublicly('images/category_images', 'public');
             }
         }
         return $category;
@@ -40,7 +40,7 @@ class CategoryObserver
         }
         if ($category->img instanceof UploadedFile) {
             if ($category->img) {
-                $category->img = $category->img->store('images/category_images', 'public');
+                $category->img = $category->img->storePublicly('images/category_images', 'public');
             }
         }
         return $category;

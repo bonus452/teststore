@@ -32,6 +32,11 @@
                            href="#custom-tabs-one-property" role="tab" aria-controls="custom-tabs-one-property"
                            aria-selected="false">Properties</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="custom-tabs-one-images-tab" data-toggle="pill"
+                           href="#custom-tabs-one-images" role="tab" aria-controls="custom-tabs-one-images"
+                           aria-selected="false">Images</a>
+                    </li>
                 </ul>
             </div>
 
@@ -88,15 +93,7 @@
                                                 @endforeach
                                             </select>
                                         </div>
-                                        {{--                <div class="form-group">--}}
-                                        {{--                    <label for="img">Image</label>--}}
-                                        {{--                    <div class="input-group">--}}
-                                        {{--                        <div class="custom-file">--}}
-                                        {{--                            <input type="file" class="custom-file-input" id="img" name="img">--}}
-                                        {{--                            <label class="custom-file-label" for="img">Choose image</label>--}}
-                                        {{--                        </div>--}}
-                                        {{--                    </div>--}}
-                                        {{--                </div>--}}
+
                                         <label for="description">Description</label>
                                         <textarea class="form-control" rows="6" name="description"
                                                   placeholder="Description ...">{{ old('description') }}</textarea>
@@ -104,10 +101,7 @@
                                     </div>
                                     <div class="col-md-6 card-body offers-block">
                                         <h5>Product offers</h5>
-
                                         @include('include.form_blocks.offer_card')
-
-
                                         <div class="new-offer">
                                             <button type="button" class="btn btn-block btn-dark btn-flat">Add new
                                                 offer
@@ -142,6 +136,10 @@
                         <div class="tab-pane fade" id="custom-tabs-one-property" role="tabpanel"
                              aria-labelledby="custom-tabs-one-property-tab">
                             @include('include.form_blocks.admin_product_property')
+                        </div>
+                        <div class="tab-pane fade" id="custom-tabs-one-images" role="tabpanel"
+                             aria-labelledby="custom-tabs-one-images-tab">
+                            @include('include.form_blocks.admin_product_images')
                         </div>
                     </div>
                 </div>

@@ -18,7 +18,7 @@ class PropertyController extends Controller
         $property_name_text =  $request->input('property_name');
         $property_name = PropertyName::where('name', $property_name_text)->first();
         if (is_null($property_name)){
-            $property_name = PropertyName::create(['name' => $property_name]);
+            $property_name = PropertyName::create(['name' => $property_name_text]);
         }
 
         return view('include.form_blocks.property_line', compact('property_name'));

@@ -82,6 +82,17 @@
     vertical-align: middle;
 }
 
+.product-props{
+    max-width: 700px;
+}
+.product-props .form-control {
+    width: 140px;
+    margin-right: 5px;
+}
+.product-props input{
+    float: left;
+}
+
 div[class="list-values"]{
     margin-top: 38px;
 }

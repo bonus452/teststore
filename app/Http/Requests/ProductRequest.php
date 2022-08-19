@@ -20,8 +20,17 @@ class ProductRequest extends FormRequest
 
     protected function prepareForValidation()
     {
+        $properties = $this->properties ?? array();
+        if (is_array($properties)) {
+            foreach ($properties as &$property) {
+                if (empty($property)) {
+                    unset($property);
+                }
+            }
+        }
+
         $offers = $this->offers;
-        foreach ($offers as &$offer){
+        foreach ($offers as &$offer) {
             $offer['properties'] = $offer['properties'] ?? array();
             if (is_array($offer['properties'])) {
                 foreach ($offer['properties'] as &$property) {
@@ -31,7 +40,7 @@ class ProductRequest extends FormRequest
                 }
             }
         }
-        $this->merge(['offers' => $offers]);
+        $this->merge(['offers' => $offers, 'properties' => $properties]);
     }
 
     /**
@@ -51,6 +60,8 @@ class ProductRequest extends FormRequest
             'seo_title' => 'nullable|string',
             'seo_description' => 'nullable|string',
             'seo_keywords' => 'nullable|string',
+            'properties.*' => 'string|max:255',
+            'properties' => ['bail', 'array', new PropertyExistInDB()],
             'offers' => [
                 'bail',
                 'array',

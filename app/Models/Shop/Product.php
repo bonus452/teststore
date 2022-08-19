@@ -70,9 +70,9 @@ class Product extends Model implements RowGetteble
         return $this->belongsTo(Category::class);
     }
 
-    public function properties(): MorphToMany
+    public function properties() : MorphToMany
     {
-        return $this->morphToMany(PropertyValue::class, 'propertable');
+        return $this->morphToMany(PropertyValue::class,'propertable');
     }
 
     public function getUrlAttribute($value)

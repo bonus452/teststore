@@ -3,8 +3,14 @@
 @php /** @var \App\Models\Shop\Category $category */ @endphp
 
 @section('title', $category->seo_title ?: $category->title)
-@section('description', $category->seo_description)
-@section('keywords', $category->seo_keywords)
+
+@isset($category->seo_description)
+    @section('description', $category->seo_description)
+@endif
+
+@isset($category->seo_keywords)
+    @section('keywords', $category->seo_keywords)
+@endif
 
 @section('h1', $category->title)
 
@@ -158,7 +164,8 @@
                                                     <h2><a href="{{ $product->url }}">{{ $product->name }}</a></h2>
                                                     <ul class="product__price">
                                                         <li class="old__price">$16.00</li>
-                                                        <li class="new__price">${{ !is_null($product->offers->first()) ? $product->offers->first()->price : '' }}</li>
+                                                        <li class="new__price">
+                                                            ${{ !is_null($product->offers->first()) ? $product->offers->first()->price : '' }}</li>
                                                     </ul>
                                                 </div>
                                             </div>

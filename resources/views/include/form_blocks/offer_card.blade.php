@@ -47,6 +47,7 @@
                                         href="{{ route('admin.catalog.property.get_properties') }}"
                                         data-width="350"
                                         data-height="150"
+                                        data-context="offer-props"
                                         data-title="Add property to offer">
                                         Add property
                                     </button>
@@ -96,6 +97,7 @@
                                     href="{{ route('admin.catalog.property.get_properties') }}"
                                     data-width="350"
                                     data-height="150"
+                                    data-context="offer-props"
                                     data-title="Add property to offer">
                                     Add property
                                 </button>

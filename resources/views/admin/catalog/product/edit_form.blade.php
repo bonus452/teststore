@@ -29,6 +29,11 @@
                        href="#custom-tabs-one-seo" role="tab" aria-controls="custom-tabs-one-seo"
                        aria-selected="false">SEO</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="custom-tabs-one-property-tab" data-toggle="pill"
+                       href="#custom-tabs-one-property" role="tab" aria-controls="custom-tabs-one-property"
+                       aria-selected="false">Properties</a>
+                </li>
             </ul>
         </div>
 
@@ -138,6 +143,10 @@
 
 
 
+                    </div>
+                    <div class="tab-pane fade" id="custom-tabs-one-property" role="tabpanel"
+                         aria-labelledby="custom-tabs-one-property-tab">
+                        @include('include.form_blocks.admin_product_property')
                     </div>
                 </div>
             </div>

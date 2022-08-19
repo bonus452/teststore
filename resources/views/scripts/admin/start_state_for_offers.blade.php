@@ -4,5 +4,6 @@
       setActiveOfferBlock($(".offer-block").first());
       checkDeleteOfferButton();
       setInputNamesForOffers();
+      setInputPropsForProduct();
   });
 </script>

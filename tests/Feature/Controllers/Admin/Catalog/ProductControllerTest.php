@@ -40,10 +40,16 @@ class ProductControllerTest extends TestCase
         $new_title = "Test Title";
         $new_slug = 'test-title';
         $send_data = [
+            'active' => '1',
             'name' => $new_title,
             'category_id' => 5,
             'slug' => $new_slug,
             'image' => '',
+            'properties' => [
+                1 => 'prop prod value',
+                2 => 'prop prod value',
+                3 => 'prop prod value3',
+            ],
             'offers' => [
                 [
                     'article' => 'test-article',
@@ -81,6 +87,7 @@ class ProductControllerTest extends TestCase
         $new_title = "Test Title";
         $new_slug = 'test-title';
         $send_data = [
+            'active' => '1',
             'name' => $new_title,
             'category_id' => 5,
             'slug' => $new_slug,
@@ -88,7 +95,7 @@ class ProductControllerTest extends TestCase
         ];
         $this->actingAs($admin)->post(route('admin.catalog.product.create'), $send_data);
         $new_product = Product::where('slug', $new_slug)->first();
-        $this->assertTrue(is_null($new_product));
+        $this->assertNotInstanceOf(Product::class, $new_product);
     }
 
 

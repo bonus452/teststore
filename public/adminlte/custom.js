@@ -73,8 +73,19 @@ function checkDublicateProperties(property) {
     return $result;
 }
 
+function checkDublicateProdProperties(property) {
+    $result = true;
+    $(".product-props .prop-name").each(function (i, item) {
+        if ($(item).html() === property) {
+            $result = false;
+            return false;
+        }
+    });
+    return $result;
+}
 
-function setProperty(property) {
+
+function setProperty(property, context) {
     $.ajax({
         url: "/admin/catalog/set-property",
         method: "POST",
@@ -84,7 +95,12 @@ function setProperty(property) {
         },
         data: {property_name: property},
         success: function (html){
-            $(".offer-block:not(.rolled-up) .offer-props table .tr-btn-add-prop").before(html);
+            if(context === 'product-props'){
+                $(".product-props table .tr-btn-add-prop").before(html);
+            }else if(context === 'offer-props'){
+                $(".offer-block:not(.rolled-up) .offer-props table .tr-btn-add-prop").before(html);
+            }
+
         }
     });
 }
@@ -105,6 +121,16 @@ function setInputNamesForOffers(){
     });
 }
 
+function setInputPropsForProduct(){
+    $('.product-props').find(".prop-tr").each(function (prop_num, prop_tr){
+        var prop_id = $(prop_tr).find("input").attr('data-prop-id');
+        $(prop_tr).find("input").attr('name', 'properties['+prop_id+']');
+        var list_id = 'list-values'+prop_id;
+        $(prop_tr).find("input").attr('list', list_id);
+        $(prop_tr).find(".list-values").attr('list', list_id);
+    });
+}
+
 $(document).ready(function () {
     $(".nav-treeview .nav-link, .nav-link").each(function () {
         var location2 = window.location.protocol + '//' + window.location.host + window.location.pathname;
@@ -115,6 +141,8 @@ $(document).ready(function () {
 
         }
     });
+
+    // offers blocks
 
     $(".offers-block").on("click", ".offer-block.rolled-up", function () {
         setActiveOfferBlock(this);
@@ -129,6 +157,10 @@ $(document).ready(function () {
     });
 
     $(".offers-block").on("click", ".delete-btn-prop", function () {
+        $(this).parent().parent().remove();
+        return false;
+    });
+    $(".product-props").on("click", ".delete-btn-prop", function () {
         $(this).parent().parent().remove();
         return false;
     });
@@ -148,7 +180,9 @@ $(document).ready(function () {
         $(focus_block).find(".list-values span").show();
     });
 
-    $('body').on("click", ".btn-add-prop-popup", function () {
+
+
+    $('body').on("click", ".btn-add-prop-popup[data-context='offer-props']", function () {
         var prop_name = $("#property_name").val();
 
         if (prop_name === '') {
@@ -159,7 +193,7 @@ $(document).ready(function () {
             return;
         }
 
-        setProperty(prop_name);
+        setProperty(prop_name, 'offer-props');
         setInputNamesForOffers();
 
         var event = new CustomEvent('closePopup');
@@ -167,9 +201,26 @@ $(document).ready(function () {
 
     });
 
-    /*-------------------------------------dinamic dropdown-box----------------------*/
+    $('body').on("click", ".btn-add-prop-popup[data-context='product-props']", function () {
+        var prop_name = $("#property_name").val();
 
-    $('body').on("click", ".btn-add-prop", function () {
+        if (prop_name === '') {
+            showErrorInPopup('You must select some property.');
+            return;
+        } else if (checkDublicateProdProperties(prop_name) === false) {
+            showErrorInPopup('This property already exists in the offer.');
+            return;
+        }
+
+        setProperty(prop_name, 'product-props');
+        setInputPropsForProduct();
+
+        var event = new CustomEvent('closePopup');
+        document.dispatchEvent(event);
+
+    });
+
+    $('body').on("click", ".btn-add-prop", function (event) {
         $(this).ekkoLightbox({
             width: 100,
             onShown: function () {
@@ -177,9 +228,16 @@ $(document).ready(function () {
                 document.addEventListener('closePopup', function () {
                     lightbox.close();
                 });
-            }
+            },
         });
     });
+
+    $('body').on('loaded.bs.modal', function (e) {
+        var context = $(e.target).attr('data-context');
+        $(".btn-add-prop-popup").attr('data-context', context);
+    })
+
+    /*-------------------------------------dinamic dropdown-box----------------------*/
 
     $('body').on('click', 'input[list]', function (event) {
         event.preventDefault();
@@ -236,5 +294,9 @@ $(document).ready(function () {
             })
         }
     })
+
+
+
+
 
 });

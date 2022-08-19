@@ -4,14 +4,16 @@
 
 @section('title', $product->seo_title ?: $product->name)
 @section('description', $product->seo_description ?: $product->description)
-@section('keywords', $product->seo_keywords)
+
+@if($product->seo_keywords)
+    @section('keywords', $product->seo_keywords)
+@endif
 
 @section('h1', $product->name)
 
 @section('content')
 
-
-        <!-- Start Product Details -->
+    <!-- Start Product Details -->
     <section class="htc__product__details pt--100 pb--100 bg__white">
         <div class="container">
             <div class="scroll-active">

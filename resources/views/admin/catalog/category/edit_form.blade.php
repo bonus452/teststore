@@ -10,9 +10,16 @@
     @include('include.messages.top_error_message')
 
     <div class="nav-links">
-        <a href="{{ $category->parent->getAdminUrl() }}" class="btn btn-primary">Back to list</a>
+        <a href="{{ !is_null($category->parent) ? $category->parent->getAdminUrl() : route('admin.catalog.index') }}"
+           class="btn btn-primary">Back to list</a>
         <a href="{{ route('admin.catalog.category.create') }}" class="btn btn-default">Add new category</a>
         <a href="{{ $category->url }}" class="btn btn-default" target="_blank"><i class="far fa-eye"></i></a>
+
+        @include('popups.confirm', [
+            'href' => route('admin.catalog.category.delete', $category),
+            'message' => 'Category can has products or subcategories. They are also delete with this category. Delete the category anyway?'
+        ])
+
     </div>
 
     <div class="card card-primary card-tabs">

@@ -94,10 +94,10 @@ function setProperty(property, context) {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },
         data: {property_name: property},
-        success: function (html){
-            if(context === 'product-props'){
+        success: function (html) {
+            if (context === 'product-props') {
                 $(".product-props table .tr-btn-add-prop").before(html);
-            }else if(context === 'offer-props'){
+            } else if (context === 'offer-props') {
                 $(".offer-block:not(.rolled-up) .offer-props table .tr-btn-add-prop").before(html);
             }
 
@@ -105,137 +105,34 @@ function setProperty(property, context) {
     });
 }
 
-function setInputNamesForOffers(){
-    $('.offer-block').each(function (offer_num, offer){
-        $(offer).find("input.article").attr('name', 'offers['+offer_num+'][article]');
-        $(offer).find("input.price").attr('name', 'offers['+offer_num+'][price]');
-        $(offer).find("input.offer-id").attr('name', 'offers['+offer_num+'][id]');
+function setInputNamesForOffers() {
+    $('.offer-block').each(function (offer_num, offer) {
+        $(offer).find("input.article").attr('name', 'offers[' + offer_num + '][article]');
+        $(offer).find("input.price").attr('name', 'offers[' + offer_num + '][price]');
+        $(offer).find("input.offer-id").attr('name', 'offers[' + offer_num + '][id]');
 
-        $(offer).find(".prop-tr").each(function (prop_num, prop_tr){
+        $(offer).find(".prop-tr").each(function (prop_num, prop_tr) {
             var prop_id = $(prop_tr).find("input").attr('data-prop-id');
-            $(prop_tr).find("input").attr('name', 'offers['+offer_num+'][properties]['+prop_id+']');
-            var list_id = 'list-values'+offer_num+prop_id;
+            $(prop_tr).find("input").attr('name', 'offers[' + offer_num + '][properties][' + prop_id + ']');
+            var list_id = 'list-values' + offer_num + prop_id;
             $(prop_tr).find("input").attr('list', list_id);
             $(prop_tr).find(".list-values").attr('list', list_id);
         });
     });
 }
 
-function setInputPropsForProduct(){
-    $('.product-props').find(".prop-tr").each(function (prop_num, prop_tr){
+function setInputPropsForProduct() {
+    $('.product-props').find(".prop-tr").each(function (prop_num, prop_tr) {
         var prop_id = $(prop_tr).find("input").attr('data-prop-id');
-        $(prop_tr).find("input").attr('name', 'properties['+prop_id+']');
-        var list_id = 'list-values'+prop_id;
+        $(prop_tr).find("input").attr('name', 'properties[' + prop_id + ']');
+        var list_id = 'list-values' + prop_id;
         $(prop_tr).find("input").attr('list', list_id);
         $(prop_tr).find(".list-values").attr('list', list_id);
     });
 }
 
 $(document).ready(function () {
-    $(".nav-treeview .nav-link, .nav-link").each(function () {
-        var location2 = window.location.protocol + '//' + window.location.host + window.location.pathname;
-        var link = this.href;
-        if (link == location2) {
-            $(this).addClass('active');
-            $(this).parent().parent().parent().addClass('menu-is-opening menu-open');
 
-        }
-    });
-
-    // offers blocks
-
-    $(".offers-block").on("click", ".offer-block.rolled-up", function () {
-        setActiveOfferBlock(this);
-        return false;
-    });
-
-    $(".offers-block").on("click", ".delete-btn", function () {
-        $(this).parent().parent().remove();
-        checkDeleteOfferButton();
-        setInputNamesForOffers();
-        return false;
-    });
-
-    $(".offers-block").on("click", ".delete-btn-prop", function () {
-        $(this).parent().parent().remove();
-        return false;
-    });
-    $(".product-props").on("click", ".delete-btn-prop", function () {
-        $(this).parent().parent().remove();
-        return false;
-    });
-
-    $(".new-offer").on("click", function () {
-        var prev_block = $(this).prev().clone();
-        $(this).before(prev_block);
-
-        var focus_block = $(".offer-block").last();
-        setActiveOfferBlock(focus_block);
-        checkDeleteOfferButton();
-        setInputNamesForOffers();
-
-        $(focus_block).find("input[type='text']").val("");
-        $(focus_block).find("input[type='number']").val("");
-        $(focus_block).find("input.offer-id").remove();
-        $(focus_block).find(".list-values span").show();
-    });
-
-
-
-    $('body').on("click", ".btn-add-prop-popup[data-context='offer-props']", function () {
-        var prop_name = $("#property_name").val();
-
-        if (prop_name === '') {
-            showErrorInPopup('You must select some property.');
-            return;
-        } else if (checkDublicateProperties(prop_name) === false) {
-            showErrorInPopup('This property already exists in the offer.');
-            return;
-        }
-
-        setProperty(prop_name, 'offer-props');
-        setInputNamesForOffers();
-
-        var event = new CustomEvent('closePopup');
-        document.dispatchEvent(event);
-
-    });
-
-    $('body').on("click", ".btn-add-prop-popup[data-context='product-props']", function () {
-        var prop_name = $("#property_name").val();
-
-        if (prop_name === '') {
-            showErrorInPopup('You must select some property.');
-            return;
-        } else if (checkDublicateProdProperties(prop_name) === false) {
-            showErrorInPopup('This property already exists in the offer.');
-            return;
-        }
-
-        setProperty(prop_name, 'product-props');
-        setInputPropsForProduct();
-
-        var event = new CustomEvent('closePopup');
-        document.dispatchEvent(event);
-
-    });
-
-    $('body').on("click", ".btn-add-prop", function (event) {
-        $(this).ekkoLightbox({
-            width: 100,
-            onShown: function () {
-                var lightbox = this;
-                document.addEventListener('closePopup', function () {
-                    lightbox.close();
-                });
-            },
-        });
-    });
-
-    $('body').on('loaded.bs.modal', function (e) {
-        var context = $(e.target).attr('data-context');
-        $(".btn-add-prop-popup").attr('data-context', context);
-    })
 
     /*-------------------------------------dinamic dropdown-box----------------------*/
 
@@ -293,8 +190,111 @@ $(document).ready(function () {
                 }
             })
         }
-    })
+    });
 
+    $(".nav-treeview .nav-link, .nav-link").each(function () {
+        var location2 = window.location.protocol + '//' + window.location.host + window.location.pathname;
+        var link = this.href;
+        if (link == location2) {
+            $(this).addClass('active');
+            $(this).parent().parent().parent().addClass('menu-is-opening menu-open');
+
+        }
+    });
+
+    // offers blocks
+
+    $(".offers-block").on("click", ".offer-block.rolled-up", function () {
+        setActiveOfferBlock(this);
+        return false;
+    });
+
+    $(".offers-block").on("click", ".delete-btn", function () {
+        $(this).parent().parent().remove();
+        checkDeleteOfferButton();
+        setInputNamesForOffers();
+        return false;
+    });
+
+    $(".offers-block").on("click", ".delete-btn-prop", function () {
+        $(this).parent().parent().remove();
+        return false;
+    });
+    $(".product-props").on("click", ".delete-btn-prop", function () {
+        $(this).parent().parent().remove();
+        return false;
+    });
+
+    $(".new-offer").on("click", function () {
+        var prev_block = $(this).prev().clone();
+        $(this).before(prev_block);
+
+        var focus_block = $(".offer-block").last();
+        setActiveOfferBlock(focus_block);
+        checkDeleteOfferButton();
+        setInputNamesForOffers();
+
+        $(focus_block).find("input[type='text']").val("");
+        $(focus_block).find("input[type='number']").val("");
+        $(focus_block).find("input.offer-id").remove();
+        $(focus_block).find(".list-values span").show();
+    });
+
+
+    $('body').on("click", ".btn-add-prop-popup[data-context='offer-props']", function () {
+        var prop_name = $("#property_name").val();
+
+        if (prop_name === '') {
+            showErrorInPopup('You must select some property.');
+            return;
+        } else if (checkDublicateProperties(prop_name) === false) {
+            showErrorInPopup('This property already exists in the offer.');
+            return;
+        }
+
+        setProperty(prop_name, 'offer-props');
+        setInputNamesForOffers();
+
+        $.fancybox.close();
+
+    });
+
+    $('body').on("click", ".btn-add-prop-popup[data-context='product-props']", function () {
+        var prop_name = $("#property_name").val();
+
+        if (prop_name === '') {
+            showErrorInPopup('You must select some property.');
+            return;
+        } else if (checkDublicateProdProperties(prop_name) === false) {
+            showErrorInPopup('This property already exists in the offer.');
+            return;
+        }
+
+        setProperty(prop_name, 'product-props');
+        setInputPropsForProduct();
+
+        $.fancybox.close();
+
+    });
+
+    $('.fancy-frame').fancybox({
+        type: 'ajax',
+        autoSize: true,
+        afterShow: function () {
+            $('.fancybox-content').css('overflow', 'visible');
+        }
+    });
+
+    $().fancybox({
+        selector: '.btn-add-prop',
+        type: 'ajax',
+        autoSize: true,
+        afterShow: function (e) {
+            var context = $(e.$trigger[0]).attr('data-context');
+            $(".btn-add-prop-popup").attr('data-context', context);
+            $('.fancybox-content').css('overflow', 'visible');
+        }
+    });
 
     /*--------------Delete image--------------*/
     $(".delete-image").on('click', function (event) {
@@ -302,5 +302,9 @@ $(document).ready(function () {
         $(this).parent().remove();
     });
 
+    $(".btn-close-fancybox").on('click', function (event) {
+        event.preventDefault();
+        $.fancybox.close();
+    });
 
 });

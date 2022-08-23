@@ -32,6 +32,9 @@ Route::group([
                         ->name('edit_form');
                     Route::patch('category-edit/{category}','update')
                         ->name('update');
+
+                    Route::delete('category-delete/{category}','delete')
+                        ->name('delete');
                 });
 
                 Route::group([
@@ -47,6 +50,9 @@ Route::group([
                         ->name('edit_form');
                     Route::patch('product-update/{product}','update')
                         ->name('update');
+
+                    Route::delete('product-delete/{product}','delete')
+                        ->name('delete');
 
                 });
 

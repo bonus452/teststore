@@ -22,8 +22,6 @@
                             type="button"
                             class="btn btn-block btn-secondary btn-sm btn-add-prop"
                             href="{{ route('admin.catalog.property.get_properties') }}"
-                            data-width="350"
-                            data-height="150"
                             data-context="product-props"
                             data-title="Add property to product">
                             Add property

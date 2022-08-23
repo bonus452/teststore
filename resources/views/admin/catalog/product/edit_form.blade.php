@@ -13,6 +13,12 @@
         <a href="{{ $product->category->getAdminUrl() }}" class="btn btn-primary">Back to list</a>
         <a href="{{ route('admin.catalog.product.create') }}" class="btn btn-default">Add new product</a>
         <a href="{{ $product->url }}" class="btn btn-default" target="_blank"><i class="far fa-eye"></i></a>
+
+        @include('popups.confirm', [
+            'href' => route('admin.catalog.product.delete', $product),
+            'message' => 'Are you sure you want to delete this product?'
+        ])
+
     </div>
 
     <div class="card card-primary card-tabs">

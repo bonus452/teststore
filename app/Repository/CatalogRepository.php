@@ -33,7 +33,7 @@ abstract class CatalogRepository
     {
         $categories = $categories ?? (new Category())->all();
         $result = $this->getChilds($categories, [$parent_id]);
-        $result->add(['id' => $parent_id]);
+        $result->add($parent_id);
         return $result->toArray();
     }
 

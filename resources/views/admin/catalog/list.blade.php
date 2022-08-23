@@ -10,9 +10,11 @@
 
     <div class="row">
         <div class="col-12">
+
+            @include('include.messages.status_message', ['mark' => RESULT_MESSAGE])
+
             <div class="card">
                 <div class="card-header">
-                    {{--                    <h3 class="card-title">Responsive Hover Table</h3>--}}
 
                     <a href="{{ route('admin.catalog.product.create_form') }}" class="btn btn-primary">Create product</a>
                     <a href="{{ route('admin.catalog.category.create_form') }}" class="btn btn-default">Create category</a>

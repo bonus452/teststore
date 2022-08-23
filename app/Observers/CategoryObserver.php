@@ -3,6 +3,9 @@
 namespace App\Observers;
 
 use App\Models\Shop\Category;
+use App\Models\Shop\Product;
+use App\Repository\CategoryRepository;
+use App\Repository\ProductRepository;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\File;
 
@@ -46,15 +49,15 @@ class CategoryObserver
         return $category;
     }
 
-    /**
-     * Handle the Category "deleted" event.
-     *
-     * @param \App\Models\Shop\Category $category
-     * @return void
-     */
-    public function deleted(Category $category)
+
+    public function deleting(Category $category)
     {
-        //
+        $repo = new CategoryRepository();
+        $innerCategories = $repo->getAllChildsList($category->id);
+        Product::whereIn('category_id', $innerCategories)
+            ->get()
+            ->each
+            ->delete();
     }
 
     /**

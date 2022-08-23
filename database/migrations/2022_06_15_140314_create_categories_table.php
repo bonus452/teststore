@@ -24,7 +24,7 @@ class CreateCategoriesTable extends Migration
             $table->string('seo_keywords')->nullable();
 
             $table->unsignedBigInteger('category_id')->nullable();
-            $table->foreign('category_id')->on('categories')->references('id');
+            $table->foreign('category_id')->on('categories')->references('id')->cascadeOnDelete();
 
             $table->timestamps();
         });

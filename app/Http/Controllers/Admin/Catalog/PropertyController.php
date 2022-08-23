@@ -10,7 +10,7 @@ class PropertyController extends Controller
 {
     public function getPropertyPopup(){
         $properties = PropertyName::all();
-        return view('include.form_blocks.property_popup', compact('properties'));
+        return view('popups.property_popup', compact('properties'));
     }
 
     public function setProperty(Request $request){

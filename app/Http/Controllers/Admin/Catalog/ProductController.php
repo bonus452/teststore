@@ -4,11 +4,14 @@ namespace App\Http\Controllers\Admin\Catalog;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProductRequest;
+use App\Models\Shop\Category;
 use App\Models\Shop\Product;
 use App\Models\Shop\PropertyName;
 use App\Traits\HasAdminCatalogRepository;
 use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class ProductController extends Controller
 {
@@ -16,6 +19,7 @@ class ProductController extends Controller
 
     public function showFormCreate()
     {
+
         $perview_url = redirect()->back()->getTargetUrl();
         $selectedCategory = $this->categoryRepository->getFromUrl($perview_url);
 
@@ -63,4 +67,23 @@ class ProductController extends Controller
         return redirect()->route('admin.catalog.product.edit_form',
             compact('product'));
     }
+
+    public function delete(Product $product)
+    {
+        $url = $product->category->getAdminUrl();
+
+        try {
+            if ($product->delete()) {
+                return redirect($url)->with(RESULT_MESSAGE, 'The product has been deleted');
+            } else {
+                return back()->withErrors(['category' => 'Product not deleted. It was some error.']);
+            }
+        }catch (Exception $exception){
+            Log::error($exception);
+            return back()->withErrors(['category' => 'Product not deleted. It was some error.']);
+
+        }
+
+    }
+
 }

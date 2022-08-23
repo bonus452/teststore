@@ -288,3 +288,11 @@ table .instructions b {
 input[type='file']{
     cursor: pointer;
 }
+.btn-delete-category{
+    float: right;
+}
+
+.block-confirm{
+    display: none;
+    text-align: center;
+}

@@ -1,5 +1,6 @@
 @if (session($mark))
-<div class="alert alert-success" role="alert">
-    {{ session($mark) }}
-</div>
+    <div class="alert alert-success alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+        {{ session($mark) }}
+    </div>
 @endif

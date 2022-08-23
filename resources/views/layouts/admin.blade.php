@@ -27,9 +27,13 @@
     <!-- summernote -->
     <link rel="stylesheet" href="/adminlte/plugins/summernote/summernote-bs4.min.css">
 
-    <link rel="stylesheet" href="/adminlte/plugins/ekko-lightbox/ekko-lightbox.css">
+    <link rel="stylesheet" href="/adminlte/dist/css/jquery.fancybox.css">
 
     <link rel="stylesheet" href="/adminlte/dist/css/custom.css">
+
+
+
+
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -193,7 +197,7 @@
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 {{--<script src="/adminlte/dist/js/pages/dashboard.js"></script>--}}
 
-<script src="/adminlte/plugins/ekko-lightbox/ekko-lightbox.js"></script>
+<script src="/adminlte/dist/js/jquery.fancybox.js"></script>
 
 <script src="/adminlte/custom.js"></script>
 

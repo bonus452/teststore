@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use App\Models\User;
+use App\Rules\CategoryNotInSelf;
 use Illuminate\Foundation\Http\FormRequest;
 
 class CategoryRequest extends FormRequest
@@ -28,7 +29,12 @@ class CategoryRequest extends FormRequest
     {
         return [
             'title' => 'required',
-            'category_id' => 'exists:categories,id|required',
+            'category_id' => [
+                'bail',
+                'required',
+                'exists:categories,id',
+                new CategoryNotInSelf()
+            ],
             'seo_title' => 'nullable|string',
             'seo_description' => 'nullable|string',
             'seo_keywords' => 'nullable|string',

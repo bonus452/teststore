@@ -22,8 +22,8 @@ class ProductController extends Controller
 
         $perview_url = redirect()->back()->getTargetUrl();
         $selectedCategory = $this->categoryRepository->getFromUrl($perview_url);
+        $categoriesTree = $this->categoryRepository->getForCombobox($selectedCategory, false);
 
-        $categoriesTree = $this->categoryRepository->getForCombobox($selectedCategory);
         if (!is_null($selectedCategory)) {
             $breadcrumbs = $this->categoryRepository->getBreadcrumb($selectedCategory);
             return view('admin.catalog.product.create_form', compact('categoriesTree', 'breadcrumbs'));
@@ -48,7 +48,7 @@ class ProductController extends Controller
 
     public function showFormUpdate(Product $product)
     {
-        $categoriesTree = $this->categoryRepository->getForCombobox($product->category);
+        $categoriesTree = $this->categoryRepository->getForCombobox($product->category, false);
         $breadcrumbs = $this->productRepository->getBreadcrumb($product);
         return view('admin.catalog.product.edit_form',
             compact('product', 'categoriesTree', 'breadcrumbs'));

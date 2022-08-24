@@ -18,6 +18,13 @@
                     <input type="number" step="0.01" class="form-control price" value="{{ $offer->price }}">$
                 </div>
 
+                <div class="amount"><span>Amount</span>:
+                    <div class="text-value" style="display: none;">
+                        {{ $offer->amount }}
+                    </div>
+                    <input type="number" step="1" class="form-control amount" value="{{ $offer->amount }}">
+                </div>
+
                 <input type="hidden" class="offer-id" value="{{ $offer->id }}">
 
                 <button class="btn btn-block btn-danger btn-sm delete-btn">X</button>

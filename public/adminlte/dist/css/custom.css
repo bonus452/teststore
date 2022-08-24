@@ -40,8 +40,10 @@
     display: inline-block;
 }
 
-.offer-block .offer-main > div.article, .offer-block .offer-main > div.price {
-    width: 40%;
+.offer-block .offer-main > div.article,
+.offer-block .offer-main > div.price,
+.offer-block .offer-main > div.amount{
+    width: 30%;
 }
 
 .offer-block h6 {
@@ -146,6 +148,9 @@ div[class="list-values"]{
 .offer-block .form-control {
     width: 140px;
     margin-right: 5px;
+}
+.offer-block .form-control.amount{
+    width: 100px;
 }
 
 .btn-add-prop{

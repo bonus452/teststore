@@ -37,6 +37,7 @@ class ProductRequest extends FormRequest
 
         $offers = $this->offers;
         foreach ($offers as &$offer) {
+            $offer['amount'] = $offer['amount'] ?? 0;
             $offer['properties'] = $offer['properties'] ?? array();
             if (is_array($offer['properties'])) {
                 foreach ($offer['properties'] as &$property) {
@@ -88,6 +89,7 @@ class ProductRequest extends FormRequest
                 'max:255'
             ],
             'offers.*.price' => 'required|numeric|min:0|max:99999999',
+            'offers.*.amount' => 'required|numeric|min:0|max:99999',
             'offers.*.id' => 'exists:offers',
             'offers.*.properties.*' => 'string|max:255',
             'offers.*.properties' => ['bail', 'array', new PropertyExistInDB()],

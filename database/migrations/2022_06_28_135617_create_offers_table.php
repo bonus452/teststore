@@ -18,6 +18,7 @@ class CreateOffersTable extends Migration
             $table->string('article')->unique();
             $table->unsignedFloat('price', 10);
             $table->unsignedBigInteger('product_id');
+            $table->unsignedSmallInteger('amount');
             $table->timestamps();
 
             $table->foreign('product_id')->on('products')->references('id')->cascadeOnDelete();

@@ -16,24 +16,30 @@ function replaceInputToText(context) {
 
     $(context).find(".article input").hide();
     $(context).find(".price input").hide();
+    $(context).find(".amount input").hide();
 
     var article = $(context).find(".article input").val();
     var price = $(context).find(".price input").val();
+    var amount = $(context).find(".amount input").val();
 
     $(context).find(".article .text-value").html(article);
     $(context).find(".price .text-value").html(price);
+    $(context).find(".amount .text-value").html(amount);
 
     $(context).find(".article .text-value").show();
     $(context).find(".price .text-value").show();
+    $(context).find(".amount .text-value").show();
 }
 
 function replaceTextToInput(context) {
 
     $(context).find(".article input").show();
     $(context).find(".price input").show();
+    $(context).find(".amount input").show();
 
     $(context).find(".article .text-value").hide();
     $(context).find(".price .text-value").hide();
+    $(context).find(".amount .text-value").hide();
 }
 
 function setActiveOfferBlock(offer) {
@@ -109,6 +115,7 @@ function setInputNamesForOffers() {
     $('.offer-block').each(function (offer_num, offer) {
         $(offer).find("input.article").attr('name', 'offers[' + offer_num + '][article]');
         $(offer).find("input.price").attr('name', 'offers[' + offer_num + '][price]');
+        $(offer).find("input.amount").attr('name', 'offers[' + offer_num + '][amount]');
         $(offer).find("input.offer-id").attr('name', 'offers[' + offer_num + '][id]');
 
         $(offer).find(".prop-tr").each(function (prop_num, prop_tr) {

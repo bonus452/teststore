@@ -32,11 +32,13 @@ use Illuminate\Database\Eloquent\Relations\MorphToMany;
  * @mixin \Eloquent
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Shop\PropertyValue[] $properties
  * @property-read int|null $properties_count
+ * @property int $amount
+ * @method static \Illuminate\Database\Eloquent\Builder|Offer whereAmount($value)
  */
 class Offer extends Model
 {
     use HasFactory;
-    protected $fillable = ['article', 'price'];
+    protected $fillable = ['article', 'price', 'amount'];
 
     public function properties() : MorphToMany
     {

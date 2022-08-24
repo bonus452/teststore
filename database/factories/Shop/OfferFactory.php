@@ -16,7 +16,8 @@ class OfferFactory extends Factory
     {
         return [
             'article' => $this->faker->unique()->text(20),
-            'price' => rand(3, 500000) / rand(3, 10)
+            'price' => rand(3, 500000) / rand(3, 10),
+            'amount' => rand(3, 100)
         ];
     }
 }

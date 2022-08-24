@@ -47,12 +47,17 @@ class CategoryRepository extends CatalogRepository
         return $this->buildTree($categories, $pid);
     }
 
-    public function getForCombobox($selectedCategory): Collection
+    public function getForCombobox($selectedCategory, $withRoot = true): Collection
     {
         $categories = $this->getCategoriesTree(1);
-        $result = $this->getRootCategory();
-        $result->setCustomProp('sub_categories', $categories);
-        $result = collect([$result]);
+        $result = new Collection();
+        if ($withRoot){
+            $root_category = $this->getRootCategory();
+            $root_category->setCustomProp('sub_categories', $categories);
+            $result = $result->push($root_category);
+        }else{
+            $result = $categories;
+        }
 
         $selectedCategoryId = $selectedCategory ? $selectedCategory->id : 0;
         $result = $this->markSelectedCategory($result, $selectedCategoryId);

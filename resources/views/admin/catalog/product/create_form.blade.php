@@ -51,7 +51,7 @@
                              aria-labelledby="custom-tabs-one-general-tab">
                             <div class="card-body">
                                 <div class="row">
-                                    <div class="edit-product-box col-md-6">
+                                    <div class="edit-product-box col-md-5">
 
                                         <div class="custom-control custom-checkbox div-active">
                                             <input class="custom-control-input"
@@ -99,7 +99,7 @@
                                                   placeholder="Description ...">{{ old('description') }}</textarea>
 
                                     </div>
-                                    <div class="col-md-6 card-body offers-block">
+                                    <div class="col-md-7 card-body offers-block">
                                         <h5>Product offers</h5>
                                         @include('include.form_blocks.offer_card')
                                         <div class="new-offer">

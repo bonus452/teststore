@@ -7,7 +7,6 @@
 
     @include('include.messages.top_error_message')
 
-
     <div class="nav-links">
         <a href="{{ back()->getTargetUrl() }}" class="btn btn-primary">Back to list</a>
     </div>

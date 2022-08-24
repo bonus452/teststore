@@ -37,7 +37,8 @@ class CategoryController extends Controller
         $parent = $category->parent;
         $categoriesTree = $this->categoryRepository->getForCombobox($parent);
         $breadcrumbs = $this->categoryRepository->getBreadcrumb($category);
-        return view('admin.catalog.category.edit_form', compact('category', 'breadcrumbs', 'categoriesTree'));
+        return view('admin.catalog.category.edit_form',
+            compact('category', 'breadcrumbs', 'categoriesTree'));
     }
 
     public function update(CategoryRequest $request, Category $category)
@@ -52,7 +53,7 @@ class CategoryController extends Controller
 
         return redirect()
             ->route('admin.catalog.category.edit_form', compact('category'))
-            ->with([RESULT_MESSAGE => 'Category updated successfully']);
+            ->with([RESULT_MESSAGE => __('success.category_updated')]);
     }
 
     public function createForm(Request $request)
@@ -84,7 +85,7 @@ class CategoryController extends Controller
 
         return redirect()
             ->route('admin.catalog.category.edit_form', compact('category'))
-            ->with([RESULT_MESSAGE => 'Category created successfully']);
+            ->with([RESULT_MESSAGE => __('success.category_created')]);
     }
 
     public function delete(Category $category)
@@ -96,13 +97,13 @@ class CategoryController extends Controller
         }
         try {
             if ($category->delete()) {
-                return redirect($url)->with(RESULT_MESSAGE, 'The category has been deleted');
+                return redirect($url)->with(RESULT_MESSAGE, __('success.category_deleted'));
             } else {
-                return back()->withErrors(['category' => 'Category not deleted. It was some error.']);
+                return back()->withErrors(['category' => __('fail.category_delete')]);
             }
         } catch (Exception $exception) {
             Log::error($exception);
-            return back()->withErrors(['category' => 'Category not deleted. It was some error.']);
+            return back()->withErrors(['category' => __('fail.category_delete')]);
 
         }
     }

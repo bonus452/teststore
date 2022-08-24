@@ -142,9 +142,12 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'category_id' => [
+            'required' => 'Parent category does not specified',
         ],
+        'img' => [
+            'mimes:jpeg,bmp,png' => 'Image must be a file of type: jpeg, bmp, png'
+        ]
     ],
 
     /*

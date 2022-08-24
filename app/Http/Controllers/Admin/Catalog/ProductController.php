@@ -26,9 +26,11 @@ class ProductController extends Controller
 
         if (!is_null($selectedCategory)) {
             $breadcrumbs = $this->categoryRepository->getBreadcrumb($selectedCategory);
-            return view('admin.catalog.product.create_form', compact('categoriesTree', 'breadcrumbs'));
+            return view('admin.catalog.product.create_form',
+                compact('categoriesTree', 'breadcrumbs'));
         } else {
-            return view('admin.catalog.product.create_form', compact('categoriesTree'));
+            return view('admin.catalog.product.create_form',
+                compact('categoriesTree'));
         }
     }
 
@@ -42,8 +44,9 @@ class ProductController extends Controller
                 ->withInput()
                 ->withErrors(['product' => $exception->getMessage()]);
         }
-        return redirect()->route('admin.catalog.product.edit_form',
-            compact('product'));
+        return redirect()
+            ->route('admin.catalog.product.edit_form', compact('product'))
+            ->with(RESULT_MESSAGE, __('success.product_created'));
     }
 
     public function showFormUpdate(Product $product)
@@ -64,8 +67,9 @@ class ProductController extends Controller
                 ->withInput()
                 ->withErrors(['product' => $exception->getMessage()]);
         }
-        return redirect()->route('admin.catalog.product.edit_form',
-            compact('product'));
+        return redirect()
+            ->route('admin.catalog.product.edit_form', compact('product'))
+            ->with(RESULT_MESSAGE, __('success.product_updated'));
     }
 
     public function delete(Product $product)
@@ -74,13 +78,13 @@ class ProductController extends Controller
 
         try {
             if ($product->delete()) {
-                return redirect($url)->with(RESULT_MESSAGE, 'The product has been deleted');
+                return redirect($url)->with(RESULT_MESSAGE, __('success.product_deleted'));
             } else {
-                return back()->withErrors(['category' => 'Product not deleted. It was some error.']);
+                return back()->withErrors(['category' => __('fail.category_delete')]);
             }
         }catch (Exception $exception){
             Log::error($exception);
-            return back()->withErrors(['category' => 'Product not deleted. It was some error.']);
+            return back()->withErrors(['category' => __('fail.category_delete')]);
 
         }
 

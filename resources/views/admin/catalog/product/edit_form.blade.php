@@ -8,6 +8,7 @@
 @section('content')
 
     @include('include.messages.top_error_message')
+    @include('include.messages.status_message')
 
     <div class="nav-links">
         <a href="{{ $product->category->getAdminUrl() }}" class="btn btn-primary">Back to list</a>

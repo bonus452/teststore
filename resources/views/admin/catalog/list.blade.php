@@ -11,7 +11,7 @@
     <div class="row">
         <div class="col-12">
 
-            @include('include.messages.status_message', ['mark' => RESULT_MESSAGE])
+            @include('include.messages.status_message')
 
             <div class="card">
                 <div class="card-header">

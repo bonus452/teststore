@@ -81,6 +81,12 @@
                 <input type="number" step="0.01" class="form-control price" value="">$
             </div>
 
+            <div class="amount"><span>Amount</span>:
+                <div class="text-value" style="display: none;">
+                </div>
+                <input type="number" step="1" class="form-control amount" value="">
+            </div>
+
             <button class="btn btn-block btn-danger btn-sm delete-btn">X</button>
         </div>
 

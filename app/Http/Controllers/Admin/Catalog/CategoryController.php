@@ -27,9 +27,15 @@ class CategoryController extends Controller
 
         $request_url = $request->getPathInfo();
         $category = $this->categoryRepository->getFromUrl($request_url);
-        $items = $this->productRepository->getPaginateWithCategories($category);
-        $breadcrumbs = $this->categoryRepository->getBreadcrumb($category);
-        return view('admin.catalog.list', compact('items', 'breadcrumbs'));
+
+        if ($category instanceof Category){
+            $items = $this->productRepository->getPaginateWithCategories($category);
+            $breadcrumbs = $this->categoryRepository->getBreadcrumb($category);
+            return view('admin.catalog.list', compact('items', 'breadcrumbs'));
+        }else{
+            abort(404);
+        }
+
     }
 
     public function editForm(Category $category, Request $request)

@@ -69,7 +69,7 @@ class ProductRepository extends CatalogRepository
     }
 
 
-    public function getForDetailPage($product): Model
+    public function getForDetailPage($product)
     {
         $product = $this->getInstance()->where('slug', $product)->active()
             ->with(['offers' => function($query){

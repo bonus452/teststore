@@ -5,6 +5,7 @@ namespace App\Http\Requests;
 use App\Rules\ArticlesUnique;
 use App\Rules\ImageExistInDB;
 use App\Rules\PropertyExistInDB;
+use Auth;
 use Illuminate\Foundation\Http\FormRequest;
 
 class ProductRequest extends FormRequest
@@ -16,7 +17,7 @@ class ProductRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return Auth::user()->checkPermissionTo('admin-panel');
     }
 
     protected function prepareForValidation()

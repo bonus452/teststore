@@ -61,7 +61,7 @@ Route::group([
                     'controller' => PropertyController::class
                 ], function () {
                     Route::get('get-properties','getPropertyPopup')->name('get_properties');
-                    Route::post('set-property','setProperty');
+                    Route::post('set-property','setProperty')->name('create_property_name');
                 });
 
 

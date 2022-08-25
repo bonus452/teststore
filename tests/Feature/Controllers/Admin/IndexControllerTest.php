@@ -3,8 +3,6 @@
 namespace Tests\Feature\Controllers\Admin;
 
 use App\Models\User;
-use Database\Seeders\RoleSeeder;
-use Database\Seeders\UserSeeder;
 use Tests\TestCase;
 
 class IndexControllerTest extends TestCase

@@ -2,20 +2,8 @@
 
 namespace Tests\Feature\Controllers\Admin\Catalog;
 
-use App\Models\Shop\Category;
 use App\Models\Shop\Product;
-use App\Models\Shop\PropertyName;
-use App\Models\Shop\PropertyValue;
 use App\Models\User;
-use Database\Seeders\CategorySeeder;
-use Database\Seeders\PropertySeeder;
-use Database\Seeders\RoleSeeder;
-use Database\Seeders\UserSeeder;
-use Faker\Factory;
-use Illuminate\Database\Eloquent\Factories\Sequence;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\RefreshDatabaseState;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class ProductControllerTest extends TestCase

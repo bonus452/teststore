@@ -4,11 +4,6 @@ namespace Tests\Feature\Controllers\Admin\Catalog;
 
 use App\Models\Shop\Category;
 use App\Models\User;
-use Database\Seeders\CategorySeeder;
-use Database\Seeders\RoleSeeder;
-use Database\Seeders\UserSeeder;
-use Illuminate\Contracts\Console\Kernel;
-use Illuminate\Foundation\Testing\RefreshDatabaseState;
 use Tests\TestCase;
 
 class CategoryControllerTest extends TestCase

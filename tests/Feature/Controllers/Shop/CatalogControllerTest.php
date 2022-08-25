@@ -4,12 +4,6 @@ namespace Tests\Feature\Controllers\Shop;
 
 use App\Models\Shop\Category;
 use App\Models\Shop\Product;
-use App\Models\Shop\PropertyName;
-use App\Models\Shop\PropertyValue;
-use Database\Seeders\CategorySeeder;
-use Database\Seeders\PropertySeeder;
-use Faker\Factory;
-use Illuminate\Database\Eloquent\Factories\Sequence;
 use Tests\TestCase;
 
 class CatalogControllerTest extends TestCase

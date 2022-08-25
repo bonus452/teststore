@@ -9,13 +9,7 @@ class CategoryService
 {
     public function update(Category $category, array $fields): Category
     {
-
-        $parent = Category::withoutGlobalScope('withoutroot')->find($fields['category_id']);
-        $parent->child()->save($category);
-        $fields['slug'] = $fields['slug'] ?: Str::slug($fields['title']);
-        $fields['url'] = $parent->getRawOriginal('url') . '/' . $fields['slug'];
         $category->update($fields);
-
         return $category;
     }
 

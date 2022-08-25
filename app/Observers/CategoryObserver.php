@@ -8,6 +8,7 @@ use App\Repository\CategoryRepository;
 use App\Repository\ProductRepository;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Str;
 
 class CategoryObserver
 {
@@ -36,6 +37,10 @@ class CategoryObserver
      */
     public function updating(Category $category)
     {
+        $category->slug = $category->slug ?: Str::slug($category->title);
+
+        $parent = Category::withoutGlobalScope('withoutroot')->find($category->category_id);
+        $category->url = $parent->getRawOriginal('url') . '/' . $category->slug;
 
         $old_img = $category->img_path_system;
         if ($old_img) {
@@ -47,6 +52,14 @@ class CategoryObserver
             }
         }
         return $category;
+    }
+
+    public function updated(Category $category){
+        $url = $category->parent->url . '/' . $category->slug;
+        $category->child()
+            ->get()
+            ->each
+            ->update(['url' => $url]);
     }
 
 

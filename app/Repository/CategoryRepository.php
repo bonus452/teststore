@@ -35,12 +35,6 @@ class CategoryRepository extends CatalogRepository
         return collect(array_reverse($result));
     }
 
-    public function getBreadcrumb(Model $category)
-    {
-        $result = $this->breadcrumbRepository->getBreadcrumb($category);
-        return $result;
-    }
-
     public function getCategoriesTree($pid = 1): Collection
     {
         $categories = $this->getInstance()->all();

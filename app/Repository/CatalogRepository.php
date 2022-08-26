@@ -12,10 +12,8 @@ abstract class CatalogRepository
 {
 
     protected $instance;
-    protected $breadcrumbRepository;
 
-    public function __construct(CoreBreadcrumb $breadcrumb = null){
-        $this->breadcrumbRepository = $breadcrumb ?? new CategoryBreadcrumb();
+    public function __construct(){
         $this->instance = app($this->getModelClass());
     }
 

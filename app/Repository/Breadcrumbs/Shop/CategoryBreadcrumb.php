@@ -18,15 +18,15 @@ class CategoryBreadcrumb extends CoreBreadcrumb
     {
         $url = trim($model->getRawOriginal('url'), '/');
         $slugs = explode('/', $url);
-        $categories = $this->getInstance()->whereIn('slug', $slugs)->get();
+        $categories = $this->getInstance()
+            ->whereIn('slug', $slugs)
+            ->get();
         $result = collect($slugs)->map(function ($slug) use($categories){
-            return $categories->where('slug', $slug)->first();
+            return $categories
+                ->where('slug', $slug)
+                ->first();
         });
-        $this->addSubBreadcrumb($result);
-        return $result;
-    }
 
-    private function addSubBreadcrumb(&$result){
         $result->prepend(
             (object)[
                 'title' => 'Catalog',
@@ -39,6 +39,7 @@ class CategoryBreadcrumb extends CoreBreadcrumb
                 'url' => '/'
             ]
         );
+        return $result;
     }
 
 }

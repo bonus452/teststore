@@ -5,7 +5,6 @@ namespace App\Observers;
 use App\Models\Shop\Category;
 use App\Models\Shop\Product;
 use App\Repository\CategoryRepository;
-use App\Repository\ProductRepository;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
@@ -55,11 +54,13 @@ class CategoryObserver
     }
 
     public function updated(Category $category){
-        $url = $category->parent->url . '/' . $category->slug;
-        $category->child()
-            ->get()
-            ->each
-            ->update(['url' => $url]);
+        if (!is_null($category->parent)) {
+            $url = $category->parent->url . '/' . $category->slug;
+            $category->child()
+                ->get()
+                ->each
+                ->update(['url' => $url]);
+        }
     }
 
 

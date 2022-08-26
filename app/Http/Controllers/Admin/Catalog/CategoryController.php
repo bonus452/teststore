@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers\Admin\Catalog;
 
-use App\Helpers\DataRefactor;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CategoryRequest;
 use App\Models\Shop\Category;
-use App\Traits\HasAdminCatalogRepository;
+use App\Repository\Breadcrumbs\Admin\CategoryBreadcrumb;
+use App\Repository\Breadcrumbs\Admin\ProductBreadcrumb;
+use App\Repository\CategoryRepository;
+use App\Repository\ProductRepository;
+use App\Services\CategoryService;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -14,7 +17,18 @@ use Illuminate\Support\Facades\Log;
 class CategoryController extends Controller
 {
 
-    use HasAdminCatalogRepository;
+    private $productRepository;
+    private $categoryRepository;
+    private $breadcrumbCategory;
+    private $categoryService;
+
+    public function __construct()
+    {
+        $this->productRepository = new ProductRepository();
+        $this->categoryRepository = new CategoryRepository();
+        $this->breadcrumbCategory = new CategoryBreadcrumb();
+        $this->categoryService = new CategoryService();
+    }
 
     public function index()
     {
@@ -30,7 +44,7 @@ class CategoryController extends Controller
 
         if ($category instanceof Category){
             $items = $this->productRepository->getPaginateWithCategories($category);
-            $breadcrumbs = $this->categoryRepository->getBreadcrumb($category);
+            $breadcrumbs = $this->breadcrumbCategory->getBreadcrumb($category);
             return view('admin.catalog.list', compact('items', 'breadcrumbs'));
         }else{
             abort(404);
@@ -38,11 +52,11 @@ class CategoryController extends Controller
 
     }
 
-    public function editForm(Category $category, Request $request)
+    public function editForm(Category $category)
     {
         $parent = $category->parent;
         $categoriesTree = $this->categoryRepository->getForCombobox($parent);
-        $breadcrumbs = $this->categoryRepository->getBreadcrumb($category);
+        $breadcrumbs = $this->breadcrumbCategory->getBreadcrumb($category);
         return view('admin.catalog.category.edit_form',
             compact('category', 'breadcrumbs', 'categoriesTree'));
     }
@@ -69,7 +83,7 @@ class CategoryController extends Controller
         $categoriesTree = $this->categoryRepository->getForCombobox($selectedCategory);
 
         if (!is_null($selectedCategory)) {
-            $breadcrumbs = $this->categoryRepository->getBreadcrumb($selectedCategory);
+            $breadcrumbs = $this->breadcrumbCategory->getBreadcrumb($selectedCategory);
             return view('admin.catalog.category.create_form',
                 compact('categoriesTree', 'breadcrumbs', 'selectedCategory'));
         } else {

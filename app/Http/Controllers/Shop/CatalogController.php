@@ -2,17 +2,30 @@
 
 namespace App\Http\Controllers\Shop;
 
-use App\Helpers\DataRefactor;
 use App\Http\Controllers\Controller;
 use App\Models\Shop\Category;
 use App\Models\Shop\Product;
-use App\Traits\HasCatalogRepositories;
+use App\Repository\Breadcrumbs\Shop\CategoryBreadcrumb;
+use App\Repository\Breadcrumbs\Shop\ProductBreadcrumb;
+use App\Repository\CategoryRepository;
+use App\Repository\ProductRepository;
 use Illuminate\Http\Request;
 
 class CatalogController extends Controller
 {
 
-    use HasCatalogRepositories;
+    private $productRepository;
+    private $categoryRepository;
+    private $breadcrumbCategory;
+    private $breadcrumbProduct;
+
+    public function __construct()
+    {
+        $this->productRepository = new ProductRepository();
+        $this->categoryRepository = new CategoryRepository();
+        $this->breadcrumbCategory = new CategoryBreadcrumb();
+        $this->breadcrumbProduct = new ProductBreadcrumb();
+    }
 
     public function list(Request $request, $sub_categories)
     {
@@ -23,7 +36,7 @@ class CatalogController extends Controller
         if(is_null($category) || $request_url !== $category->url){
             abort( 404);
         }else{
-            $breadcrumbs = $this->categoryRepository->getBreadcrumb($category);
+            $breadcrumbs = $this->breadcrumbCategory->getBreadcrumb($category);
             $products_box = $this->productRepository->getPaginateWithSublevelsProducts($category->id);
             $inner_categories = $this->categoryRepository->getChildrenWithCount($category);
             return view('shop.section', compact('category', 'breadcrumbs', 'inner_categories', 'products_box'));
@@ -34,7 +47,7 @@ class CatalogController extends Controller
     {
         $product = $this->productRepository->getForDetailPage($product);
         if ($product instanceof Product){
-            $breadcrumbs = $this->productRepository->getBreadcrumb($product);
+            $breadcrumbs = $this->breadcrumbProduct->getBreadcrumb($product);
             return view('shop.detail', compact('product', 'breadcrumbs'));
         }else{
             abort(404);

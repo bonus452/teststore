@@ -82,14 +82,7 @@ class ProductRepository extends CatalogRepository
             }])
             ->first();
 
-
-
         return $product;
     }
 
-    public function getBreadcrumb(Model $product): Collection
-    {
-        $result = $this->breadcrumbRepository->getBreadcrumb($product);
-        return $result;
-    }
 }

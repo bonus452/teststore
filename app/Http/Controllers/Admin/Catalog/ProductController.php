@@ -4,18 +4,34 @@ namespace App\Http\Controllers\Admin\Catalog;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProductRequest;
-use App\Models\Shop\Category;
 use App\Models\Shop\Product;
-use App\Models\Shop\PropertyName;
-use App\Traits\HasAdminCatalogRepository;
+use App\Repository\Breadcrumbs\Admin\CategoryBreadcrumb;
+use App\Repository\Breadcrumbs\Admin\ProductBreadcrumb;
+use App\Repository\CategoryRepository;
+use App\Repository\ProductRepository;
+use App\Services\OfferService;
+use App\Services\ProductService;
 use Exception;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 
 class ProductController extends Controller
 {
-    use HasAdminCatalogRepository;
+    private $productRepository;
+    private $categoryRepository;
+    private $breadcrumbCategory;
+    private $breadcrumbProduct;
+    private $productService;
+    private $offerService;
+
+    public function __construct()
+    {
+        $this->productRepository = new ProductRepository();
+        $this->categoryRepository = new CategoryRepository();
+        $this->breadcrumbCategory = new CategoryBreadcrumb();
+        $this->breadcrumbProduct = new ProductBreadcrumb();
+        $this->productService = new ProductService();
+        $this->offerService = new OfferService();
+    }
 
     public function showFormCreate()
     {
@@ -25,7 +41,7 @@ class ProductController extends Controller
         $categoriesTree = $this->categoryRepository->getForCombobox($selectedCategory, false);
 
         if (!is_null($selectedCategory)) {
-            $breadcrumbs = $this->categoryRepository->getBreadcrumb($selectedCategory);
+            $breadcrumbs = $this->breadcrumbCategory->getBreadcrumb($selectedCategory);
             return view('admin.catalog.product.create_form',
                 compact('categoriesTree', 'breadcrumbs'));
         } else {
@@ -51,8 +67,9 @@ class ProductController extends Controller
 
     public function showFormUpdate(Product $product)
     {
+        $product = $this->productRepository->getForDetailPage($product->slug);
         $categoriesTree = $this->categoryRepository->getForCombobox($product->category, false);
-        $breadcrumbs = $this->productRepository->getBreadcrumb($product);
+        $breadcrumbs = $this->breadcrumbProduct->getBreadcrumb($product);
         return view('admin.catalog.product.edit_form',
             compact('product', 'categoriesTree', 'breadcrumbs'));
     }

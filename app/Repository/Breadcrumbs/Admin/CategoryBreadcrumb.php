@@ -3,44 +3,22 @@
 namespace App\Repository\Breadcrumbs\Admin;
 
 use App\Interfaces\RowGetteble;
-use App\Models\Shop\Category;
-use App\Models\Shop\Category as Model;
-use App\Repository\Breadcrumbs\CoreBreadcrumb;
+use App\Repository\Breadcrumbs\Shop\CategoryBreadcrumb as ShopCategoryBreadcrumb;
 
-class CategoryBreadcrumb extends CoreBreadcrumb
+class CategoryBreadcrumb extends ShopCategoryBreadcrumb
 {
-
-    protected function getClassName(): string
-    {
-        return Model::class;
-    }
 
     function getBreadcrumb(RowGetteble $model)
     {
-        $url = trim($model->getRawOriginal('url'), '/');
-        $slugs = explode('/', $url);
-        $categories = $this->getInstance()->whereIn('slug', $slugs)->get();
-        $result = collect($slugs)->map(function ($slug) use($categories){
-            $result = (object)$categories->where('slug', $slug)->first()->getAttributes();
-            $result->url = '/admin/'.CATALOG_PATH.$result->url;
-            return $result;
-        });
-        $this->addSubBreadcrumb($result);
+        $result = parent::getBreadcrumb($model);
+        $result->put(0, (object)[
+            'title' => 'Admin',
+            'url' => '/admin'
+        ]);
+        $result->put(1, (object)[
+            'title' => 'Catalog',
+            'url' => '/admin/'.CATALOG_PATH
+        ]);
         return $result;
-    }
-
-    private function addSubBreadcrumb(&$result){
-        $result->prepend(
-            (object)[
-                'title' => 'Catalog',
-                'url' => '/admin/'.CATALOG_PATH
-            ]
-        );
-        $result->prepend(
-            (object)[
-                'title' => 'Admin',
-                'url' => '/admin'
-            ]
-        );
     }
 }

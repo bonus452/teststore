@@ -2,14 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Repository\Breadcrumbs\Admin\CategoryBreadcrumb;
 use App\Repository\CategoryRepository;
-use App\Traits\HasAdminCatalogRepository;
-use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
 
-    use HasAdminCatalogRepository;
+    private $categoryRepository;
+
+    public function __construct()
+    {
+        $this->categoryRepository = new CategoryRepository(new CategoryBreadcrumb());
+    }
 
     /**
      * Show the application dashboard.

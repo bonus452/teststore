@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Shop;
 
+use App\Filters\ProductFilter;
 use App\Http\Controllers\Controller;
 use App\Models\Shop\Category;
 use App\Models\Shop\Product;
@@ -9,6 +10,7 @@ use App\Repository\Breadcrumbs\Shop\CategoryBreadcrumb;
 use App\Repository\Breadcrumbs\Shop\ProductBreadcrumb;
 use App\Repository\CategoryRepository;
 use App\Repository\ProductRepository;
+use App\Repository\PropertyRepository;
 use Illuminate\Http\Request;
 
 class CatalogController extends Controller
@@ -18,6 +20,7 @@ class CatalogController extends Controller
     private $categoryRepository;
     private $breadcrumbCategory;
     private $breadcrumbProduct;
+    private $propertyRepository;
 
     public function __construct()
     {
@@ -25,21 +28,39 @@ class CatalogController extends Controller
         $this->categoryRepository = new CategoryRepository();
         $this->breadcrumbCategory = new CategoryBreadcrumb();
         $this->breadcrumbProduct = new ProductBreadcrumb();
+        $this->propertyRepository = new PropertyRepository();
     }
 
-    public function list(Request $request, $sub_categories)
+    public function list(Request $request, $sub_categories, ProductFilter $product_filter)
     {
 
         $request_url = $request->getPathInfo();
         $category = $this->categoryRepository->getFromUrl($request_url);
-
         if(is_null($category) || $request_url !== $category->url){
             abort( 404);
-        }else{
+        }
+
+        $products_box = $this->productRepository->getPaginateWithSublevelsProducts($product_filter, $category->id);
+        $filter = $this->propertyRepository->getFilterProperties($category, $product_filter);
+
+
+        $inner_categories = $this->categoryRepository->getChildrenWithCount($category);
+        if($request->ajax()){
+            return view('include.catalog_section',
+                compact(
+                'category',
+                'inner_categories',
+                'products_box',
+                'filter'));
+        }else {
             $breadcrumbs = $this->breadcrumbCategory->getBreadcrumb($category);
-            $products_box = $this->productRepository->getPaginateWithSublevelsProducts($category->id);
-            $inner_categories = $this->categoryRepository->getChildrenWithCount($category);
-            return view('shop.section', compact('category', 'breadcrumbs', 'inner_categories', 'products_box'));
+            return view('shop.section',
+                compact(
+                    'category',
+                    'breadcrumbs',
+                    'inner_categories',
+                    'products_box',
+                    'filter'));
         }
     }
 
@@ -54,12 +75,10 @@ class CatalogController extends Controller
         }
     }
 
-    public function index()
+    public function index(ProductFilter $product_filter)
     {
-        $test = new Category();
-        $test->where('slug', 'reilly')->get();
 
-        $products_box = $this->productRepository->getPaginateWithSublevelsProducts();
+        $products_box = $this->productRepository->getPaginateWithSublevelsProducts($product_filter);
         $category = $this->categoryRepository->getRootCategory();
         $inner_categories = $this->categoryRepository->getChildrenWithCount($category);
         return view('shop.section', compact('category', 'inner_categories', 'products_box'));

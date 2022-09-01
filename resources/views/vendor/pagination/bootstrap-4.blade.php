@@ -1,4 +1,5 @@
 @if ($paginator->hasPages())
+    <div class="clearfix"></div>
     <div class="pagination-products">
         <nav>
             <ul class="pagination">
@@ -50,4 +51,7 @@
             </ul>
         </nav>
     </div>
+
+
+
 @endif

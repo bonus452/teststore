@@ -2,11 +2,12 @@
 
 namespace App\Repository;
 
+use App\Filters\ProductFilter;
 use App\Models\Shop\Category;
+use App\Models\Shop\Offer;
 use App\Models\Shop\Product as Model;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Collection;
-
-
 
 
 class ProductRepository extends CatalogRepository
@@ -22,15 +23,14 @@ class ProductRepository extends CatalogRepository
         return clone $this->instance;
     }
 
-    public function getPaginateWithSublevelsProducts($category_id = false): object
+    public function getPaginateWithSublevelsProducts(ProductFilter $filter, $category_id = false): object
     {
-
-        $products = $this->getInstance()->active()->with(['offers', 'category']);
+        $products = $this->getInstance()->active()->filter($filter)->with('category');
         if ($category_id) {
             $categories = $this->getAllChildsList($category_id);
             $products = $products->whereIn('category_id', $categories);
         }
-        $products = $products->paginate(12);
+        $products = $products->paginate(12)->appends(request()->except('page'));
 
         $result = (object)[
             'products' => $products,
@@ -72,12 +72,12 @@ class ProductRepository extends CatalogRepository
     public function getForDetailPage($product)
     {
         $product = $this->getInstance()->where('slug', $product)->active()
-            ->with(['offers' => function($query){
-                $query->with(['properties' => function($query){
+            ->with(['offers' => function ($query) {
+                $query->with(['properties' => function ($query) {
                     $query->with('property_name');
                 }]);
             }])
-            ->with(['properties' => function($query){
+            ->with(['properties' => function ($query) {
                 $query->with('property_name');
             }])
             ->first();

@@ -2,6 +2,8 @@
 
 namespace App\Models\Shop;
 
+use App\Filters\ProductFilter;
+use App\Filters\QueryFilter;
 use App\Interfaces\RowGetteble;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -49,6 +51,8 @@ use Illuminate\Database\Eloquent\Relations\MorphToMany;
  * @method static Builder|Product whereSeoTitle($value)
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Shop\Image[] $images
  * @property-read int|null $images_count
+ * @method static Builder|Product filter(\App\Filters\ProductFilter $filter)
+ * @method static Builder|Product withProperties()
  */
 class Product extends Model implements RowGetteble
 {
@@ -60,6 +64,22 @@ class Product extends Model implements RowGetteble
     public function scopeActive($query)
     {
         return $query->where('active', 1);
+    }
+
+    public function scopeFilter($query, QueryFilter $filter){
+        $filter->apply($query);
+    }
+
+    public function scopeWithProperties($query){
+        $query->with('properties', function ($query) {
+            $query->with('property_name');
+        })
+            ->with('offers', function ($query) {
+                $query->with('properties', function ($query) {
+                    $query->with('property_name');
+                });
+            });
+        return $query;
     }
 
     public function offers(): HasMany

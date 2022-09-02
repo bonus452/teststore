@@ -54,23 +54,34 @@ use Illuminate\Database\Eloquent\Relations\MorphToMany;
  * @method static Builder|Product filter(\App\Filters\ProductFilter $filter)
  * @method static Builder|Product withProperties()
  */
-class Product extends Model implements RowGetteble
+class Product extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'description', 'category_id', 'slug', 'active', 'seo_title', 'seo_description', 'seo_keywords'];
+    protected $fillable = [
+        'name',
+        'description',
+        'category_id',
+        'slug',
+        'active',
+        'seo_title',
+        'seo_description',
+        'seo_keywords'
+    ];
 
 
-    public function scopeActive($query)
+    public function scopeActive(Builder $query)
     {
-        return $query->where('active', 1);
+        $query->where('active', 1);
     }
 
-    public function scopeFilter($query, QueryFilter $filter){
+    public function scopeFilter(Builder $query, QueryFilter $filter)
+    {
         $filter->apply($query);
     }
 
-    public function scopeWithProperties($query){
+    public function scopeWithProperties($query)
+    {
         $query->with('properties', function ($query) {
             $query->with('property_name');
         })
@@ -79,7 +90,6 @@ class Product extends Model implements RowGetteble
                     $query->with('property_name');
                 });
             });
-        return $query;
     }
 
     public function offers(): HasMany
@@ -97,18 +107,18 @@ class Product extends Model implements RowGetteble
         return $this->belongsTo(Category::class);
     }
 
-    public function properties() : MorphToMany
+    public function properties(): MorphToMany
     {
-        return $this->morphToMany(PropertyValue::class,'propertable');
+        return $this->morphToMany(PropertyValue::class, 'propertable');
     }
 
-    public function getUrlAttribute($value)
+    public function getUrlAttribute($value): string
     {
         $category_url = $this->category->url;
         return $category_url . '/detail-product/' . $this->slug;
     }
 
-    public function getAdminUrl()
+    public function getAdminUrl(): string
     {
         return '/admin/catalog/product-edit/' . $this->id;
     }

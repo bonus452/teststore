@@ -41,7 +41,7 @@
                             <tbody>
                             @foreach($offer->properties as $property)
                                 @include('include.form_blocks.property_line', [
-                                    'property_name' => $property->property_name,
+                                    'property' => $property->property_name,
                                     'selected_value' => $property->value
                                 ])
                             @endforeach

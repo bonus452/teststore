@@ -30,7 +30,8 @@ class Image extends Model
 
     protected $fillable = ['src'];
 
-    public function getSrcAttribute($value){
+    public function getSrcAttribute($value)
+    {
         $result = $value instanceof UploadedFile
             ? $value
             : '/storage/'. $value;

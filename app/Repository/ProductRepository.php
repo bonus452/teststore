@@ -23,7 +23,7 @@ class ProductRepository extends CatalogRepository
         return clone $this->instance;
     }
 
-    public function getPaginateWithSublevelsProducts(ProductFilter $filter, $category_id = false): object
+    public function getPaginateWithSublevelProducts(ProductFilter $filter, $category_id = false): object
     {
         $products = $this->getInstance()->active()->filter($filter)->with('category');
         if ($category_id) {

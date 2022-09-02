@@ -26,7 +26,6 @@ class ImageObserver
 
     public function deleted(Image $image)
     {
-
         $is_windows = strripos(php_uname() ,'windows') !== false;
         $path = Storage::disk('public')->path($image->getRawOriginal('src'));
         $src = $is_windows ?

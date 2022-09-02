@@ -45,7 +45,8 @@ class Offer extends Model
         return $this->morphToMany(PropertyValue::class,'propertable');
     }
 
-    public function getPriceAttribute($value){
+    public function getPriceAttribute($value): string
+    {
         $value = floatval($value);
         return number_format($value, 2, '.', '');
     }

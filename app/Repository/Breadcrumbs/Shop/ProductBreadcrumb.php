@@ -2,11 +2,12 @@
 
 namespace App\Repository\Breadcrumbs\Shop;
 
-use App\Interfaces\RowGetteble;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Collection;
 
 class ProductBreadcrumb extends CategoryBreadcrumb
 {
-    public function getBreadcrumb(RowGetteble $model)
+    public function getBreadcrumb(Model $model): Collection
     {
         $result = parent::getBreadcrumb($model->category);
         $result->add((object)[

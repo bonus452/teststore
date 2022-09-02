@@ -2,35 +2,27 @@
 
 namespace App\Repository\Breadcrumbs\Shop;
 
-use App\Interfaces\RowGetteble;
-use App\Models\Shop\Category as Model;
+use App\Models\Shop\Category;
 use App\Repository\Breadcrumbs\CoreBreadcrumb;
+use App\Repository\CategoryRepository;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Collection;
 
 class CategoryBreadcrumb extends CoreBreadcrumb
 {
 
-    protected function getClassName() : string
+    protected function getClassName(): string
     {
-        return Model::class;
+        return Category::class;
     }
 
-    public function getBreadcrumb(RowGetteble $model)
+    public function getBreadcrumb(Model $model): Collection
     {
-        $url = trim($model->getRawOriginal('url'), '/');
-        $slugs = explode('/', $url);
-        $categories = $this->getInstance()
-            ->whereIn('slug', $slugs)
-            ->get();
-        $result = collect($slugs)->map(function ($slug) use($categories){
-            return $categories
-                ->where('slug', $slug)
-                ->first();
-        });
-
+        $result = (new CategoryRepository())->getParentsFromCategoryUrl($model);
         $result->prepend(
             (object)[
                 'title' => 'Catalog',
-                'url' => '/'.CATALOG_PATH
+                'url' => '/' . CATALOG_PATH
             ]
         );
         $result->prepend(

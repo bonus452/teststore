@@ -35,10 +35,9 @@ class ProductController extends Controller
 
     public function showFormCreate()
     {
-
         $perview_url = redirect()->back()->getTargetUrl();
         $selectedCategory = $this->categoryRepository->getFromUrl($perview_url);
-        $categoriesTree = $this->categoryRepository->getForCombobox($selectedCategory, false);
+        $categoriesTree = $this->categoryRepository->getForCombobox($selectedCategory);
 
         if (!is_null($selectedCategory)) {
             $breadcrumbs = $this->breadcrumbCategory->getBreadcrumb($selectedCategory);
@@ -68,7 +67,7 @@ class ProductController extends Controller
     public function showFormUpdate(Product $product)
     {
         $product = $this->productRepository->getForDetailPage($product->slug);
-        $categoriesTree = $this->categoryRepository->getForCombobox($product->category, false);
+        $categoriesTree = $this->categoryRepository->getForCombobox($product->category);
         $breadcrumbs = $this->breadcrumbProduct->getBreadcrumb($product);
         return view('admin.catalog.product.edit_form',
             compact('product', 'categoriesTree', 'breadcrumbs'));
@@ -77,7 +76,7 @@ class ProductController extends Controller
     public function update(Product $product, ProductRequest $request)
     {
         try {
-            $this->productService->update($product, $request->except('offers'));
+            $this->productService->update($product, $request->safe()->except('offers'));
             $this->offerService->sync($product, collect($request->input('offers')));
         } catch (Exception $exception) {
             return back()
@@ -91,11 +90,10 @@ class ProductController extends Controller
 
     public function delete(Product $product)
     {
-        $url = $product->category->getAdminUrl();
-
         try {
             if ($product->delete()) {
-                return redirect($url)->with(RESULT_MESSAGE, __('success.product_deleted'));
+                return redirect($product->category->getAdminUrl())
+                    ->with(RESULT_MESSAGE, __('success.product_deleted'));
             } else {
                 return back()->withErrors(['category' => __('fail.category_delete')]);
             }

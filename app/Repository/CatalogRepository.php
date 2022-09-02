@@ -4,8 +4,6 @@ namespace App\Repository;
 
 use App\Models\Shop\Category;
 use App\Models\Shop\Product;
-use App\Repository\Breadcrumbs\CoreBreadcrumb;
-use App\Repository\Breadcrumbs\Shop\CategoryBreadcrumb;
 use Illuminate\Support\Collection;
 
 abstract class CatalogRepository
@@ -13,14 +11,15 @@ abstract class CatalogRepository
 
     protected $instance;
 
-    public function __construct(){
+    public function __construct()
+    {
         $this->instance = app($this->getModelClass());
     }
 
-    public abstract function getModelClass() :string;
+    public abstract function getModelClass(): string;
 
 
-    public function getCountByCategories(array $categories) :int
+    public function getCountByCategories(array $categories): int
     {
         $result = Product::active()->whereIn('category_id', $categories);
         $result = $result->count();
@@ -35,17 +34,17 @@ abstract class CatalogRepository
         return $result->toArray();
     }
 
-    private function getChilds(Collection $categories, $parents) :Collection
+    private function getChilds(Collection $categories, $parents): Collection
     {
         $childs = $categories->whereIn('category_id', $parents)->pluck('id');
-        if($childs->isNotEmpty()){
+        if ($childs->isNotEmpty()) {
             $result = $this->getChilds($categories, $childs->toArray());
             $childs = $result->merge($childs);
         }
         return $childs;
     }
 
-    public function getRootCategory() : Category
+    public function getRootCategory(): Category
     {
         $result = (new Category())
             ->withoutGlobalScope('withoutroot')

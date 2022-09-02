@@ -18,7 +18,7 @@ class CategoryObserver
      * @param \App\Models\Shop\Category $category
      * @return \App\Models\Shop\Category  $category
      */
-    public function creating(Category $category)
+    public function creating(Category $category): Category
     {
         if ($category->img instanceof UploadedFile) {
             if ($category->img) {
@@ -34,7 +34,7 @@ class CategoryObserver
      * @param \App\Models\Shop\Category $category
      * @return Category
      */
-    public function updating(Category $category)
+    public function updating(Category $category): Category
     {
         $category->slug = $category->slug ?: Str::slug($category->title);
 
@@ -47,14 +47,17 @@ class CategoryObserver
         }
         if ($category->img instanceof UploadedFile) {
             if ($category->img) {
-                $category->img = $category->img->storePublicly('images/category_images', 'public');
+                $category->img = $category
+                    ->img
+                    ->storePublicly('images/category_images', 'public');
             }
         }
         return $category;
     }
 
-    public function updated(Category $category){
-        if (!is_null($category->parent)) {
+    public function updated(Category $category)
+    {
+        if ($category->parent instanceof Category) {
             $url = $category->parent->url . '/' . $category->slug;
             $category->child()
                 ->get()
@@ -62,7 +65,6 @@ class CategoryObserver
                 ->update(['url' => $url]);
         }
     }
-
 
     public function deleting(Category $category)
     {
@@ -74,25 +76,4 @@ class CategoryObserver
             ->delete();
     }
 
-    /**
-     * Handle the Category "restored" event.
-     *
-     * @param \App\Models\Shop\Category $category
-     * @return void
-     */
-    public function restored(Category $category)
-    {
-        //
-    }
-
-    /**
-     * Handle the Category "force deleted" event.
-     *
-     * @param \App\Models\Shop\Category $category
-     * @return void
-     */
-    public function forceDeleted(Category $category)
-    {
-        //
-    }
 }

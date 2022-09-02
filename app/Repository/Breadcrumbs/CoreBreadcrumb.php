@@ -2,7 +2,7 @@
 
 namespace App\Repository\Breadcrumbs;
 
-use App\Interfaces\RowGetteble;
+use Illuminate\Database\Eloquent\Model;
 
 abstract class CoreBreadcrumb
 {
@@ -17,5 +17,5 @@ abstract class CoreBreadcrumb
     }
 
     abstract protected function getClassName() :string;
-    abstract function getBreadcrumb(RowGetteble $model);
+    abstract function getBreadcrumb(Model $model);
 }

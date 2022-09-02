@@ -2,7 +2,8 @@
 
 namespace App\Repository;
 
-use App\Models\Shop\Category as Model;
+use App\Models\Shop\Category;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
 
 
@@ -11,10 +12,10 @@ class CategoryRepository extends CatalogRepository
 
     function getModelClass(): string
     {
-        return Model::class;
+        return Category::class;
     }
 
-    protected function getInstance(): Model
+    protected function getInstance(): Category
     {
         return clone $this->instance;
     }
@@ -22,11 +23,11 @@ class CategoryRepository extends CatalogRepository
     public function getFromUrl($href)
     {
         $curent_slug = collect(explode('/', $href))->last();
-        $result = Model::where('slug', $curent_slug)->first();
+        $result = Category::where('slug', $curent_slug)->first();
         return $result;
     }
 
-    public function getParents(Model $category): Collection
+    public function getParents(Category $category): Collection
     {
         $result[] = $category;
         while ($category = $category->parent) {
@@ -35,23 +36,43 @@ class CategoryRepository extends CatalogRepository
         return collect(array_reverse($result));
     }
 
+    public function getParentsFromCategoryUrl(Model $category)
+    {
+        $url = trim($category->getRawOriginal('url'), '/');
+        $slugs = explode('/', $url);
+        $categories = $this->getInstance()
+            ->whereIn('slug', $slugs)
+            ->get();
+        return collect($slugs)->map(function ($slug) use ($categories) {
+            return $categories
+                ->where('slug', $slug)
+                ->first();
+        });
+    }
+
     public function getCategoriesTree($pid = 1): Collection
     {
         $categories = $this->getInstance()->all();
         return $this->buildTree($categories, $pid);
     }
 
-    public function getForCombobox($selectedCategory, $withRoot = true): Collection
+    public function getForCombobox($selectedCategory): Collection
+    {
+        $result = $this->getCategoriesTree(1);
+
+        $selectedCategoryId = $selectedCategory ? $selectedCategory->id : 0;
+        $result = $this->markSelectedCategory($result, $selectedCategoryId);
+
+        return $result;
+    }
+
+    public function getForComboboxWithRoot($selectedCategory): Collection
     {
         $categories = $this->getCategoriesTree(1);
         $result = new Collection();
-        if ($withRoot){
-            $root_category = $this->getRootCategory();
-            $root_category->setCustomProp('sub_categories', $categories);
-            $result = $result->push($root_category);
-        }else{
-            $result = $categories;
-        }
+        $root_category = $this->getRootCategory();
+        $root_category->setCustomProp('sub_categories', $categories);
+        $result = $result->push($root_category);
 
         $selectedCategoryId = $selectedCategory ? $selectedCategory->id : 0;
         $result = $this->markSelectedCategory($result, $selectedCategoryId);
@@ -81,11 +102,11 @@ class CategoryRepository extends CatalogRepository
         return $categories;
     }
 
-    public function getChildrenWithCount(Model $parent)
+    public function getChildrenWithCountProducts(Category $parent)
     {
         $result = $parent->child()->get();
         $all_categories = $this->getInstance()->all();
-        $result->transform(function (Model $item) use ($all_categories) {
+        $result->transform(function (Category $item) use ($all_categories) {
             $children = $this->getAllChildsList($item->id, $all_categories);
             $count_products = $this->getCountByCategories($children);
             return $item->setCustomProp('count_products', $count_products);
@@ -104,7 +125,7 @@ class CategoryRepository extends CatalogRepository
         return $found;
     }
 
-    public function getWithPaginate(Model $category = null)
+    public function getWithPaginate(Category $category = null)
     {
 
         return $this->getInstance()->paginate(12);

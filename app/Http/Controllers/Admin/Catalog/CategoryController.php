@@ -38,9 +38,7 @@ class CategoryController extends Controller
 
     public function list(Request $request, $sub_categories)
     {
-
-        $request_url = $request->getPathInfo();
-        $category = $this->categoryRepository->getFromUrl($request_url);
+        $category = $this->categoryRepository->getFromUrl($request->getPathInfo());
 
         if ($category instanceof Category){
             $items = $this->productRepository->getPaginateWithCategories($category);
@@ -54,8 +52,7 @@ class CategoryController extends Controller
 
     public function editForm(Category $category)
     {
-        $parent = $category->parent;
-        $categoriesTree = $this->categoryRepository->getForCombobox($parent);
+        $categoriesTree = $this->categoryRepository->getForComboboxWithRoot($category->parent);
         $breadcrumbs = $this->breadcrumbCategory->getBreadcrumb($category);
         return view('admin.catalog.category.edit_form',
             compact('category', 'breadcrumbs', 'categoriesTree'));
@@ -64,7 +61,7 @@ class CategoryController extends Controller
     public function update(CategoryRequest $request, Category $category)
     {
         try {
-            $category = $this->categoryService->update($category, $request->all());
+            $category = $this->categoryService->update($category, $request->safe()->all());
         } catch (Exception $exception) {
             return back()
                 ->withInput()
@@ -79,13 +76,13 @@ class CategoryController extends Controller
     public function createForm(Request $request)
     {
         $perview_url = redirect()->back()->getTargetUrl();
-        $selectedCategory = $this->categoryRepository->getFromUrl($perview_url);
-        $categoriesTree = $this->categoryRepository->getForCombobox($selectedCategory);
+        $parent_category = $this->categoryRepository->getFromUrl($perview_url);
+        $categoriesTree = $this->categoryRepository->getForComboboxWithRoot($parent_category);
 
-        if (!is_null($selectedCategory)) {
-            $breadcrumbs = $this->breadcrumbCategory->getBreadcrumb($selectedCategory);
+        if ($parent_category instanceof Category) {
+            $breadcrumbs = $this->breadcrumbCategory->getBreadcrumb($parent_category);
             return view('admin.catalog.category.create_form',
-                compact('categoriesTree', 'breadcrumbs', 'selectedCategory'));
+                compact('categoriesTree', 'breadcrumbs', 'parent_category'));
         } else {
             return view('admin.catalog.category.create_form',
                 compact('categoriesTree'));
@@ -94,7 +91,6 @@ class CategoryController extends Controller
 
     public function create(CategoryRequest $request)
     {
-
         try {
             $category = $this->categoryService->store($request->all());
         } catch (Exception $exception) {
@@ -110,11 +106,12 @@ class CategoryController extends Controller
 
     public function delete(Category $category)
     {
-        if (!is_null($category->parent)) {
+        if ($category->parent instanceof Category) {
             $url = $category->parent->getAdminUrl();
         } else {
             $url = route('admin.catalog.index');
         }
+
         try {
             if ($category->delete()) {
                 return redirect($url)->with(RESULT_MESSAGE, __('success.category_deleted'));

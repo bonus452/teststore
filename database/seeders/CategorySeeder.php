@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Helpers\DataRefactor;
+use App\Helpers\DataCategoryRefresher;
 use Faker\Factory;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -45,7 +45,7 @@ class CategorySeeder extends Seeder
             ]);
         }
 
-        DataRefactor::refreshCategoriesUrl();
+        DataCategoryRefresher::refreshUrls();
 
     }
 }

@@ -5,13 +5,13 @@
 
 @section('content')
 
-    @php /** @var \App\Models\Shop\Category $selectedCategory */ @endphp
+    @php /** @var \App\Models\Shop\Category $parent_category */ @endphp
 
     @include('include.messages.top_error_message')
 
     <div class="nav-links">
-        @if(isset($selectedCategory) && !is_null($selectedCategory))
-            <a href="{{ $selectedCategory->getAdminUrl() }}" class="btn btn-primary">Back to list</a>
+        @if(isset($parent_category) && !is_null($parent_category))
+            <a href="{{ $parent_category->getAdminUrl() }}" class="btn btn-primary">Back to list</a>
         @else
             <a href="{{ route('admin.catalog.index') }}" class="btn btn-primary">Back to list</a>
         @endif

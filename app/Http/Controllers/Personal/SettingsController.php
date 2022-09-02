@@ -4,7 +4,8 @@ namespace App\Http\Controllers\Personal;
 
 class SettingsController
 {
-    function showForm(){
+    function showForm()
+    {
         return view('personal.index');
     }
 }

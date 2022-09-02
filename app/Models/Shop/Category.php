@@ -55,20 +55,30 @@ use Illuminate\Support\Str;
  * @method static Builder|Category whereSeoKeywords($value)
  * @method static Builder|Category whereSeoTitle($value)
  */
-class Category extends Model implements RowGetteble
+class Category extends Model
 {
     use HasFactory;
 
     protected Collection $sub_categories;
-    protected $fillable = ['title', 'slug', 'url', 'img', 'category_id', 'seo_title', 'seo_description', 'seo_keywords'];
+    protected $fillable = [
+        'title',
+        'slug',
+        'url',
+        'img',
+        'category_id',
+        'seo_title',
+        'seo_description',
+        'seo_keywords'];
 
     protected $customProperties = [];
 
-    public function getCustomProp($key){
+    public function getCustomProp($key)
+    {
         return $this->customProperties[$key] ?? null;
     }
 
-    public function setCustomProp($key, $value){
+    public function setCustomProp($key, $value)
+    {
         $this->customProperties[$key] = $value;
         return $this;
     }
@@ -96,26 +106,31 @@ class Category extends Model implements RowGetteble
         return $this->hasMany(Category::class);
     }
 
-    public function getUrlAttribute($value){
+    public function getUrlAttribute($value): string
+    {
         return '/' . CATALOG_PATH . $value;
     }
 
-    public function getAdminUrl(){
+    public function getAdminUrl(): string
+    {
         return '/admin'  . $this->url;
     }
 
-    public function getEditUrl(){
+    public function getEditUrl(): string
+    {
         return '/admin/catalog/category-edit/'.$this->id;
     }
 
-    public function getImgAttribute($value){
+    public function getImgAttribute($value)
+    {
         $result = $value instanceof UploadedFile
             ? $value
             : '/storage/'. $value;
         return $result;
     }
 
-    public function getImgPathSystemAttribute(){
+    public function getImgPathSystemAttribute()
+    {
         $src = $this->getRawOriginal('img');
         if (!empty($src)){
             $is_windows = strripos(php_uname() ,'windows') !== false;

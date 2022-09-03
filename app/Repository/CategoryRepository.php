@@ -6,21 +6,33 @@ use App\Models\Shop\Category;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
 
-
-class CategoryRepository extends CatalogRepository
+class CategoryRepository
 {
 
-    function getModelClass(): string
+    protected function getInstance()
     {
-        return Category::class;
+        return new Category();
     }
 
-    protected function getInstance(): Category
+    public function getAllChildrenId(int $parent_id, Collection $categories = null): array
     {
-        return clone $this->instance;
+        $categories = $categories ?? Category::all();
+        $result = $this->getRecursiveChilds($categories, [$parent_id]);
+        $result->add($parent_id);
+        return $result->toArray();
     }
 
-    public function getFromUrl($href)
+    private function getRecursiveChilds(Collection $categories, array $parents): Collection
+    {
+        $childs_id = $categories->whereIn('category_id', $parents)->pluck('id');
+        if ($childs_id->isNotEmpty()) {
+            $result = $this->getRecursiveChilds($categories, $childs_id->toArray());
+            $childs_id = $result->merge($childs_id);
+        }
+        return $childs_id;
+    }
+
+    public function getFromUrl(string $href)
     {
         $curent_slug = collect(explode('/', $href))->last();
         $result = Category::where('slug', $curent_slug)->first();
@@ -36,33 +48,50 @@ class CategoryRepository extends CatalogRepository
         return collect(array_reverse($result));
     }
 
-    public function getParentsFromCategoryUrl(Model $category)
+    public function getCategoriesFromUrl(string $url): Collection
     {
-        $url = trim($category->getRawOriginal('url'), '/');
+        $slugs = $this->explodeSlugsFromUrl($url);
+        $categories = $this->getBySlugs($slugs);
+        $result = $this->orderBySlugs($slugs, $categories);
+        return $result;
+    }
+
+    private function explodeSlugsFromUrl(string $url): array
+    {
+        $url = trim($url, '/');
         $slugs = explode('/', $url);
-        $categories = $this->getInstance()
+        return $slugs;
+    }
+
+    private function getBySlugs(array $slugs) :Collection
+    {
+        $result = $this->getInstance()
             ->whereIn('slug', $slugs)
             ->get();
-        return collect($slugs)->map(function ($slug) use ($categories) {
+        return $result;
+    }
+
+    private function orderBySlugs(array $slugs, Collection $categories): Collection
+    {
+        $result = collect($slugs)->map(function ($slug) use ($categories) {
             return $categories
                 ->where('slug', $slug)
                 ->first();
         });
+        return $result;
     }
 
-    public function getCategoriesTree($pid = 1): Collection
+    public function getCategoriesTree($category_id = 1): Collection
     {
         $categories = $this->getInstance()->all();
-        return $this->buildTree($categories, $pid);
+        return $this->buildTree($categories, $category_id);
     }
 
     public function getForCombobox($selectedCategory): Collection
     {
         $result = $this->getCategoriesTree(1);
-
         $selectedCategoryId = $selectedCategory ? $selectedCategory->id : 0;
         $result = $this->markSelectedCategory($result, $selectedCategoryId);
-
         return $result;
     }
 
@@ -82,11 +111,7 @@ class CategoryRepository extends CatalogRepository
 
     private function markSelectedCategory(Collection $categories, $selectedCategoryId)
     {
-
-
         $categories->transform(function ($category) use ($selectedCategoryId) {
-            /** @var \App\Models\Shop\Category $category */
-
             $check_category = old('category_id') ?? $selectedCategoryId;
             if ($category->id == $check_category) {
                 $category->setCustomProp('selected', 'selected');
@@ -102,33 +127,23 @@ class CategoryRepository extends CatalogRepository
         return $categories;
     }
 
-    public function getChildrenWithCountProducts(Category $parent)
-    {
-        $result = $parent->child()->get();
-        $all_categories = $this->getInstance()->all();
-        $result->transform(function (Category $item) use ($all_categories) {
-            $children = $this->getAllChildsList($item->id, $all_categories);
-            $count_products = $this->getCountByCategories($children);
-            return $item->setCustomProp('count_products', $count_products);
-        });
-        return $result;
-    }
 
-    private function buildTree(Collection $categories, $pid)
+    private function buildTree(Collection $all_categories, $category_id)
     {
-        /** @var \App\Models\Shop\Category $cat */
-
-        $found = $categories->where('category_id', $pid);
+        $found = $all_categories->where('category_id', $category_id);
         foreach ($found as &$cat) {
-            $cat->setCustomProp('sub_categories', $this->buildTree($categories, $cat->id));
+            $cat->setCustomProp('sub_categories', $this->buildTree($all_categories, $cat->id));
         }
         return $found;
     }
 
-    public function getWithPaginate(Category $category = null)
+    public function getRootCategory(): Category
     {
-
-        return $this->getInstance()->paginate(12);
+        $result = (new Category())
+            ->withoutGlobalScope('withoutroot')
+            ->find(1);
+        $result->title = 'Catalog';
+        return $result;
     }
 
 }

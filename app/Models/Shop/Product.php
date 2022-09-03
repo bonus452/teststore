@@ -51,7 +51,7 @@ use Illuminate\Database\Eloquent\Relations\MorphToMany;
  * @method static Builder|Product whereSeoTitle($value)
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Shop\Image[] $images
  * @property-read int|null $images_count
- * @method static Builder|Product filter(\App\Filters\ProductFilter $filter)
+ * @method static Builder|Product filter(\App\Filters\QueryFilter $filter)
  * @method static Builder|Product withProperties()
  */
 class Product extends Model

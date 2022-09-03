@@ -16,7 +16,6 @@ class CategoryService
     public function store($fields)
     {
         $parent = Category::withoutGlobalScope('withoutroot')->find($fields['category_id']);
-        $fields['slug'] = $fields['slug'] ?? Str::slug($fields['title']);
         $fields['url'] = $parent->getRawOriginal('url') . '/' . $fields['slug'];
         $result = $parent->child()->create($fields);
 

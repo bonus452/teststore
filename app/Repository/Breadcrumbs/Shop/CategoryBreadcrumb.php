@@ -18,7 +18,7 @@ class CategoryBreadcrumb extends CoreBreadcrumb
 
     public function getBreadcrumb(Model $model): Collection
     {
-        $result = (new CategoryRepository())->getParentsFromCategoryUrl($model);
+        $result = (new CategoryRepository())->getCategoriesFromUrl($model->getRawOriginal('url'));
         $result->prepend(
             (object)[
                 'title' => 'Catalog',

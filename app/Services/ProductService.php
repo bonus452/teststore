@@ -15,18 +15,15 @@ class ProductService
         $this->imageService = new ImageService();
     }
 
-    public function store(array $fields) : Product
+    public function store(array $fields): Product
     {
-        if (empty($fields['slug'])){
-            $fields['slug'] = \Str::slug($fields['name']);
-        }
         $product = Product::create($fields);
 
-        if (isset($fields['new_images'])){
+        if (isset($fields['new_images'])) {
             $this->imageService->syncImages($product, $fields['new_images']);
         }
 
-        if (isset($fields['properties'])){
+        if (isset($fields['properties'])) {
             $property_values = $this->propertyService->findOrCreateValues($fields['properties']);
             $product->properties()->sync($property_values);
         }
@@ -34,15 +31,12 @@ class ProductService
         return $product;
     }
 
-    public function update(Product &$product, array $fields)
+    public function update(Product &$product, array $fields): bool
     {
-        if (empty($fields['slug'])){
-            $fields['slug'] = \Str::slug($fields['name']);
-        }
-
         $result = $product->update($fields);
         $this->imageService->syncImages($product, $fields['new_images'], $fields['exists_images']);
-        if (isset($fields['properties'])){
+
+        if (isset($fields['properties'])) {
             $property_values = $this->propertyService->findOrCreateValues($fields['properties']);
             $product->properties()->sync($property_values);
         }

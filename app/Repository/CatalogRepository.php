@@ -2,55 +2,98 @@
 
 namespace App\Repository;
 
+use App\Filters\ProductFilter;
+use App\Filters\QueryFilter;
 use App\Models\Shop\Category;
 use App\Models\Shop\Product;
+use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;
+use Illuminate\Database\Eloquent\Collection as ElCollection;
 
-abstract class CatalogRepository
+class CatalogRepository
 {
 
-    protected $instance;
+    private $productRepository;
+    private $categoryRepository;
 
     public function __construct()
     {
-        $this->instance = app($this->getModelClass());
+        $this->productRepository = new ProductRepository();
+        $this->categoryRepository = new CategoryRepository();
     }
 
-    public abstract function getModelClass(): string;
-
-
-    public function getCountByCategories(array $categories): int
+    public function getCategoriesWithCountProducts(Category $parent): ElCollection
     {
-        $result = Product::active()->whereIn('category_id', $categories);
-        $result = $result->count();
-        return $result;
+        $child_categories = $parent->child()->get();
+        $this->setCountProductsToCategories($child_categories);
+        return $child_categories;
     }
 
-    public function getAllChildsList($parent_id, Collection $categories = null): array
+    private function setCountProductsToCategories(Collection &$categories): void
     {
-        $categories = $categories ?? (new Category())->all();
-        $result = $this->getChilds($categories, [$parent_id]);
-        $result->add($parent_id);
-        return $result->toArray();
+        $all_categories = Category::all();
+        $categories->transform(function (Category $item) use ($all_categories) {
+            $children = $this->categoryRepository->getAllChildrenId($item->id, $all_categories);
+            $count_products = $this->productRepository->getCountFromCategories($children);
+            return $item->setCustomProp('count_products', $count_products);
+        });
     }
 
-    private function getChilds(Collection $categories, $parents): Collection
+    public function getFilteredPaginateSublevelProducts(QueryFilter $filter, $category_id = false): object
     {
-        $childs = $categories->whereIn('category_id', $parents)->pluck('id');
-        if ($childs->isNotEmpty()) {
-            $result = $this->getChilds($categories, $childs->toArray());
-            $childs = $result->merge($childs);
+        $products = Product::active()->filter($filter)->with('category');
+        if ($category_id) {
+            $categories = $this->categoryRepository->getAllChildrenId($category_id);
+            $products->whereIn('category_id', $categories);
         }
-        return $childs;
+        $url_params = request()->except('page');
+        $products = $products
+            ->paginate(12)
+            ->appends($url_params);
+        $result = $this->prepareProductResultPagination($products);
+        return $result;
     }
 
-    public function getRootCategory(): Category
+    private function prepareProductResultPagination(LengthAwarePaginator $paginator): object
     {
-        $result = (new Category())
-            ->withoutGlobalScope('withoutroot')
-            ->find(1);
-        $result->title = 'Catalog';
+        $result = (object)[
+            'products' => $paginator,
+            'info' => "Showing "
+                . (($paginator->currentPage() - 1) * $paginator->perPage() + 1)
+                . " - " . $paginator->currentPage() * $paginator->perPage()
+                . " of " . $paginator->total() . " results "
+        ];
         return $result;
+    }
+
+    public function getPaginateWithCategories(Category $parent = null): LengthAwarePaginator
+    {
+        $parent = $parent ?? $this->categoryRepository->getRootCategory();
+
+        $categories = $parent->child()
+            ->selectRaw("id, category_id, title, slug, created_at, updated_at, url, 'category' as `type`");
+        $result = Product::where('category_id', $parent->id)
+            ->selectRaw("id, category_id, name as title, slug, created_at, updated_at, 'url' as `url`, 'product' as `type`")
+            ->with('category')
+            ->union($categories)
+            ->orderBy('type', 'asc')
+            ->paginate(12);
+
+        $this->prepareMixResultPagination($result);
+
+        return $result;
+    }
+
+    private function prepareMixResultPagination(&$pagination): void
+    {
+        $pagination->getCollection()
+            ->transform(function ($value) {
+                if ($value->type == 'category') {
+                    return (new Category())->setRawAttributes($value->getAttributes());
+                } else {
+                    return $value;
+                }
+            });
     }
 
 }

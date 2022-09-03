@@ -7,6 +7,7 @@ use App\Http\Requests\CategoryRequest;
 use App\Models\Shop\Category;
 use App\Repository\Breadcrumbs\Admin\CategoryBreadcrumb;
 use App\Repository\Breadcrumbs\Admin\ProductBreadcrumb;
+use App\Repository\CatalogRepository;
 use App\Repository\CategoryRepository;
 use App\Repository\ProductRepository;
 use App\Services\CategoryService;
@@ -19,6 +20,7 @@ class CategoryController extends Controller
 
     private $productRepository;
     private $categoryRepository;
+    private $catalogRepository;
     private $breadcrumbCategory;
     private $categoryService;
 
@@ -26,13 +28,14 @@ class CategoryController extends Controller
     {
         $this->productRepository = new ProductRepository();
         $this->categoryRepository = new CategoryRepository();
+        $this->catalogRepository = new CatalogRepository();
         $this->breadcrumbCategory = new CategoryBreadcrumb();
         $this->categoryService = new CategoryService();
     }
 
     public function index()
     {
-        $items = $this->productRepository->getPaginateWithCategories();
+        $items = $this->catalogRepository->getPaginateWithCategories();
         return view('admin.catalog.list', compact('items'));
     }
 
@@ -41,7 +44,7 @@ class CategoryController extends Controller
         $category = $this->categoryRepository->getFromUrl($request->getPathInfo());
 
         if ($category instanceof Category){
-            $items = $this->productRepository->getPaginateWithCategories($category);
+            $items = $this->catalogRepository->getPaginateWithCategories($category);
             $breadcrumbs = $this->breadcrumbCategory->getBreadcrumb($category);
             return view('admin.catalog.list', compact('items', 'breadcrumbs'));
         }else{

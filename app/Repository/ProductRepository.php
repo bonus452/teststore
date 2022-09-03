@@ -2,72 +2,26 @@
 
 namespace App\Repository;
 
-use App\Filters\ProductFilter;
 use App\Models\Shop\Category;
-use App\Models\Shop\Offer;
+use App\Models\Shop\Product;
 use App\Models\Shop\Product as Model;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Support\Collection;
 
 
-class ProductRepository extends CatalogRepository
+class ProductRepository
 {
 
-    function getModelClass(): string
+    protected function getInstance()
     {
-        return Model::class;
+        return new Model();
     }
 
-    protected function getInstance(): Model
+    public function getCountFromCategories(array $categories): int
     {
-        return clone $this->instance;
-    }
-
-    public function getPaginateWithSublevelProducts(ProductFilter $filter, $category_id = false): object
-    {
-        $products = $this->getInstance()->active()->filter($filter)->with('category');
-        if ($category_id) {
-            $categories = $this->getAllChildsList($category_id);
-            $products = $products->whereIn('category_id', $categories);
-        }
-        $products = $products->paginate(12)->appends(request()->except('page'));
-
-        $result = (object)[
-            'products' => $products,
-            'info' => "Showing "
-                . (($products->currentPage() - 1) * $products->perPage() + 1)
-                . " - " . $products->currentPage() * $products->perPage()
-                . " of " . $products->total() . " results "
-        ];
+        $result = Product::active()
+            ->whereIn('category_id', $categories)
+            ->count();
         return $result;
     }
-
-    public function getPaginateWithCategories(Category $parent = null)
-    {
-
-        $parent = $parent ?? $this->getRootCategory();
-        $categories = $parent->child()
-            ->selectRaw("id, category_id, title, slug, created_at, updated_at, url, 'category' as `type`");
-        $result = $this->getInstance()
-            ->where('category_id', $parent->id)
-            ->selectRaw("id, category_id, name as title, slug, created_at, updated_at, 'url' as `url`, 'product' as `type`")
-            ->with('category')
-            ->union($categories)
-            ->orderBy('type', 'asc')
-            ->paginate(12);
-
-        $result->getCollection()
-            ->transform(function ($value) {
-                if ($value->type == 'category') {
-                    return (new Category())->setRawAttributes($value->getAttributes());
-                } else {
-                    return $value;
-                }
-            });
-
-        return $result;
-    }
-
 
     public function getForDetailPage($product)
     {

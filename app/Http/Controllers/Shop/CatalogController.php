@@ -8,6 +8,7 @@ use App\Models\Shop\Category;
 use App\Models\Shop\Product;
 use App\Repository\Breadcrumbs\Shop\CategoryBreadcrumb;
 use App\Repository\Breadcrumbs\Shop\ProductBreadcrumb;
+use App\Repository\CatalogRepository;
 use App\Repository\CategoryRepository;
 use App\Repository\ProductRepository;
 use App\Repository\PropertyRepository;
@@ -21,6 +22,7 @@ class CatalogController extends Controller
     private $breadcrumbCategory;
     private $breadcrumbProduct;
     private $propertyRepository;
+    private $catalogRepository;
 
     public function __construct()
     {
@@ -29,22 +31,24 @@ class CatalogController extends Controller
         $this->breadcrumbCategory = new CategoryBreadcrumb();
         $this->breadcrumbProduct = new ProductBreadcrumb();
         $this->propertyRepository = new PropertyRepository();
+        $this->catalogRepository = new CatalogRepository();
     }
 
     public function list(Request $request, ProductFilter $product_filter)
     {
+
         $request_url = $request->getPathInfo();
         $category = $this->categoryRepository->getFromUrl($request_url);
         if (!($category instanceof Category) || $request_url !== $category->url) {
             abort(404);
         }
 
-        $products_box = $this->productRepository
-            ->getPaginateWithSublevelProducts($product_filter, $category->id);
+        $products_box = $this->catalogRepository
+            ->getFilteredPaginateSublevelProducts($product_filter, $category->id);
         $filter = $this->propertyRepository
             ->getFilterProperties($category, $product_filter);
-        $inner_categories = $this->categoryRepository
-            ->getChildrenWithCountProducts($category);
+        $inner_categories = $this->catalogRepository
+            ->getCategoriesWithCountProducts($category);
         if ($request->ajax()) {
             return view('include.catalog_section',
                 compact(
@@ -79,12 +83,12 @@ class CatalogController extends Controller
 
     public function index(Request $request, ProductFilter $product_filter)
     {
-        $products_box = $this->productRepository
-            ->getPaginateWithSublevelProducts($product_filter);
+        $products_box = $this->catalogRepository
+            ->getFilteredPaginateSublevelProducts($product_filter);
         $category = $this->categoryRepository
             ->getRootCategory();
-        $inner_categories = $this->categoryRepository
-            ->getChildrenWithCountProducts($category);
+        $inner_categories = $this->catalogRepository
+            ->getCategoriesWithCountProducts($category);
         $filter = $this->propertyRepository
             ->getFilterProperties($category, $product_filter);
 

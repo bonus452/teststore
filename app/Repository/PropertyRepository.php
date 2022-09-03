@@ -7,7 +7,6 @@ use App\Filters\QueryFilter;
 use App\Models\Shop\Category;
 use App\Models\Shop\Product;
 use App\Models\Shop\PropertyValue;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Collection;
 use IteratorAggregate;
 
@@ -16,7 +15,7 @@ class PropertyRepository
 
     public function getFilterProperties(Category $category, QueryFilter $filter): array
     {
-        $categories_ids = (new CategoryRepository)->getAllChildsList($category->id);
+        $categories_ids = (new CategoryRepository)->getAllChildrenId($category->id);
         $not_filtered_products = Product::whereIn('category_id', $categories_ids)
             ->withProperties()
             ->get();

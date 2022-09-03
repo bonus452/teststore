@@ -15,7 +15,6 @@ class ProductFilter extends QueryFilter
                     $query->whereHas('properties', function (Builder $query) use ($property_values) {
                             $query->whereIn('id', $property_values);
                         });
-
                 })
                     ->orWhereHas('properties', function (Builder $query) use ($property_values) {
                         $query->whereIn('id', $property_values);

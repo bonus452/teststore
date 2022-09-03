@@ -2,6 +2,7 @@
 
 namespace App\Rules;
 
+use App\Repository\CatalogRepository;
 use App\Repository\CategoryRepository;
 use Illuminate\Contracts\Validation\Rule;
 use Illuminate\Support\Facades\Request;
@@ -30,7 +31,7 @@ class CategoryNotInSelf implements Rule
         $mass_url = explode('/', Request::url());
         $category_id = (int)end($mass_url);
 
-        $inner_categories = (new CategoryRepository())->getAllChildsList($category_id);
+        $inner_categories = (new CategoryRepository())->getAllChildrenId($category_id);
         if (in_array($value, $inner_categories)){
             return false;
         }else{

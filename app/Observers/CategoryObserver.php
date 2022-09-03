@@ -4,6 +4,7 @@ namespace App\Observers;
 
 use App\Models\Shop\Category;
 use App\Models\Shop\Product;
+use App\Repository\CatalogRepository;
 use App\Repository\CategoryRepository;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\File;
@@ -20,6 +21,7 @@ class CategoryObserver
      */
     public function creating(Category $category): Category
     {
+        $category->slug = $category->slug ?: Str::slug($category->title);
         if ($category->img instanceof UploadedFile) {
             if ($category->img) {
                 $category->img = $category->img->storePublicly('images/category_images', 'public');
@@ -69,7 +71,7 @@ class CategoryObserver
     public function deleting(Category $category)
     {
         $repo = new CategoryRepository();
-        $innerCategories = $repo->getAllChildsList($category->id);
+        $innerCategories = $repo->getAllChildrenId($category->id);
         Product::whereIn('category_id', $innerCategories)
             ->get()
             ->each

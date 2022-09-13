@@ -17,19 +17,15 @@ use Illuminate\Http\Request;
 class CatalogController extends Controller
 {
 
-    private $productRepository;
     private $categoryRepository;
     private $breadcrumbCategory;
-    private $breadcrumbProduct;
     private $propertyRepository;
     private $catalogRepository;
 
     public function __construct()
     {
-        $this->productRepository = new ProductRepository();
         $this->categoryRepository = new CategoryRepository();
         $this->breadcrumbCategory = new CategoryBreadcrumb();
-        $this->breadcrumbProduct = new ProductBreadcrumb();
         $this->propertyRepository = new PropertyRepository();
         $this->catalogRepository = new CatalogRepository();
     }
@@ -65,19 +61,6 @@ class CatalogController extends Controller
                     'inner_categories',
                     'products_box',
                     'filter'));
-        }
-    }
-
-    public function detail(Request $request, string $sub_categories, string $product)
-    {
-        $product = $this->productRepository
-            ->getForDetailPage($product);
-        if ($product instanceof Product && $product->url === $request->getPathInfo()) {
-            $breadcrumbs = $this->breadcrumbProduct
-                ->getBreadcrumb($product);
-            return view('shop.detail', compact('product', 'breadcrumbs'));
-        } else {
-            abort(404);
         }
     }
 

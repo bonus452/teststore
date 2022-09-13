@@ -389,12 +389,15 @@
 <script src="{{ asset('js/plugins.js') }}"></script>
 <script src="{{ asset('js/slick.min.js') }}"></script>
 <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
+
 <!-- Waypoints.min.js. -->
 <script src="{{ asset('js/waypoints.min.js') }}"></script>
 <!-- Main js file that contents all jQuery plugins activation. -->
 <script src="{{ asset('js/main.js') }}"></script>
 {{--Custom js--}}
 <script src="{{ asset('js/custom.js') }}"></script>
+
+<script src="{{ asset('js/app.js') }}"></script>
 
 </body>
 

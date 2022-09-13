@@ -92,3 +92,28 @@ ul.sidebar__list li{
     z-index: 99999;
 
 }
+
+.pro__choose__size li a{
+    color: gray;
+    cursor: no-drop;
+}
+.pro__choose__size li a:hover{
+    color: gray;
+}
+
+.pro__choose__size li a.active{
+    color: black;
+    cursor: pointer;
+}
+
+.pro__choose__size li a.selected{
+    color: #ff4136;
+}
+
+.pro__choose__size li a.active:hover{
+    color: #ff4136;
+}
+
+.cart-plus-minus .qtybutton{
+    cursor: pointer;
+}

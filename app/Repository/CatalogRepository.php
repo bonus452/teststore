@@ -2,7 +2,6 @@
 
 namespace App\Repository;
 
-use App\Filters\ProductFilter;
 use App\Filters\QueryFilter;
 use App\Models\Shop\Category;
 use App\Models\Shop\Product;

@@ -544,9 +544,8 @@ $('.image-popup').magnificPopup({
   20.  Plus Minus Button
 --------------------------------*/
 
-    $(".cart-plus-minus").append('<div class="dec qtybutton">-</i></div><div class="inc qtybutton">+</div>');
 
-    $(".qtybutton").on("click", function () {
+    $("body").on("click", ".qtybutton", function () {
         var $button = $(this);
         var oldValue = $button.parent().find("input").val();
         if ($button.text() == "+") {

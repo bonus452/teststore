@@ -21,6 +21,7 @@
         "sass-loader": "^11.0.1"
     },
     "dependencies": {
-        "@fancyapps/fancybox": "^3.5.7"
+        "@fancyapps/fancybox": "^3.5.7",
+        "@fancyapps/ui": "^4.0.31"
     }
 }

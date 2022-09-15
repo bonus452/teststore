@@ -632,11 +632,11 @@ $('.image-popup').magnificPopup({
     });
 
 
-    $('.sidebar-active').stickySidebar({
-        topSpacing: 80,
-        bottomSpacing: 30,
-        minWidth: 767,
-    });
+    // $('.sidebar-active').stickySidebar({
+    //     topSpacing: 80,
+    //     bottomSpacing: 30,
+    //     minWidth: 767,
+    // });
 
 
 

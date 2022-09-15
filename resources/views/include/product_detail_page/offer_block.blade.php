@@ -16,7 +16,7 @@
     {{--            <p>{{ $product->description }}</p>--}}
     {{--        </div>--}}
     <ul class="pro__dtl__prize">
-        <li class="old__prize">${{ $selected_offer->price }}</li>
+        <li>${{ $selected_offer->price }}</li>
         {{--                                <li>${{ $product->offers->first()->price }}</li>--}}
     </ul>
     {{--    <div class="pro__dtl__color">--}}

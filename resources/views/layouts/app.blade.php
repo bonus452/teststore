@@ -27,6 +27,9 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <!-- Responsive css -->
     <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css"/>
+
     <!-- User style -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <!-- Custom style -->
@@ -394,10 +397,16 @@
 <script src="{{ asset('js/waypoints.min.js') }}"></script>
 <!-- Main js file that contents all jQuery plugins activation. -->
 <script src="{{ asset('js/main.js') }}"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+
+<script src="{{ asset('js/app.js') }}"></script>
+
 {{--Custom js--}}
 <script src="{{ asset('js/custom.js') }}"></script>
 
-<script src="{{ asset('js/app.js') }}"></script>
+
 
 </body>
 

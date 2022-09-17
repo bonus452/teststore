@@ -117,3 +117,22 @@ ul.sidebar__list li{
 .cart-plus-minus .qtybutton{
     cursor: pointer;
 }
+
+.in-cart{
+    color: #fff !important;
+    background: #ff4136;
+    border: 1px solid #ff4136 !important;
+    cursor: auto;
+}
+
+
+input.cart-plus-minus-box::-webkit-outer-spin-button,
+input.cart-plus-minus-box::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input.cart-plus-minus-box[type=number] {
+    -moz-appearance: textfield;
+}

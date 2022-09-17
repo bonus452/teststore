@@ -1,24 +1,37 @@
-
-
 <script>
-    var swiper = new Swiper(".mySwiper", {
-        spaceBetween: 10,
-        slidesPerView: 4,
-        freeMode: true,
-        watchSlidesProgress: true,
-    });
-    var swiper2 = new Swiper(".mySwiper2", {
-        spaceBetween: 10,
-        navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-        },
-        thumbs: {
-            swiper: swiper,
-        },
-    });
 
-    $( document ).ready(function () {
-        $("a.fancybox").fancybox();
+    $(document).ready(function () {
+
+        // Initialise Carousel
+        const mainCarousel = new Carousel(document.querySelector("#mainCarousel"), {
+            Dots: false,
+            Navigation: false,
+        });
+
+        // Thumbnails
+        const thumbCarousel = new Carousel(document.querySelector("#thumbCarousel"), {
+            Sync: {
+                target: mainCarousel,
+                friction: 0,
+            },
+            Dots: false,
+            center: true,
+            slidesPerPage: 3,
+            infinite: false
+        });
+
+        // Customize Fancybox
+        Fancybox.bind('[data-fancybox="gallery"]', {
+            Carousel: {
+                on: {
+                    change: (that) => {
+                        mainCarousel.slideTo(mainCarousel.findPageForSlide(that.page), {
+                            friction: 0,
+                        });
+                    },
+                },
+            },
+        });
+
     });
 </script>

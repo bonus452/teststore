@@ -7,7 +7,7 @@
 
 
 -----------------------------------------------------------------------------------
-  
+
   CSS INDEX
   ===================
 
@@ -1881,13 +1881,13 @@ product__style--7
 .team__thumb a img {
     -webkit-filter: grayscale(100%);
     /* Safari 6.0 - 9.0 */
-    
+
     filter: grayscale(100%);
 }
 .team:hover .team__thumb a img {
     -webkit-filter: grayscale(0%);
     /* Safari 6.0 - 9.0 */
-    
+
     filter: grayscale(00%);
 }
 .htc__team__page .team {
@@ -2591,7 +2591,7 @@ select.select-color {
     display: flex;
 }
 .cart-plus-minus-box {
-    border: 0 none;
+    border: 0 none !important;
     max-width: 82px;
     padding-left: 25px;
     padding-right: 24px;
@@ -3980,7 +3980,7 @@ a.shipping-calculator-button:hover {
     transform: scale(1.5);
     opacity: 0;
     z-index: 99;
-    
+
 }
 .portfolio-icon a i {
     line-height: 50px;

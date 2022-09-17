@@ -66,48 +66,38 @@ $('body').on('click', '.offers-props li a.active', function(e) {
 
 
 
+function putToCart(id, quantity) {
 
+    var result = '';
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Initialise Carousel
-const mainCarousel = new Carousel(document.querySelector("#mainCarousel"), {
-    Dots: false,
-    Navigation: false,
-});
-
-// Thumbnails
-const thumbCarousel = new Carousel(document.querySelector("#thumbCarousel"), {
-    Sync: {
-        target: mainCarousel,
-        friction: 0,
-    },
-    Dots: false,
-    center: true,
-    slidesPerPage: 3,
-    infinite: false
-});
-
-// Customize Fancybox
-Fancybox.bind('[data-fancybox="gallery"]', {
-    Carousel: {
-        on: {
-            change: (that) => {
-                mainCarousel.slideTo(mainCarousel.findPageForSlide(that.page), {
-                    friction: 0,
-                });
-            },
+    $.ajax({
+        url: '/sale/cart/put',
+        method: 'POST',
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },
-    },
+        data: {id: id, quantity: quantity},
+        success: function (responce) {
+            if (responce['status'] === 'ok'){
+                $('.buy-btn a').removeClass('buy-btn');
+                $('.buy-btn a').html('in cart');
+                $('.buy-btn a').addClass('in-cart');
+                $('.product-action-wrap').remove();
+            }
+
+        }
+    });
+}
+
+
+
+$("body").on('click', '.buy-btn a', function (event) {
+    event.preventDefault();
+    var offer_id = $(this).attr('data-id');
+    var quantity = $(this).parents('.offer-block').find("input[name='quantity']").val();
+    if(quantity === undefined){
+        quantity = 1;
+    }
+    putToCart(offer_id, quantity);
+
 });

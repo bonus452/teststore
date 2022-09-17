@@ -5,6 +5,7 @@ namespace App\Models\Shop;
 use App\Filters\ProductFilter;
 use App\Filters\QueryFilter;
 use App\Interfaces\RowGetteble;
+use App\Traits\CustomProperties;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;

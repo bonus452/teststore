@@ -2,8 +2,10 @@
 
 namespace App\Models\Shop;
 
+use App\Traits\CustomProperties;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
 
 /**
@@ -37,12 +39,18 @@ use Illuminate\Database\Eloquent\Relations\MorphToMany;
  */
 class Offer extends Model
 {
-    use HasFactory;
+    use HasFactory, CustomProperties;
+
     protected $fillable = ['article', 'price', 'amount'];
 
     public function properties() : MorphToMany
     {
         return $this->morphToMany(PropertyValue::class,'propertable');
+    }
+
+    public function product(): BelongsTo
+    {
+        return $this->belongsTo(Product::class);
     }
 
     public function getPriceAttribute($value): string

@@ -18,5 +18,6 @@ use Illuminate\Support\Facades\Route;
 include 'include\admin.php';
 include 'include\catalog.php';
 include 'include\user.php';
+include 'include\sale.php';
 include 'include\static_pages.php';
 

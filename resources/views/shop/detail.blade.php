@@ -19,30 +19,31 @@
             <div class="scroll-active">
                 <div class="row">
                     <div class="col-md-7 col-lg-7 col-sm-5 col-xs-12">
-                        <div class="product__details__container product-details-5">
+                        @if($product->images->isNotEmpty())
+                            <div class="product__details__container product-details-5">
 
-                            <div id="mainCarousel" class="carousel w-10/12 max-w-5xl mx-auto">
-                                @foreach($product->images as $image)
-                                    <div
-                                        class="carousel__slide"
-                                        data-src="{{ $image->src }}"
-                                        data-fancybox="gallery">
-                                        <img src="{{ $image->src }}"/>
-                                    </div>
-                                @endforeach
+                                <div id="mainCarousel" class="carousel w-10/12 max-w-5xl mx-auto">
+                                    @foreach($product->images as $image)
+                                        <div
+                                            class="carousel__slide"
+                                            data-src="{{ $image->src }}"
+                                            data-fancybox="gallery">
+                                            <img src="{{ $image->src }}"/>
+                                        </div>
+                                    @endforeach
 
+                                </div>
+
+                                <div id="thumbCarousel" class="carousel max-w-xl mx-auto">
+                                    @foreach($product->images as $image)
+                                        <div class="carousel__slide">
+                                            <img class="panzoom__content" src="{{ $image->src }}"/>
+                                        </div>
+                                    @endforeach
+                                </div>
                             </div>
-
-                            <div id="thumbCarousel" class="carousel max-w-xl mx-auto">
-                                @foreach($product->images as $image)
-                                    <div class="carousel__slide">
-                                        <img class="panzoom__content" src="{{ $image->src }}"/>
-                                    </div>
-                                @endforeach
-                            </div>
-
-
-                        </div>
+                            @include('scripts.public.galery_slider_scripts')
+                        @endif
                     </div>
                     <div class="sidebar-active col-md-5 col-lg-5 col-sm-7 col-xs-12 xmt-30">
                         <div class="htc__product__details__inner">
@@ -88,15 +89,15 @@
                     <div class="product__details__tab__content">
                         <!-- Start Single Content -->
                         @if(!empty($product->description))
-                        <div role="tabpanel" id="description" class="product__tab__content fade in active">
-                            <div class="product__description__wrap">
-                                <div class="product__desc">
-                                    <h2 class="title__6">Details</h2>
+                            <div role="tabpanel" id="description" class="product__tab__content fade in active">
+                                <div class="product__description__wrap">
+                                    <div class="product__desc">
+                                        <h2 class="title__6">Details</h2>
 
-                                    <p>{{ $product->description }}</p>
+                                        <p>{{ $product->description }}</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
                         @endif
                         <!-- End Single Content -->
                         <!-- Start Single Content -->

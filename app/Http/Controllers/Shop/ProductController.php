@@ -30,34 +30,16 @@ class ProductController extends Controller
 
     public function detail(Request $request, string $sub_categories, string $product)
     {
-
         $product = $this->productRepository->getForDetailPage($product);
 
         if (!($product instanceof Product) || $product->url !== $request->getPathInfo()) {
             abort(404);
         }
+        $breadcrumbs = $this->breadcrumbProduct->getBreadcrumb($product);
 
-//        $selected_properties = (array)$request->input('offer_properties');
-//        $offer_schema = $this->offerRepository->getOfferBlockCondition($product, $selected_properties);
-//        $selected_offer = $this->offerRepository->getSelectedOffer($product, $offer_schema);
-//
-//        $selected_offer->setCustomProp(
-//            'in_cart',
-//            $this->cartService->isInCart($selected_offer)
-//        );
-
-//        if ($request->ajax()){
-//            return view('include.product_detail_page.offer_block', compact(
-//                'product',
-//                'offer_schema',
-//                'selected_offer'));
-//        }else{
-            $breadcrumbs = $this->breadcrumbProduct
-                ->getBreadcrumb($product);
-            return view('shop.detail', compact(
-                'product',
-                'breadcrumbs'));
-//        }
+        return view('shop.detail', compact(
+            'product',
+            'breadcrumbs'));
     }
 
 }

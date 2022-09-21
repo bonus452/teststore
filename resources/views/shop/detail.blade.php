@@ -14,7 +14,7 @@
 @section('content')
 
     <!-- Start Product Details -->
-    <section class="htc__product__details pt--100 pb--100 bg__white product-info" data-product-id="{{ $product->id }}">
+    <section class="htc__product__details pt--100 pb--100 bg__white product-information" data-product-id="{{ $product->id }}">
         <div class="container">
             <div class="scroll-active">
                 <div class="row">
@@ -61,7 +61,6 @@
                                             }
                                         });
                                 </script>
-{{--                                @include('include.product_detail_page.offer_block')--}}
                             </div>
                         </div>
                     </div>

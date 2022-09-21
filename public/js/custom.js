@@ -32,14 +32,14 @@ function collectSelectedProps(clicked_a) {
     return selected_props;
 }
 
-function ajaxOfferProps(props, url) {
+function ajaxOfferProps(props, product_id) {
 
     $.ajax({
-        url: url,
+        url: "/catalog/offers/"+product_id,
         method: 'GET',
         data: {offer_properties: props},
         success: function (result) {
-            $('.ajax-skin').html(result);
+            $('.ajax-offer-block').html(result);
         }
     });
 }
@@ -57,7 +57,7 @@ $('body').on('click', '#send-filter', function (e) {
 $('body').on('click', '.offers-props li a.active', function (e) {
     e.preventDefault();
     var selected_props = collectSelectedProps(this);
-    ajaxOfferProps(selected_props, $('.offers-props').attr('data-ajax-url'));
+    ajaxOfferProps(selected_props, $('.product-information').attr('data-product-id'));
 });
 
 

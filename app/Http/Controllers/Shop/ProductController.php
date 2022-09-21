@@ -41,8 +41,10 @@ class ProductController extends Controller
         $offer_schema = $this->offerRepository->getOfferBlockCondition($product, $selected_properties);
         $selected_offer = $this->offerRepository->getSelectedOffer($product, $offer_schema);
 
-        $in_cart = $this->cartService->isInCart($selected_offer);
-        $selected_offer->setCustomProp('in_cart', $in_cart);
+        $selected_offer->setCustomProp(
+            'in_cart',
+            $this->cartService->isInCart($selected_offer)
+        );
 
         if ($request->ajax()){
             return view('include.product_detail_page.offer_block', compact(

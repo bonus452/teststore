@@ -34,8 +34,6 @@ function collectSelectedProps(clicked_a) {
 
 function ajaxOfferProps(props, url) {
 
-    console.log(props);
-
     $.ajax({
         url: url,
         method: 'GET',
@@ -180,4 +178,8 @@ $('body').on('click', '.offsetmenu__close__btn', function () {
     $('.top-cart').html('<div class="loader-gif">\n' +
         '                <img src="/storage/images/system/loader.gif" alt="">\n' +
         '            </div>');
+});
+
+$('#productModal').on('shown.bs.modal', function () {
+    console.log('ok');
 });

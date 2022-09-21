@@ -17,7 +17,7 @@
         <li>{{ $selected_offer->getPriceFormat() }}</li>
     </ul>
 
-    <div class="offers-props" data-ajax-url="{{ $product->url }}">
+    <div class="offers-props">
         @foreach($offer_schema as $property_id => $line)
             <div class="pro__dtl__size">
                 <h2 class="title__5">{{ $line['name'] }}</h2>

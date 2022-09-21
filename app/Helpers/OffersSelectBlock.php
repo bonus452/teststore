@@ -135,6 +135,7 @@ class OffersSelectBlock
             }
 
         }
+
         if ($result->isNotEmpty()){
             return $this->getOfferProperties($result->first());
         }else{

@@ -14,7 +14,7 @@
 @section('content')
 
     <!-- Start Product Details -->
-    <section class="htc__product__details pt--100 pb--100 bg__white">
+    <section class="htc__product__details pt--100 pb--100 bg__white product-info" data-product-id="{{ $product->id }}">
         <div class="container">
             <div class="scroll-active">
                 <div class="row">
@@ -51,8 +51,17 @@
                                 <h2>{{ $product->name }}</h2>
                             </div>
 
-                            <div class="ajax-skin">
-                                @include('include.product_detail_page.offer_block')
+                            <div class="ajax-offer-block">
+                                <script>
+                                    $.ajax({
+                                            url: '{{ route('catalog.offers', $product->id) }}',
+                                            method: 'GET',
+                                            success: function (result) {
+                                                $('.ajax-offer-block').html(result);
+                                            }
+                                        });
+                                </script>
+{{--                                @include('include.product_detail_page.offer_block')--}}
                             </div>
                         </div>
                     </div>

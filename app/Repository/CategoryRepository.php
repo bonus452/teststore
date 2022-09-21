@@ -3,7 +3,6 @@
 namespace App\Repository;
 
 use App\Models\Shop\Category;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
 
 class CategoryRepository

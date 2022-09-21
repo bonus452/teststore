@@ -2,17 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Repository\Breadcrumbs\Admin\CategoryBreadcrumb;
 use App\Repository\CategoryRepository;
 
 class HomeController extends Controller
 {
 
-    private $categoryRepository;
+    private CategoryRepository $categoryRepository;
 
     public function __construct()
     {
-        $this->categoryRepository = new CategoryRepository(new CategoryBreadcrumb());
+        $this->categoryRepository = new CategoryRepository();
     }
 
     /**

@@ -6,8 +6,8 @@ use App\Models\Shop\Product;
 
 class ProductService
 {
-    protected $propertyService;
-    protected $imageService;
+    protected PropertyService $propertyService;
+    protected ImageService $imageService;
 
     public function __construct()
     {

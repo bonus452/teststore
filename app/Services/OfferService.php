@@ -10,7 +10,7 @@ use Illuminate\Support\Collection;
 class OfferService
 {
 
-    protected $propertyService;
+    protected PropertyService $propertyService;
 
     public function __construct()
     {

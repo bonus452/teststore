@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Shop;
 use App\Http\Controllers\Controller;
 use App\Repository\CartRepository;
 use App\Repository\OfferRepository;
-use App\Services\CartService;
 use Illuminate\Http\Request;
 
 class OfferController extends Controller

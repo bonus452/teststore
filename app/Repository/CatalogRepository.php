@@ -12,8 +12,8 @@ use Illuminate\Database\Eloquent\Collection as ElCollection;
 class CatalogRepository
 {
 
-    private $productRepository;
-    private $categoryRepository;
+    private ProductRepository $productRepository;
+    private CategoryRepository $categoryRepository;
 
     public function __construct()
     {

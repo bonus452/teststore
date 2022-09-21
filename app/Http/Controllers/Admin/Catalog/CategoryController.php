@@ -6,10 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\CategoryRequest;
 use App\Models\Shop\Category;
 use App\Repository\Breadcrumbs\Admin\CategoryBreadcrumb;
-use App\Repository\Breadcrumbs\Admin\ProductBreadcrumb;
 use App\Repository\CatalogRepository;
 use App\Repository\CategoryRepository;
-use App\Repository\ProductRepository;
 use App\Services\CategoryService;
 use Exception;
 use Illuminate\Http\Request;
@@ -18,7 +16,6 @@ use Illuminate\Support\Facades\Log;
 class CategoryController extends Controller
 {
 
-    private $productRepository;
     private $categoryRepository;
     private $catalogRepository;
     private $breadcrumbCategory;
@@ -26,7 +23,6 @@ class CategoryController extends Controller
 
     public function __construct()
     {
-        $this->productRepository = new ProductRepository();
         $this->categoryRepository = new CategoryRepository();
         $this->catalogRepository = new CatalogRepository();
         $this->breadcrumbCategory = new CategoryBreadcrumb();

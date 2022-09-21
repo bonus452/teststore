@@ -36,6 +36,7 @@ use Illuminate\Database\Eloquent\Relations\MorphToMany;
  * @property-read int|null $properties_count
  * @property int $amount
  * @method static \Illuminate\Database\Eloquent\Builder|Offer whereAmount($value)
+ * @property-read \App\Models\Shop\Product $product
  */
 class Offer extends Model
 {
@@ -48,15 +49,22 @@ class Offer extends Model
         return $this->morphToMany(PropertyValue::class,'propertable');
     }
 
+    public function scopeWithProperties($query)
+    {
+        $query->with('properties', function ($query) {
+            $query->with('property_name');
+        });
+    }
+
     public function product(): BelongsTo
     {
         return $this->belongsTo(Product::class);
     }
 
-    public function getPriceAttribute($value): string
+    public function getPriceFormat(): string
     {
-        $value = floatval($value);
-        return number_format($value, 2, '.', '');
+        $price = floatval($this->price);
+        return priceFormat($price);
     }
 
 }

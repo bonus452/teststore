@@ -25,14 +25,12 @@ class ProductRepository
 
     public function getForDetailPage($product)
     {
-        $product = $this->getInstance()->where('slug', $product)->active()
+        $product = $this->getInstance()
+            ->where('slug', $product)
+            ->active()
+            ->withProperties()
             ->with(['offers' => function ($query) {
-                $query->with(['properties' => function ($query) {
-                    $query->with('property_name');
-                }]);
-            }])
-            ->with(['properties' => function ($query) {
-                $query->with('property_name');
+                $query->withProperties();
             }])
             ->first();
 

@@ -85,12 +85,7 @@ class Product extends Model
     {
         $query->with('properties', function ($query) {
             $query->with('property_name');
-        })
-            ->with('offers', function ($query) {
-                $query->with('properties', function ($query) {
-                    $query->with('property_name');
-                });
-            });
+        });
     }
 
     public function offers(): HasMany
@@ -111,6 +106,15 @@ class Product extends Model
     public function properties(): MorphToMany
     {
         return $this->morphToMany(PropertyValue::class, 'propertable');
+    }
+
+    public function getFirstImageSrc()
+    {
+        if($image = $this->images()->first()){
+            return $image->src;
+        }else{
+            return NO_IMAGE;
+        }
     }
 
     public function getUrlAttribute($value): string

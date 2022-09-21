@@ -51,7 +51,7 @@
                                         <div class="product__inner">
                                             <div class="pro__thumb">
                                                 <a href="{{ $product->url }}">
-                                                    <img src="/storage/images/system/product/1.png"
+                                                    <img src="{{ $product->getFirstImageSrc() }}"
                                                          alt="product images">
                                                 </a>
                                             </div>
@@ -64,8 +64,6 @@
                                                                 class="ti-plus"></span></a></li>
                                                     <li><a title="Add To Cart" href="cart.html"><span
                                                                 class="ti-shopping-cart"></span></a></li>
-                                                    <li><a title="Wishlist" href="wishlist.html"><span
-                                                                class="ti-heart"></span></a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -73,9 +71,8 @@
                                         <div class="product__details">
                                             <h2><a href="{{ $product->url }}">{{ $product->name }}</a></h2>
                                             <ul class="product__price">
-                                                <li class="old__price">$16.00</li>
                                                 <li class="new__price">
-                                                    ${{ !is_null($product->offers->first()) ? $product->offers->first()->price : '' }}</li>
+                                                    {{ !is_null($product->offers->first()) ? $product->offers->first()->getPriceFormat() : '' }}</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -99,7 +96,7 @@
                                     <div class="col-md-3 col-lg-3 col-sm-4 col-xs-12">
                                         <div class="list__thumb">
                                             <a href="{{ $product->url }}">
-                                                <img src="/storage/images/system/product/1.png"
+                                                <img src="{{ $product->getFirstImageSrc() }}"
                                                      alt="list images">
                                             </a>
                                         </div>
@@ -109,7 +106,7 @@
                                             <h2><a href="product-details.html">{{ $product->name }}</a></h2>
                                             <p>{{ $product->description }}</p>
                                             <span
-                                                class="product__price">${{ !is_null($product->offers->first()) ? $product->offers->first()->price : '' }}</span>
+                                                class="product__price">{{ !is_null($product->offers->first()) ? $product->offers->first()->getPriceFormat() : '' }}</span>
                                             <div class="shop__btn">
                                                 <a class="htc__btn" href="cart.html"><span
                                                         class="ti-shopping-cart"></span>Add to Cart</a>

@@ -50,3 +50,10 @@ Breadcrumbs::for('catalog.index', function ($trail) {
     $trail->push('catalog', route('catalog.index'));
 });
 
+
+//Sale
+Breadcrumbs::for('sale.cart.list', function ($trail) {
+    $trail->parent('home');
+    $trail->push('Cart', route('sale.cart.list'));
+});
+

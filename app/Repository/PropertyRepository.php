@@ -18,6 +18,9 @@ class PropertyRepository
         $categories_ids = (new CategoryRepository)->getAllChildrenId($category->id);
         $not_filtered_products = Product::whereIn('category_id', $categories_ids)
             ->withProperties()
+            ->with('offers', function ($query) {
+                $query->withProperties();
+            })
             ->get();
         $filter_properties = $this->getPropertiesFromProducts($not_filtered_products);
 
@@ -26,6 +29,9 @@ class PropertyRepository
         } else {
             $filtered_products = Product::whereIn('category_id', $categories_ids)
                 ->withProperties()
+                ->with('offers', function ($query) {
+                    $query->withProperties();
+                })
                 ->filter($filter)
                 ->get();
             $filtered_properties = $this->getPropertiesFromProducts($filtered_products);

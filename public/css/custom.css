@@ -122,7 +122,6 @@ ul.sidebar__list li{
     color: #fff !important;
     background: #ff4136;
     border: 1px solid #ff4136 !important;
-    cursor: auto;
 }
 
 
@@ -135,4 +134,34 @@ input.cart-plus-minus-box::-webkit-inner-spin-button {
 /* Firefox */
 input.cart-plus-minus-box[type=number] {
     -moz-appearance: textfield;
+}
+
+.h2-message a{
+    color: #ff4136;
+}
+.h2-message{
+    text-align: center;
+}
+.wc-proceed-to-checkout{
+    margin-left: 5px;
+}
+
+.loader-gif{
+    text-align: center;
+}
+
+.loader-gif img{
+    width: 50px;
+    margin-top: 200px;
+    text-align: center;
+}
+
+.product .product__inner .pro__thumb a{
+    height: 270px;
+    display: flex;
+    align-items: center;
+}
+
+.product .product__inner .pro__thumb a img{
+    text-align: center;
 }

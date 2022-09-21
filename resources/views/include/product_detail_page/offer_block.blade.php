@@ -14,7 +14,7 @@
         <span class="rat__qun">(Based on 0 Ratings)</span>
     </div>
     <ul class="pro__dtl__prize">
-        <li>${{ $selected_offer->price }}</li>
+        <li>{{ $selected_offer->getPriceFormat() }}</li>
     </ul>
 
     <div class="offers-props" data-ajax-url="{{ $product->url }}">
@@ -54,9 +54,9 @@
 
     <ul class="pro__dtl__btn">
         @if($selected_offer->getCustomProp('in_cart'))
-            <li class="buy__now__btn"><a class="in-cart" href="javascript:void(0);">in cart</a></li>
+            <li class="buy__now__btn"><a class="in-cart" href="{{ route('sale.cart.list') }}">in cart</a></li>
         @else
-            <li class="buy__now__btn buy-btn"><a href="#" data-id="{{ $selected_offer->id }}">buy now</a></li>
+            <li class="buy__now__btn"><a href="#" class="buy-btn" data-id="{{ $selected_offer->id }}">buy now</a></li>
         @endif
     </ul>
     <div class="pro__social__share">

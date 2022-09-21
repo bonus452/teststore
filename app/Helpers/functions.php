@@ -9,3 +9,12 @@ if (!function_exists('savePreviewPath')){
     }
 }
 
+if (!function_exists('priceFormat')){
+    function priceFormat($price){
+        return  '$ ' . number_format(
+            $price,
+            2,
+            '.',
+            ' ');
+    }
+}

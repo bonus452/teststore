@@ -185,20 +185,7 @@ $('.fixed__footer').css({'margin-bottom': $newsletter_height.height() + 'px'});
       $('.body__overlay').removeClass('is-visible');
   });
 
-/*------------------------------------
-  11. Shopping Cart Area
---------------------------------------*/
 
-  $('.cart__menu').on('click', function() {
-    $('.shopping__cart').addClass('shopping__cart__on');
-    $('.body__overlay').addClass('is-visible');
-
-  });
-
-  $('.offsetmenu__close__btn').on('click', function() {
-      $('.shopping__cart').removeClass('shopping__cart__on');
-      $('.body__overlay').removeClass('is-visible');
-  });
 
 
 /*------------------------------------

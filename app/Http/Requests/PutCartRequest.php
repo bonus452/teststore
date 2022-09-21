@@ -14,8 +14,8 @@ class PutCartRequest extends FormRequest
     public function rules()
     {
         return [
-            'id' => 'exists:offers,id',
-            'quantity' => 'numeric',
+            'id' => 'required|exists:offers,id',
+            'quantity' => 'required|numeric',
         ];
     }
 }

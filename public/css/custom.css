@@ -120,7 +120,7 @@ ul.sidebar__list li{
 
 .in-cart{
     color: #fff !important;
-    background: #ff4136;
+    background: #ff4136 !important;
     border: 1px solid #ff4136 !important;
 }
 
@@ -164,4 +164,15 @@ input.cart-plus-minus-box[type=number] {
 
 .product .product__inner .pro__thumb a img{
     text-align: center;
+}
+
+.color__list li a{
+    width: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 20px;
+}
+
+.select__size ul.color__list li a.selected{
+    border: 1px solid;
 }

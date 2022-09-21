@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Shop;
 
 use App\Http\Controllers\Controller;
-use App\Models\Shop\Product;
+use App\Repository\CartRepository;
 use App\Repository\OfferRepository;
 use App\Services\CartService;
 use Illuminate\Http\Request;
@@ -11,12 +11,12 @@ use Illuminate\Http\Request;
 class OfferController extends Controller
 {
     private OfferRepository $offerRepository;
-    private CartService $cartService;
+    private CartRepository $cartRepository;
 
     public function __construct()
     {
         $this->offerRepository = new OfferRepository();
-        $this->cartService = new CartService();
+        $this->cartRepository = new CartRepository();
     }
 
     public function getOffersBlock(Request $request, int $product_id){
@@ -26,9 +26,15 @@ class OfferController extends Controller
         $selected_offer = $this->offerRepository->getSelectedOffer($offers, $offer_schema);
         $selected_offer->setCustomProp(
             'in_cart',
-            $this->cartService->isInCart($selected_offer)
+            $this->cartRepository->isInCart($selected_offer)
         );
-        return view('include.product_detail_page.offer_block', compact(
+
+        if ($request->input('modal'))
+            $view = 'include.product_detail_page.modal_offer_block';
+        else
+            $view = 'include.product_detail_page.offer_block';
+
+        return view($view, compact(
             'offer_schema',
             'selected_offer'));
     }

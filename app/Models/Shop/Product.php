@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
 
 /**
@@ -54,6 +55,8 @@ use Illuminate\Database\Eloquent\Relations\MorphToMany;
  * @property-read int|null $images_count
  * @method static Builder|Product filter(\App\Filters\QueryFilter $filter)
  * @method static Builder|Product withProperties()
+ * @property-read \App\Models\Shop\Image|null $firstImage
+ * @property-read \App\Models\Shop\Offer|null $firstOffer
  */
 class Product extends Model
 {
@@ -93,9 +96,19 @@ class Product extends Model
         return $this->hasMany(Offer::class);
     }
 
+    public function firstOffer(): HasOne
+    {
+        return $this->hasOne(Offer::class);
+    }
+
     public function images(): HasMany
     {
         return $this->hasMany(Image::class);
+    }
+
+    public function firstImage(): HasOne
+    {
+        return $this->hasOne(Image::class);
     }
 
     public function category(): BelongsTo
@@ -110,7 +123,7 @@ class Product extends Model
 
     public function getFirstImageSrc()
     {
-        if($image = $this->images()->first()){
+        if($image = $this->firstImage){
             return $image->src;
         }else{
             return NO_IMAGE;

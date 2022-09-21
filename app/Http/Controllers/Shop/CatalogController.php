@@ -5,12 +5,10 @@ namespace App\Http\Controllers\Shop;
 use App\Filters\ProductFilter;
 use App\Http\Controllers\Controller;
 use App\Models\Shop\Category;
-use App\Models\Shop\Product;
 use App\Repository\Breadcrumbs\Shop\CategoryBreadcrumb;
-use App\Repository\Breadcrumbs\Shop\ProductBreadcrumb;
+use App\Repository\CartRepository;
 use App\Repository\CatalogRepository;
 use App\Repository\CategoryRepository;
-use App\Repository\ProductRepository;
 use App\Repository\PropertyRepository;
 use Illuminate\Http\Request;
 
@@ -21,6 +19,7 @@ class CatalogController extends Controller
     private $breadcrumbCategory;
     private $propertyRepository;
     private $catalogRepository;
+    private $cartRepository;
 
     public function __construct()
     {
@@ -28,6 +27,7 @@ class CatalogController extends Controller
         $this->breadcrumbCategory = new CategoryBreadcrumb();
         $this->propertyRepository = new PropertyRepository();
         $this->catalogRepository = new CatalogRepository();
+        $this->cartRepository = new CartRepository();
     }
 
     public function list(Request $request, ProductFilter $product_filter)
@@ -41,6 +41,8 @@ class CatalogController extends Controller
 
         $products_box = $this->catalogRepository
             ->getFilteredPaginateSublevelProducts($product_filter, $category->id);
+        $this->cartRepository
+            ->checkProductsIsInCart($products_box->products);
         $filter = $this->propertyRepository
             ->getFilterProperties($category, $product_filter);
         $inner_categories = $this->catalogRepository
@@ -68,6 +70,8 @@ class CatalogController extends Controller
     {
         $products_box = $this->catalogRepository
             ->getFilteredPaginateSublevelProducts($product_filter);
+        $this->cartRepository
+            ->checkProductsIsInCart($products_box->products);
         $category = $this->categoryRepository
             ->getRootCategory();
         $inner_categories = $this->catalogRepository

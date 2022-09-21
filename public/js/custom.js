@@ -32,12 +32,12 @@ function collectSelectedProps(clicked_a) {
     return selected_props;
 }
 
-function ajaxOfferProps(props, product_id) {
+function ajaxOfferProps(props, product_id, is_modal) {
 
     $.ajax({
         url: "/catalog/offers/"+product_id,
         method: 'GET',
-        data: {offer_properties: props},
+        data: {offer_properties: props, modal: is_modal},
         success: function (result) {
             $('.ajax-offer-block').html(result);
         }
@@ -54,14 +54,20 @@ $('body').on('click', '#send-filter', function (e) {
 });
 
 
-$('body').on('click', '.offers-props li a.active', function (e) {
+$('body').on('click', '.htc__product__details__inner .offers-props li a.active', function (e) {
     e.preventDefault();
     var selected_props = collectSelectedProps(this);
-    ajaxOfferProps(selected_props, $('.product-information').attr('data-product-id'));
+    ajaxOfferProps(selected_props, $('.product-information').attr('data-product-id'), 0);
+});
+
+$('body').on('click', '#productModal .offers-props li a.active', function (e) {
+    e.preventDefault();
+    var selected_props = collectSelectedProps(this);
+    ajaxOfferProps(selected_props, $('.product-information').attr('data-product-id'), 1);
 });
 
 
-function putToCart(id, quantity) {
+function putToCart(id, quantity, buy_btn) {
 
     $.ajax({
         url: '/sale/cart/put',
@@ -72,12 +78,12 @@ function putToCart(id, quantity) {
         data: {id: id, quantity: quantity},
         success: function (responce) {
             if (responce['status'] === 'ok') {
-                var buy_btn = $('.buy-btn');
                 if(buy_btn !== undefined){
                     buy_btn.removeClass('buy-btn');
                     buy_btn.html('in cart');
                     buy_btn.addClass('in-cart');
                     buy_btn.attr('href', '/sale/cart');
+                    buy_btn.attr('title', 'in cart');
                     $('.product-action-wrap').remove();
                 }
             }
@@ -140,7 +146,7 @@ $("body").on('click', '.buy-btn', function (event) {
     if (quantity === undefined) {
         quantity = 1;
     }
-    putToCart(offer_id, quantity);
+    putToCart(offer_id, quantity, $(this));
 
 });
 
@@ -180,6 +186,21 @@ $('body').on('click', '.offsetmenu__close__btn', function () {
         '            </div>');
 });
 
-$('#productModal').on('shown.bs.modal', function () {
-    console.log('ok');
+$('#productModal').on('show.bs.modal', function (event) {
+
+    var url = $(event.relatedTarget).attr('data-product-url');
+
+    $.ajax({
+            url: url,
+            method: 'GET',
+            success: function (modal_content) {
+                $(event.currentTarget).find('.modal-body').html(modal_content);
+            }
+        });
+});
+
+$('#productModal').on('hidden.bs.modal', function (event) {
+    $(event.currentTarget).find('.modal-body').html('<div class="loader-gif">\n' +
+        '                <img style="margin: 70px" src="/storage/images/system/loader.gif" alt="">\n' +
+        '            </div>');
 });

@@ -35,11 +35,16 @@ class ProductController extends Controller
         if (!($product instanceof Product) || $product->url !== $request->getPathInfo()) {
             abort(404);
         }
-        $breadcrumbs = $this->breadcrumbProduct->getBreadcrumb($product);
 
-        return view('shop.detail', compact(
-            'product',
-            'breadcrumbs'));
+        if ($request->ajax()){
+            return view('shop.detail_ajax', compact('product'));
+        }else{
+            $breadcrumbs = $this->breadcrumbProduct->getBreadcrumb($product);
+            return view('shop.detail', compact(
+                'product',
+                'breadcrumbs'));
+        }
+
     }
 
 }

@@ -60,11 +60,20 @@
                                                     <li>
                                                         <a data-toggle="modal"
                                                            data-target="#productModal"
+                                                           data-product-url="{{ $product->url }}"
                                                            title="Quick View"
                                                            class="quick-view modal-view detail-link"
                                                            href="#">
                                                             <span class="ti-search"></span>
                                                         </a>
+                                                    <li>
+                                                    @if($product->firstOffer->getCustomProp('in_cart'))
+                                                            <a title="in cart" href="/sale/cart" class="in-cart">in cart</a>
+                                                    @else
+                                                            <a title="Add To Cart" href="#" class="buy-btn"
+                                                               data-id="{{ $product->firstOffer->id }}"><span
+                                                                    class="ti-shopping-cart"></span></a>
+                                                    @endif
                                                     </li>
                                                 </ul>
                                             </div>
@@ -74,7 +83,7 @@
                                             <h2><a href="{{ $product->url }}">{{ $product->name }}</a></h2>
                                             <ul class="product__price">
                                                 <li class="new__price">
-                                                    {{ !is_null($product->offers->first()) ? $product->offers->first()->getPriceFormat() : '' }}</li>
+                                                    {{ !is_null($product->firstOffer) ? $product->firstOffer->getPriceFormat() : '' }}</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -108,10 +117,14 @@
                                             <h2><a href="product-details.html">{{ $product->name }}</a></h2>
                                             <p>{{ $product->description }}</p>
                                             <span
-                                                class="product__price">{{ !is_null($product->offers->first()) ? $product->offers->first()->getPriceFormat() : '' }}</span>
+                                                class="product__price">{{ !is_null($product->firstOffer) ? $product->firstOffer->getPriceFormat() : '' }}</span>
                                             <div class="shop__btn">
-                                                <a class="htc__btn" href="cart.html"><span
-                                                        class="ti-shopping-cart"></span>Add to Cart</a>
+                                                @if($product->firstOffer->getCustomProp('in_cart'))
+                                                    <a class="htc__btn in-cart" href="/sale/cart" title="in cart">in cart</a>
+                                                @else
+                                                <a class="htc__btn buy-btn" href="cart.html" data-id="{{ $product->firstOffer->id }}">
+                                                    <span class="ti-shopping-cart"></span>Add to Cart</a>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>

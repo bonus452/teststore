@@ -40,7 +40,9 @@ class CatalogRepository
 
     public function getFilteredPaginateSublevelProducts(QueryFilter $filter, $category_id = false): object
     {
-        $products = Product::active()->filter($filter)->with('category');
+        $products = Product::active()
+            ->filter($filter)
+            ->with('category', 'firstOffer', 'firstImage');
         if ($category_id) {
             $categories = $this->categoryRepository->getAllChildrenId($category_id);
             $products->whereIn('category_id', $categories);

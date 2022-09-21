@@ -37,6 +37,7 @@ use Illuminate\Database\Eloquent\Relations\MorphToMany;
  * @property int $amount
  * @method static \Illuminate\Database\Eloquent\Builder|Offer whereAmount($value)
  * @property-read \App\Models\Shop\Product $product
+ * @method static \Illuminate\Database\Eloquent\Builder|Offer withProperties()
  */
 class Offer extends Model
 {

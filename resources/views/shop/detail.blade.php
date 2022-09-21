@@ -52,6 +52,9 @@
                             </div>
 
                             <div class="ajax-offer-block">
+                                <div class="loader-gif">
+                                    <img style="margin: 70px;" src="{{ LOADER_GIF }}" alt="">
+                                </div>
                                 <script>
                                     $.ajax({
                                             url: '{{ route('catalog.offers', $product->id) }}',

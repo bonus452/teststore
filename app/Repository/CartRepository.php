@@ -2,7 +2,7 @@
 
 namespace App\Repository;
 
-use App\Models\Shop\Offer;
+use App\Models\Catalog\Offer;
 use App\Traits\CartId;
 use Cart;
 
@@ -24,7 +24,7 @@ class CartRepository
 
     public function checkProductsIsInCart(&$products)
     {
-        /** @var \App\Models\Shop\Product $product */
+        /** @var \App\Models\Catalog\Product $product */
 
 
 

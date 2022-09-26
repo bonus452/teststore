@@ -2,10 +2,10 @@
 
 namespace Tests;
 
-use App\Models\Shop\Offer;
-use App\Models\Shop\Product;
-use App\Models\Shop\PropertyName;
-use App\Models\Shop\PropertyValue;
+use App\Models\Catalog\Offer;
+use App\Models\Catalog\Product;
+use App\Models\Catalog\PropertyName;
+use App\Models\Catalog\PropertyValue;
 use Database\Seeders\CategorySeeder;
 use Database\Seeders\PropertySeeder;
 use Database\Seeders\RoleSeeder;

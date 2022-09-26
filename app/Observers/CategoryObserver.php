@@ -2,9 +2,8 @@
 
 namespace App\Observers;
 
-use App\Models\Shop\Category;
-use App\Models\Shop\Product;
-use App\Repository\CatalogRepository;
+use App\Models\Catalog\Category;
+use App\Models\Catalog\Product;
 use App\Repository\CategoryRepository;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\File;
@@ -16,15 +15,15 @@ class CategoryObserver
     /**
      * Handle the Category "creating" event.
      *
-     * @param \App\Models\Shop\Category $category
-     * @return \App\Models\Shop\Category  $category
+     * @param \App\Models\Catalog\Category $category
+     * @return \App\Models\Catalog\Category  $category
      */
     public function creating(Category $category): Category
     {
         $category->slug = $category->slug ?: Str::slug($category->title);
-        if ($category->img instanceof UploadedFile) {
-            if ($category->img) {
-                $category->img = $category->img->storePublicly('images/category_images', 'public');
+        if ($category->image instanceof UploadedFile) {
+            if ($category->image) {
+                $category->image = $category->image->storePublicly('images/category_images', 'public');
             }
         }
         return $category;
@@ -33,7 +32,7 @@ class CategoryObserver
     /**
      * Handle the Category "updating" event.
      *
-     * @param \App\Models\Shop\Category $category
+     * @param \App\Models\Catalog\Category $category
      * @return Category
      */
     public function updating(Category $category): Category
@@ -43,14 +42,14 @@ class CategoryObserver
         $parent = Category::withoutGlobalScope('withoutroot')->find($category->category_id);
         $category->url = $parent->getRawOriginal('url') . '/' . $category->slug;
 
-        $old_img = $category->img_path_system;
+        $old_img = $category->getImageSystemPath();
         if ($old_img) {
             File::delete($old_img);
         }
-        if ($category->img instanceof UploadedFile) {
-            if ($category->img) {
-                $category->img = $category
-                    ->img
+        if ($category->image instanceof UploadedFile) {
+            if ($category->image) {
+                $category->image = $category
+                    ->image
                     ->storePublicly('images/category_images', 'public');
             }
         }

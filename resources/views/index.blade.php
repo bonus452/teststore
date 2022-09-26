@@ -16,7 +16,7 @@
                                 <div class="container">
                                     <div class="row">
                                         <div
-                                            class="col-md-10 col-lg-8 col-md-offset-2 col-lg-offset-4 col-sm-12 col-xs-12">
+                                                class="col-md-10 col-lg-8 col-md-offset-2 col-lg-offset-4 col-sm-12 col-xs-12">
                                             <div class="slider__inner">
                                                 <h1>New Product <span class="text--theme">Collection</span></h1>
                                                 <div class="slider__btn">
@@ -56,7 +56,7 @@
                         </div>
                         <div class="category-menu-list">
 
-                            @php /** @var \App\Models\Shop\Category $menu_item */ @endphp
+                            @php /** @var \App\Models\Catalog\Category $menu_item */ @endphp
                             <ul>
                                 @foreach($catalog_menu as $menu_item)
                                     <li>
@@ -166,9 +166,9 @@
                                                                    class="quick-view modal-view detail-link"
                                                                    href="#"><span class="ti-plus"></span></a></li>
                                                             <li><a title="Add TO Cart" href="cart.html"><span
-                                                                        class="ti-shopping-cart"></span></a></li>
+                                                                            class="ti-shopping-cart"></span></a></li>
                                                             <li><a title="Wishlist" href="wishlist.html"><span
-                                                                        class="ti-heart"></span></a></li>
+                                                                            class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -197,9 +197,9 @@
                                                                    class="quick-view modal-view detail-link"
                                                                    href="#"><span class="ti-plus"></span></a></li>
                                                             <li><a title="Add TO Cart" href="cart.html"><span
-                                                                        class="ti-shopping-cart"></span></a></li>
+                                                                            class="ti-shopping-cart"></span></a></li>
                                                             <li><a title="Wishlist" href="wishlist.html"><span
-                                                                        class="ti-heart"></span></a></li>
+                                                                            class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -228,9 +228,9 @@
                                                                    class="quick-view modal-view detail-link"
                                                                    href="#"><span class="ti-plus"></span></a></li>
                                                             <li><a title="Add TO Cart" href="cart.html"><span
-                                                                        class="ti-shopping-cart"></span></a></li>
+                                                                            class="ti-shopping-cart"></span></a></li>
                                                             <li><a title="Wishlist" href="wishlist.html"><span
-                                                                        class="ti-heart"></span></a></li>
+                                                                            class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -259,9 +259,9 @@
                                                                    class="quick-view modal-view detail-link"
                                                                    href="#"><span class="ti-plus"></span></a></li>
                                                             <li><a title="Add TO Cart" href="cart.html"><span
-                                                                        class="ti-shopping-cart"></span></a></li>
+                                                                            class="ti-shopping-cart"></span></a></li>
                                                             <li><a title="Wishlist" href="wishlist.html"><span
-                                                                        class="ti-heart"></span></a></li>
+                                                                            class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -290,9 +290,9 @@
                                                                    class="quick-view modal-view detail-link"
                                                                    href="#"><span class="ti-plus"></span></a></li>
                                                             <li><a title="Add TO Cart" href="cart.html"><span
-                                                                        class="ti-shopping-cart"></span></a></li>
+                                                                            class="ti-shopping-cart"></span></a></li>
                                                             <li><a title="Wishlist" href="wishlist.html"><span
-                                                                        class="ti-heart"></span></a></li>
+                                                                            class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -327,9 +327,9 @@
                                                                    class="quick-view modal-view detail-link"
                                                                    href="#"><span class="ti-plus"></span></a></li>
                                                             <li><a title="Add TO Cart" href="cart.html"><span
-                                                                        class="ti-shopping-cart"></span></a></li>
+                                                                            class="ti-shopping-cart"></span></a></li>
                                                             <li><a title="Wishlist" href="wishlist.html"><span
-                                                                        class="ti-heart"></span></a></li>
+                                                                            class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -358,9 +358,9 @@
                                                                    class="quick-view modal-view detail-link"
                                                                    href="#"><span class="ti-plus"></span></a></li>
                                                             <li><a title="Add TO Cart" href="cart.html"><span
-                                                                        class="ti-shopping-cart"></span></a></li>
+                                                                            class="ti-shopping-cart"></span></a></li>
                                                             <li><a title="Wishlist" href="wishlist.html"><span
-                                                                        class="ti-heart"></span></a></li>
+                                                                            class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -389,9 +389,9 @@
                                                                    class="quick-view modal-view detail-link"
                                                                    href="#"><span class="ti-plus"></span></a></li>
                                                             <li><a title="Add TO Cart" href="cart.html"><span
-                                                                        class="ti-shopping-cart"></span></a></li>
+                                                                            class="ti-shopping-cart"></span></a></li>
                                                             <li><a title="Wishlist" href="wishlist.html"><span
-                                                                        class="ti-heart"></span></a></li>
+                                                                            class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -420,9 +420,9 @@
                                                                    class="quick-view modal-view detail-link"
                                                                    href="#"><span class="ti-plus"></span></a></li>
                                                             <li><a title="Add TO Cart" href="cart.html"><span
-                                                                        class="ti-shopping-cart"></span></a></li>
+                                                                            class="ti-shopping-cart"></span></a></li>
                                                             <li><a title="Wishlist" href="wishlist.html"><span
-                                                                        class="ti-heart"></span></a></li>
+                                                                            class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -451,9 +451,9 @@
                                                                    class="quick-view modal-view detail-link"
                                                                    href="#"><span class="ti-plus"></span></a></li>
                                                             <li><a title="Add TO Cart" href="cart.html"><span
-                                                                        class="ti-shopping-cart"></span></a></li>
+                                                                            class="ti-shopping-cart"></span></a></li>
                                                             <li><a title="Wishlist" href="wishlist.html"><span
-                                                                        class="ti-heart"></span></a></li>
+                                                                            class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -488,9 +488,9 @@
                                                                    class="quick-view modal-view detail-link"
                                                                    href="#"><span class="ti-plus"></span></a></li>
                                                             <li><a title="Add TO Cart" href="cart.html"><span
-                                                                        class="ti-shopping-cart"></span></a></li>
+                                                                            class="ti-shopping-cart"></span></a></li>
                                                             <li><a title="Wishlist" href="wishlist.html"><span
-                                                                        class="ti-heart"></span></a></li>
+                                                                            class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -519,9 +519,9 @@
                                                                    class="quick-view modal-view detail-link"
                                                                    href="#"><span class="ti-plus"></span></a></li>
                                                             <li><a title="Add TO Cart" href="cart.html"><span
-                                                                        class="ti-shopping-cart"></span></a></li>
+                                                                            class="ti-shopping-cart"></span></a></li>
                                                             <li><a title="Wishlist" href="wishlist.html"><span
-                                                                        class="ti-heart"></span></a></li>
+                                                                            class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -550,9 +550,9 @@
                                                                    class="quick-view modal-view detail-link"
                                                                    href="#"><span class="ti-plus"></span></a></li>
                                                             <li><a title="Add TO Cart" href="cart.html"><span
-                                                                        class="ti-shopping-cart"></span></a></li>
+                                                                            class="ti-shopping-cart"></span></a></li>
                                                             <li><a title="Wishlist" href="wishlist.html"><span
-                                                                        class="ti-heart"></span></a></li>
+                                                                            class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -581,9 +581,9 @@
                                                                    class="quick-view modal-view detail-link"
                                                                    href="#"><span class="ti-plus"></span></a></li>
                                                             <li><a title="Add TO Cart" href="cart.html"><span
-                                                                        class="ti-shopping-cart"></span></a></li>
+                                                                            class="ti-shopping-cart"></span></a></li>
                                                             <li><a title="Wishlist" href="wishlist.html"><span
-                                                                        class="ti-heart"></span></a></li>
+                                                                            class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -612,9 +612,9 @@
                                                                    class="quick-view modal-view detail-link"
                                                                    href="#"><span class="ti-plus"></span></a></li>
                                                             <li><a title="Add TO Cart" href="cart.html"><span
-                                                                        class="ti-shopping-cart"></span></a></li>
+                                                                            class="ti-shopping-cart"></span></a></li>
                                                             <li><a title="Wishlist" href="wishlist.html"><span
-                                                                        class="ti-heart"></span></a></li>
+                                                                            class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -649,9 +649,9 @@
                                                                    class="quick-view modal-view detail-link"
                                                                    href="#"><span class="ti-plus"></span></a></li>
                                                             <li><a title="Add TO Cart" href="cart.html"><span
-                                                                        class="ti-shopping-cart"></span></a></li>
+                                                                            class="ti-shopping-cart"></span></a></li>
                                                             <li><a title="Wishlist" href="wishlist.html"><span
-                                                                        class="ti-heart"></span></a></li>
+                                                                            class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -680,9 +680,9 @@
                                                                    class="quick-view modal-view detail-link"
                                                                    href="#"><span class="ti-plus"></span></a></li>
                                                             <li><a title="Add TO Cart" href="cart.html"><span
-                                                                        class="ti-shopping-cart"></span></a></li>
+                                                                            class="ti-shopping-cart"></span></a></li>
                                                             <li><a title="Wishlist" href="wishlist.html"><span
-                                                                        class="ti-heart"></span></a></li>
+                                                                            class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -711,9 +711,9 @@
                                                                    class="quick-view modal-view detail-link"
                                                                    href="#"><span class="ti-plus"></span></a></li>
                                                             <li><a title="Add TO Cart" href="cart.html"><span
-                                                                        class="ti-shopping-cart"></span></a></li>
+                                                                            class="ti-shopping-cart"></span></a></li>
                                                             <li><a title="Wishlist" href="wishlist.html"><span
-                                                                        class="ti-heart"></span></a></li>
+                                                                            class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -742,9 +742,9 @@
                                                                    class="quick-view modal-view detail-link"
                                                                    href="#"><span class="ti-plus"></span></a></li>
                                                             <li><a title="Add TO Cart" href="cart.html"><span
-                                                                        class="ti-shopping-cart"></span></a></li>
+                                                                            class="ti-shopping-cart"></span></a></li>
                                                             <li><a title="Wishlist" href="wishlist.html"><span
-                                                                        class="ti-heart"></span></a></li>
+                                                                            class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -773,9 +773,9 @@
                                                                    class="quick-view modal-view detail-link"
                                                                    href="#"><span class="ti-plus"></span></a></li>
                                                             <li><a title="Add TO Cart" href="cart.html"><span
-                                                                        class="ti-shopping-cart"></span></a></li>
+                                                                            class="ti-shopping-cart"></span></a></li>
                                                             <li><a title="Wishlist" href="wishlist.html"><span
-                                                                        class="ti-heart"></span></a></li>
+                                                                            class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -884,9 +884,9 @@
                                                                    class="quick-view modal-view detail-link"
                                                                    href="#"><span class="ti-plus"></span></a></li>
                                                             <li><a title="Add TO Cart" href="cart.html"><span
-                                                                        class="ti-shopping-cart"></span></a></li>
+                                                                            class="ti-shopping-cart"></span></a></li>
                                                             <li><a title="Wishlist" href="wishlist.html"><span
-                                                                        class="ti-heart"></span></a></li>
+                                                                            class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -915,9 +915,9 @@
                                                                    class="quick-view modal-view detail-link"
                                                                    href="#"><span class="ti-plus"></span></a></li>
                                                             <li><a title="Add TO Cart" href="cart.html"><span
-                                                                        class="ti-shopping-cart"></span></a></li>
+                                                                            class="ti-shopping-cart"></span></a></li>
                                                             <li><a title="Wishlist" href="wishlist.html"><span
-                                                                        class="ti-heart"></span></a></li>
+                                                                            class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -946,9 +946,9 @@
                                                                    class="quick-view modal-view detail-link"
                                                                    href="#"><span class="ti-plus"></span></a></li>
                                                             <li><a title="Add TO Cart" href="cart.html"><span
-                                                                        class="ti-shopping-cart"></span></a></li>
+                                                                            class="ti-shopping-cart"></span></a></li>
                                                             <li><a title="Wishlist" href="wishlist.html"><span
-                                                                        class="ti-heart"></span></a></li>
+                                                                            class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -977,9 +977,9 @@
                                                                    class="quick-view modal-view detail-link"
                                                                    href="#"><span class="ti-plus"></span></a></li>
                                                             <li><a title="Add TO Cart" href="cart.html"><span
-                                                                        class="ti-shopping-cart"></span></a></li>
+                                                                            class="ti-shopping-cart"></span></a></li>
                                                             <li><a title="Wishlist" href="wishlist.html"><span
-                                                                        class="ti-heart"></span></a></li>
+                                                                            class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -1008,9 +1008,9 @@
                                                                    class="quick-view modal-view detail-link"
                                                                    href="#"><span class="ti-plus"></span></a></li>
                                                             <li><a title="Add TO Cart" href="cart.html"><span
-                                                                        class="ti-shopping-cart"></span></a></li>
+                                                                            class="ti-shopping-cart"></span></a></li>
                                                             <li><a title="Wishlist" href="wishlist.html"><span
-                                                                        class="ti-heart"></span></a></li>
+                                                                            class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -1045,9 +1045,9 @@
                                                                    class="quick-view modal-view detail-link"
                                                                    href="#"><span class="ti-plus"></span></a></li>
                                                             <li><a title="Add TO Cart" href="cart.html"><span
-                                                                        class="ti-shopping-cart"></span></a></li>
+                                                                            class="ti-shopping-cart"></span></a></li>
                                                             <li><a title="Wishlist" href="wishlist.html"><span
-                                                                        class="ti-heart"></span></a></li>
+                                                                            class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -1076,9 +1076,9 @@
                                                                    class="quick-view modal-view detail-link"
                                                                    href="#"><span class="ti-plus"></span></a></li>
                                                             <li><a title="Add TO Cart" href="cart.html"><span
-                                                                        class="ti-shopping-cart"></span></a></li>
+                                                                            class="ti-shopping-cart"></span></a></li>
                                                             <li><a title="Wishlist" href="wishlist.html"><span
-                                                                        class="ti-heart"></span></a></li>
+                                                                            class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -1107,9 +1107,9 @@
                                                                    class="quick-view modal-view detail-link"
                                                                    href="#"><span class="ti-plus"></span></a></li>
                                                             <li><a title="Add TO Cart" href="cart.html"><span
-                                                                        class="ti-shopping-cart"></span></a></li>
+                                                                            class="ti-shopping-cart"></span></a></li>
                                                             <li><a title="Wishlist" href="wishlist.html"><span
-                                                                        class="ti-heart"></span></a></li>
+                                                                            class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -1138,9 +1138,9 @@
                                                                    class="quick-view modal-view detail-link"
                                                                    href="#"><span class="ti-plus"></span></a></li>
                                                             <li><a title="Add TO Cart" href="cart.html"><span
-                                                                        class="ti-shopping-cart"></span></a></li>
+                                                                            class="ti-shopping-cart"></span></a></li>
                                                             <li><a title="Wishlist" href="wishlist.html"><span
-                                                                        class="ti-heart"></span></a></li>
+                                                                            class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -1169,9 +1169,9 @@
                                                                    class="quick-view modal-view detail-link"
                                                                    href="#"><span class="ti-plus"></span></a></li>
                                                             <li><a title="Add TO Cart" href="cart.html"><span
-                                                                        class="ti-shopping-cart"></span></a></li>
+                                                                            class="ti-shopping-cart"></span></a></li>
                                                             <li><a title="Wishlist" href="wishlist.html"><span
-                                                                        class="ti-heart"></span></a></li>
+                                                                            class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -1200,9 +1200,9 @@
                                                                    class="quick-view modal-view detail-link"
                                                                    href="#"><span class="ti-plus"></span></a></li>
                                                             <li><a title="Add TO Cart" href="cart.html"><span
-                                                                        class="ti-shopping-cart"></span></a></li>
+                                                                            class="ti-shopping-cart"></span></a></li>
                                                             <li><a title="Wishlist" href="wishlist.html"><span
-                                                                        class="ti-heart"></span></a></li>
+                                                                            class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -1237,9 +1237,9 @@
                                                                    class="quick-view modal-view detail-link"
                                                                    href="#"><span class="ti-plus"></span></a></li>
                                                             <li><a title="Add TO Cart" href="cart.html"><span
-                                                                        class="ti-shopping-cart"></span></a></li>
+                                                                            class="ti-shopping-cart"></span></a></li>
                                                             <li><a title="Wishlist" href="wishlist.html"><span
-                                                                        class="ti-heart"></span></a></li>
+                                                                            class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -1268,9 +1268,9 @@
                                                                    class="quick-view modal-view detail-link"
                                                                    href="#"><span class="ti-plus"></span></a></li>
                                                             <li><a title="Add TO Cart" href="cart.html"><span
-                                                                        class="ti-shopping-cart"></span></a></li>
+                                                                            class="ti-shopping-cart"></span></a></li>
                                                             <li><a title="Wishlist" href="wishlist.html"><span
-                                                                        class="ti-heart"></span></a></li>
+                                                                            class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -1299,9 +1299,9 @@
                                                                    class="quick-view modal-view detail-link"
                                                                    href="#"><span class="ti-plus"></span></a></li>
                                                             <li><a title="Add TO Cart" href="cart.html"><span
-                                                                        class="ti-shopping-cart"></span></a></li>
+                                                                            class="ti-shopping-cart"></span></a></li>
                                                             <li><a title="Wishlist" href="wishlist.html"><span
-                                                                        class="ti-heart"></span></a></li>
+                                                                            class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -1330,9 +1330,9 @@
                                                                    class="quick-view modal-view detail-link"
                                                                    href="#"><span class="ti-plus"></span></a></li>
                                                             <li><a title="Add TO Cart" href="cart.html"><span
-                                                                        class="ti-shopping-cart"></span></a></li>
+                                                                            class="ti-shopping-cart"></span></a></li>
                                                             <li><a title="Wishlist" href="wishlist.html"><span
-                                                                        class="ti-heart"></span></a></li>
+                                                                            class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -1361,9 +1361,9 @@
                                                                    class="quick-view modal-view detail-link"
                                                                    href="#"><span class="ti-plus"></span></a></li>
                                                             <li><a title="Add TO Cart" href="cart.html"><span
-                                                                        class="ti-shopping-cart"></span></a></li>
+                                                                            class="ti-shopping-cart"></span></a></li>
                                                             <li><a title="Wishlist" href="wishlist.html"><span
-                                                                        class="ti-heart"></span></a></li>
+                                                                            class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -1392,9 +1392,9 @@
                                                                    class="quick-view modal-view detail-link"
                                                                    href="#"><span class="ti-plus"></span></a></li>
                                                             <li><a title="Add TO Cart" href="cart.html"><span
-                                                                        class="ti-shopping-cart"></span></a></li>
+                                                                            class="ti-shopping-cart"></span></a></li>
                                                             <li><a title="Wishlist" href="wishlist.html"><span
-                                                                        class="ti-heart"></span></a></li>
+                                                                            class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -1429,9 +1429,9 @@
                                                                    class="quick-view modal-view detail-link"
                                                                    href="#"><span class="ti-plus"></span></a></li>
                                                             <li><a title="Add TO Cart" href="cart.html"><span
-                                                                        class="ti-shopping-cart"></span></a></li>
+                                                                            class="ti-shopping-cart"></span></a></li>
                                                             <li><a title="Wishlist" href="wishlist.html"><span
-                                                                        class="ti-heart"></span></a></li>
+                                                                            class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -1460,9 +1460,9 @@
                                                                    class="quick-view modal-view detail-link"
                                                                    href="#"><span class="ti-plus"></span></a></li>
                                                             <li><a title="Add TO Cart" href="cart.html"><span
-                                                                        class="ti-shopping-cart"></span></a></li>
+                                                                            class="ti-shopping-cart"></span></a></li>
                                                             <li><a title="Wishlist" href="wishlist.html"><span
-                                                                        class="ti-heart"></span></a></li>
+                                                                            class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -1491,9 +1491,9 @@
                                                                    class="quick-view modal-view detail-link"
                                                                    href="#"><span class="ti-plus"></span></a></li>
                                                             <li><a title="Add TO Cart" href="cart.html"><span
-                                                                        class="ti-shopping-cart"></span></a></li>
+                                                                            class="ti-shopping-cart"></span></a></li>
                                                             <li><a title="Wishlist" href="wishlist.html"><span
-                                                                        class="ti-heart"></span></a></li>
+                                                                            class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -1522,9 +1522,9 @@
                                                                    class="quick-view modal-view detail-link"
                                                                    href="#"><span class="ti-plus"></span></a></li>
                                                             <li><a title="Add TO Cart" href="cart.html"><span
-                                                                        class="ti-shopping-cart"></span></a></li>
+                                                                            class="ti-shopping-cart"></span></a></li>
                                                             <li><a title="Wishlist" href="wishlist.html"><span
-                                                                        class="ti-heart"></span></a></li>
+                                                                            class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -1553,9 +1553,9 @@
                                                                    class="quick-view modal-view detail-link"
                                                                    href="#"><span class="ti-plus"></span></a></li>
                                                             <li><a title="Add TO Cart" href="cart.html"><span
-                                                                        class="ti-shopping-cart"></span></a></li>
+                                                                            class="ti-shopping-cart"></span></a></li>
                                                             <li><a title="Wishlist" href="wishlist.html"><span
-                                                                        class="ti-heart"></span></a></li>
+                                                                            class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -1584,9 +1584,9 @@
                                                                    class="quick-view modal-view detail-link"
                                                                    href="#"><span class="ti-plus"></span></a></li>
                                                             <li><a title="Add TO Cart" href="cart.html"><span
-                                                                        class="ti-shopping-cart"></span></a></li>
+                                                                            class="ti-shopping-cart"></span></a></li>
                                                             <li><a title="Wishlist" href="wishlist.html"><span
-                                                                        class="ti-heart"></span></a></li>
+                                                                            class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -1698,9 +1698,9 @@
                                                                    class="quick-view modal-view detail-link"
                                                                    href="#"><span class="ti-plus"></span></a></li>
                                                             <li><a title="Add TO Cart" href="cart.html"><span
-                                                                        class="ti-shopping-cart"></span></a></li>
+                                                                            class="ti-shopping-cart"></span></a></li>
                                                             <li><a title="Wishlist" href="wishlist.html"><span
-                                                                        class="ti-heart"></span></a></li>
+                                                                            class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -1729,9 +1729,9 @@
                                                                    class="quick-view modal-view detail-link"
                                                                    href="#"><span class="ti-plus"></span></a></li>
                                                             <li><a title="Add TO Cart" href="cart.html"><span
-                                                                        class="ti-shopping-cart"></span></a></li>
+                                                                            class="ti-shopping-cart"></span></a></li>
                                                             <li><a title="Wishlist" href="wishlist.html"><span
-                                                                        class="ti-heart"></span></a></li>
+                                                                            class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -1760,9 +1760,9 @@
                                                                    class="quick-view modal-view detail-link"
                                                                    href="#"><span class="ti-plus"></span></a></li>
                                                             <li><a title="Add TO Cart" href="cart.html"><span
-                                                                        class="ti-shopping-cart"></span></a></li>
+                                                                            class="ti-shopping-cart"></span></a></li>
                                                             <li><a title="Wishlist" href="wishlist.html"><span
-                                                                        class="ti-heart"></span></a></li>
+                                                                            class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -1797,9 +1797,9 @@
                                                                    class="quick-view modal-view detail-link"
                                                                    href="#"><span class="ti-plus"></span></a></li>
                                                             <li><a title="Add TO Cart" href="cart.html"><span
-                                                                        class="ti-shopping-cart"></span></a></li>
+                                                                            class="ti-shopping-cart"></span></a></li>
                                                             <li><a title="Wishlist" href="wishlist.html"><span
-                                                                        class="ti-heart"></span></a></li>
+                                                                            class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -1828,9 +1828,9 @@
                                                                    class="quick-view modal-view detail-link"
                                                                    href="#"><span class="ti-plus"></span></a></li>
                                                             <li><a title="Add TO Cart" href="cart.html"><span
-                                                                        class="ti-shopping-cart"></span></a></li>
+                                                                            class="ti-shopping-cart"></span></a></li>
                                                             <li><a title="Wishlist" href="wishlist.html"><span
-                                                                        class="ti-heart"></span></a></li>
+                                                                            class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -1859,9 +1859,9 @@
                                                                    class="quick-view modal-view detail-link"
                                                                    href="#"><span class="ti-plus"></span></a></li>
                                                             <li><a title="Add TO Cart" href="cart.html"><span
-                                                                        class="ti-shopping-cart"></span></a></li>
+                                                                            class="ti-shopping-cart"></span></a></li>
                                                             <li><a title="Wishlist" href="wishlist.html"><span
-                                                                        class="ti-heart"></span></a></li>
+                                                                            class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -1896,9 +1896,9 @@
                                                                    class="quick-view modal-view detail-link"
                                                                    href="#"><span class="ti-plus"></span></a></li>
                                                             <li><a title="Add TO Cart" href="cart.html"><span
-                                                                        class="ti-shopping-cart"></span></a></li>
+                                                                            class="ti-shopping-cart"></span></a></li>
                                                             <li><a title="Wishlist" href="wishlist.html"><span
-                                                                        class="ti-heart"></span></a></li>
+                                                                            class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -1927,9 +1927,9 @@
                                                                    class="quick-view modal-view detail-link"
                                                                    href="#"><span class="ti-plus"></span></a></li>
                                                             <li><a title="Add TO Cart" href="cart.html"><span
-                                                                        class="ti-shopping-cart"></span></a></li>
+                                                                            class="ti-shopping-cart"></span></a></li>
                                                             <li><a title="Wishlist" href="wishlist.html"><span
-                                                                        class="ti-heart"></span></a></li>
+                                                                            class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -1958,9 +1958,9 @@
                                                                    class="quick-view modal-view detail-link"
                                                                    href="#"><span class="ti-plus"></span></a></li>
                                                             <li><a title="Add TO Cart" href="cart.html"><span
-                                                                        class="ti-shopping-cart"></span></a></li>
+                                                                            class="ti-shopping-cart"></span></a></li>
                                                             <li><a title="Wishlist" href="wishlist.html"><span
-                                                                        class="ti-heart"></span></a></li>
+                                                                            class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -1995,9 +1995,9 @@
                                                                    class="quick-view modal-view detail-link"
                                                                    href="#"><span class="ti-plus"></span></a></li>
                                                             <li><a title="Add TO Cart" href="cart.html"><span
-                                                                        class="ti-shopping-cart"></span></a></li>
+                                                                            class="ti-shopping-cart"></span></a></li>
                                                             <li><a title="Wishlist" href="wishlist.html"><span
-                                                                        class="ti-heart"></span></a></li>
+                                                                            class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -2026,9 +2026,9 @@
                                                                    class="quick-view modal-view detail-link"
                                                                    href="#"><span class="ti-plus"></span></a></li>
                                                             <li><a title="Add TO Cart" href="cart.html"><span
-                                                                        class="ti-shopping-cart"></span></a></li>
+                                                                            class="ti-shopping-cart"></span></a></li>
                                                             <li><a title="Wishlist" href="wishlist.html"><span
-                                                                        class="ti-heart"></span></a></li>
+                                                                            class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -2057,9 +2057,9 @@
                                                                    class="quick-view modal-view detail-link"
                                                                    href="#"><span class="ti-plus"></span></a></li>
                                                             <li><a title="Add TO Cart" href="cart.html"><span
-                                                                        class="ti-shopping-cart"></span></a></li>
+                                                                            class="ti-shopping-cart"></span></a></li>
                                                             <li><a title="Wishlist" href="wishlist.html"><span
-                                                                        class="ti-heart"></span></a></li>
+                                                                            class="ti-heart"></span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>

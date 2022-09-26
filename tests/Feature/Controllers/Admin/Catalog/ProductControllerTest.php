@@ -2,7 +2,7 @@
 
 namespace Tests\Feature\Controllers\Admin\Catalog;
 
-use App\Models\Shop\Product;
+use App\Models\Catalog\Product;
 use App\Models\User;
 use Tests\TestCase;
 

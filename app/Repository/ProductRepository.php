@@ -2,9 +2,9 @@
 
 namespace App\Repository;
 
-use App\Models\Shop\Category;
-use App\Models\Shop\Product;
-use App\Models\Shop\Product as Model;
+use App\Models\Catalog\Category;
+use App\Models\Catalog\Product;
+use App\Models\Catalog\Product as Model;
 
 
 class ProductRepository

@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@php /** @var \App\Models\Shop\Category $category */ @endphp
+@php /** @var \App\Models\Catalog\Category $category */ @endphp
 
 @section('title', 'Edit ' . $category->title)
 @section('h1', 'Edit ' . $category->title)
@@ -16,7 +16,7 @@
         <a href="{{ route('admin.catalog.category.create') }}" class="btn btn-default">Add new category</a>
         <a href="{{ $category->url }}" class="btn btn-default" target="_blank"><i class="far fa-eye"></i></a>
 
-        @include('popups.confirm', [
+        @include('popups.confirm_delete', [
             'href' => route('admin.catalog.category.delete', $category),
             'message' => 'Category can has products or subcategories. They are also delete with this category. Delete the category anyway?'
         ])
@@ -69,7 +69,7 @@
                             <div class="form-group">
                                 <label for="category_id">Parent category</label>
                                 <select class="custom-select" id="category_id" name="category_id">
-                                    @php /** @var \App\Models\Shop\Category $innerCategory */ @endphp
+                                    @php /** @var \App\Models\Catalog\Category $innerCategory */ @endphp
                                     @foreach($categoriesTree as $innerCategory)
                                         <option
                                             value="{{ $innerCategory->id }}" {{ $innerCategory->getCustomProp('selected') }}> {{ $innerCategory->title }}</option>
@@ -78,18 +78,19 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                @if(!empty($category->img_path_system))
-                                    <label for="img">Change image</label>
-                                    <img src="{{ $category->img }}" alt="{{ $category->title }}" class="preview-image">
+                                @if(!empty($category->getImageSystemPath()))
+                                    <label for="image">Change image</label>
+                                    <img src="{{ $category->image }}" alt="{{ $category->title }}"
+                                         class="preview-image">
                                     <br>
                                 @else
-                                    <label for="img">Set image</label>
+                                    <label for="image">Set image</label>
                                 @endif
 
                                 <div class="input-group">
                                     <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="img" name="img">
-                                        <label class="custom-file-label" for="img">Choose image</label>
+                                        <input type="file" class="custom-file-input" id="image" name="image">
+                                        <label class="custom-file-label" for="image">Choose image</label>
                                     </div>
                                 </div>
                             </div>

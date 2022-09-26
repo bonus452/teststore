@@ -4,9 +4,9 @@ namespace App\Repository;
 
 use App\Filters\ProductFilter;
 use App\Filters\QueryFilter;
-use App\Models\Shop\Category;
-use App\Models\Shop\Product;
-use App\Models\Shop\PropertyValue;
+use App\Models\Catalog\Category;
+use App\Models\Catalog\Product;
+use App\Models\Catalog\PropertyValue;
 use Illuminate\Support\Collection;
 use IteratorAggregate;
 

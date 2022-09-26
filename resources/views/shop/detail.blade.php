@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@php /** @var \App\Models\Shop\Product $product */ @endphp
+@php /** @var \App\Models\Catalog\Product $product */ @endphp
 
 @section('title', $product->seo_title ?: $product->name)
 @section('description', $product->seo_description ?: $product->description)
@@ -14,7 +14,8 @@
 @section('content')
 
     <!-- Start Product Details -->
-    <section class="htc__product__details pt--100 pb--100 bg__white product-information" data-product-id="{{ $product->id }}">
+    <section class="htc__product__details pt--100 pb--100 bg__white product-information"
+             data-product-id="{{ $product->id }}">
         <div class="container">
             <div class="scroll-active">
                 <div class="row">
@@ -25,9 +26,9 @@
                                 <div id="mainCarousel" class="carousel w-10/12 max-w-5xl mx-auto">
                                     @foreach($product->images as $image)
                                         <div
-                                            class="carousel__slide"
-                                            data-src="{{ $image->src }}"
-                                            data-fancybox="gallery">
+                                                class="carousel__slide"
+                                                data-src="{{ $image->src }}"
+                                                data-fancybox="gallery">
                                             <img src="{{ $image->src }}"/>
                                         </div>
                                     @endforeach
@@ -57,12 +58,12 @@
                                 </div>
                                 <script>
                                     $.ajax({
-                                            url: '{{ route('catalog.offers', $product->id) }}',
-                                            method: 'GET',
-                                            success: function (result) {
-                                                $('.ajax-offer-block').html(result);
-                                            }
-                                        });
+                                        url: '{{ route('catalog.offers', $product->id) }}',
+                                        method: 'GET',
+                                        success: function (result) {
+                                            $('.ajax-offer-block').html(result);
+                                        }
+                                    });
                                 </script>
                             </div>
                         </div>

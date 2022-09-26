@@ -2,7 +2,7 @@
 
 namespace App\Observers;
 
-use App\Models\Shop\Offer;
+use App\Models\Catalog\Offer;
 
 class OfferObserver
 {

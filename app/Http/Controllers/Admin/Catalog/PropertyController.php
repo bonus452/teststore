@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin\Catalog;
 
 use App\Http\Controllers\Controller;
-use App\Models\Shop\PropertyName;
+use App\Models\Catalog\PropertyName;
 use Illuminate\Http\Request;
 
 class PropertyController extends Controller

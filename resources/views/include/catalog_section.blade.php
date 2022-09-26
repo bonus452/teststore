@@ -28,10 +28,10 @@
                         <ul class="view__mode" role="tablist">
                             <li role="presentation" class="grid-view active"><a href="#grid-view" role="tab"
                                                                                 data-toggle="tab"><i
-                                        class="zmdi zmdi-grid"></i></a></li>
+                                            class="zmdi zmdi-grid"></i></a></li>
                             <li role="presentation" class="list-view"><a href="#list-view" role="tab"
                                                                          data-toggle="tab"><i
-                                        class="zmdi zmdi-view-list"></i></a></li>
+                                            class="zmdi zmdi-view-list"></i></a></li>
                         </ul>
                         <!-- End List And Grid View -->
                     </div>
@@ -44,7 +44,7 @@
                          class="single-grid-view tab-pane fade in active clearfix">
                         <!-- Start Single Product -->
                         @if($products_box->products->isNotEmpty())
-                            @php /** @var \App\Models\Shop\Product $product */ @endphp
+                            @php /** @var \App\Models\Catalog\Product $product */ @endphp
                             @foreach($products_box->products as $product)
                                 <div class="col-md-4 col-lg-4 col-sm-4 col-xs-12">
                                     <div class="product">
@@ -67,13 +67,14 @@
                                                             <span class="ti-search"></span>
                                                         </a>
                                                     <li>
-                                                    @if($product->firstOffer->getCustomProp('in_cart'))
-                                                            <a title="in cart" href="/sale/cart" class="in-cart">in cart</a>
-                                                    @else
+                                                        @if($product->firstOffer->getCustomProp('in_cart'))
+                                                            <a title="in cart" href="/sale/cart" class="in-cart">in
+                                                                cart</a>
+                                                        @else
                                                             <a title="Add To Cart" href="#" class="buy-btn"
                                                                data-id="{{ $product->firstOffer->id }}"><span
-                                                                    class="ti-shopping-cart"></span></a>
-                                                    @endif
+                                                                        class="ti-shopping-cart"></span></a>
+                                                        @endif
                                                     </li>
                                                 </ul>
                                             </div>
@@ -117,13 +118,15 @@
                                             <h2><a href="product-details.html">{{ $product->name }}</a></h2>
                                             <p>{{ $product->description }}</p>
                                             <span
-                                                class="product__price">{{ !is_null($product->firstOffer) ? $product->firstOffer->getPriceFormat() : '' }}</span>
+                                                    class="product__price">{{ !is_null($product->firstOffer) ? $product->firstOffer->getPriceFormat() : '' }}</span>
                                             <div class="shop__btn">
                                                 @if($product->firstOffer->getCustomProp('in_cart'))
-                                                    <a class="htc__btn in-cart" href="/sale/cart" title="in cart">in cart</a>
+                                                    <a class="htc__btn in-cart" href="/sale/cart" title="in cart">in
+                                                        cart</a>
                                                 @else
-                                                <a class="htc__btn buy-btn" href="cart.html" data-id="{{ $product->firstOffer->id }}">
-                                                    <span class="ti-shopping-cart"></span>Add to Cart</a>
+                                                    <a class="htc__btn buy-btn" href="cart.html"
+                                                       data-id="{{ $product->firstOffer->id }}">
+                                                        <span class="ti-shopping-cart"></span>Add to Cart</a>
                                                 @endif
                                             </div>
                                         </div>

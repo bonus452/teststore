@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Shop;
+namespace App\Models\Catalog;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -24,12 +24,12 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $value
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read \App\Models\Shop\PropertyName|null $property_name
+ * @property-read \App\Models\Catalog\PropertyName|null $property_name
  * @method static \Illuminate\Database\Eloquent\Builder|PropertyValue whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|PropertyValue whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|PropertyValue whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|PropertyValue whereValue($value)
- * @method static \Database\Factories\Shop\PropertyValueFactory factory(...$parameters)
+ * @method static \Database\Factories\Catalog\PropertyValueFactory factory(...$parameters)
  */
 class PropertyValue extends Model
 {

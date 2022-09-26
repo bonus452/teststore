@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@php /** @var \App\Models\Shop\Category $category */ @endphp
+@php /** @var \App\Models\Catalog\Category $category */ @endphp
 
 @section('title', $category->seo_title ?: $category->title)
 
@@ -30,7 +30,8 @@
             <div class="modal-dialog modal__container" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                    aria-hidden="true">&times;</span></button>
                     </div>
                     <div class="modal-body">
                         <div class="loader-gif">

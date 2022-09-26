@@ -5,7 +5,7 @@
             <li class="drop"><a href="/{{ CATALOG_PATH }}">Catalog</a>
                 <ul class="dropdown mega_dropdown">
                     <!-- Start Single Mega MEnu -->
-                    @php /** @var \App\Models\Shop\Category $item_menu */ @endphp
+                    @php /** @var \App\Models\Catalog\Category $item_menu */ @endphp
                     @php /** @var \Illuminate\Support\Collection $catalog_menu */ @endphp
                     @foreach($catalog_menu->split(2) as $group_item_menu)
                         <li>
@@ -39,10 +39,10 @@
                 <li><a href="/">Home</a></li>
                 <li><a href="/catalog">Catalog</a>
                     <ul>
-                        @php /** @var \App\Models\Shop\Category $item_menu */ @endphp
+                        @php /** @var \App\Models\Catalog\Category $item_menu */ @endphp
                         @php /** @var \Illuminate\Support\Collection $catalog_menu */ @endphp
                         @foreach($catalog_menu as $item_menu)
-                                        <li><a href="{{ $item_menu->url }}">{{ $item_menu->title }}</a></li>
+                            <li><a href="{{ $item_menu->url }}">{{ $item_menu->title }}</a></li>
                         @endforeach
                     </ul>
                 </li>

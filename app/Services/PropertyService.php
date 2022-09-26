@@ -2,7 +2,7 @@
 
 namespace App\Services;
 
-use App\Models\Shop\PropertyName;
+use App\Models\Catalog\PropertyName;
 use Illuminate\Database\Eloquent\Collection;
 
 class PropertyService

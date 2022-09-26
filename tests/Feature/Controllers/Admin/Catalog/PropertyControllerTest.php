@@ -2,7 +2,7 @@
 
 namespace Controllers\Admin\Catalog;
 
-use App\Models\Shop\PropertyName;
+use App\Models\Catalog\PropertyName;
 use App\Models\User;
 use Tests\TestCase;
 

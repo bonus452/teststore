@@ -2,7 +2,7 @@
 
 namespace App\Rules;
 
-use App\Models\Shop\Image;
+use App\Models\Catalog\Image;
 use Illuminate\Contracts\Validation\Rule;
 
 class ImageExistInDB implements Rule

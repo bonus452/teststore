@@ -1,6 +1,5 @@
-
-@php /** @var \App\Models\Shop\Product $product */ @endphp
-@php /** @var \App\Models\Shop\Image $image */ @endphp
+@php /** @var \App\Models\Catalog\Product $product */ @endphp
+@php /** @var \App\Models\Catalog\Image $image */ @endphp
 
 <label for="img">Images</label>
 <br>

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Shop;
+namespace App\Models\Catalog;
 
 use App\Filters\ProductFilter;
 use App\Filters\QueryFilter;
@@ -23,7 +23,7 @@ use Illuminate\Database\Eloquent\Relations\MorphToMany;
  * @property int $category_id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @method static \Database\Factories\Shop\ProductFactory factory(...$parameters)
+ * @method static \Database\Factories\Catalog\ProductFactory factory(...$parameters)
  * @method static \Illuminate\Database\Eloquent\Builder|Product newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Product newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Product query()
@@ -34,13 +34,13 @@ use Illuminate\Database\Eloquent\Relations\MorphToMany;
  * @method static \Illuminate\Database\Eloquent\Builder|Product whereSlug($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Product whereUpdatedAt($value)
  * @mixin \Eloquent
- * @property-read \App\Models\Shop\Category $category
+ * @property-read \App\Models\Catalog\Category $category
  * @property-read mixed $url
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Shop\Offer[] $offers
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Catalog\Offer[] $offers
  * @property-read int|null $offers_count
  * @property string|null $description
  * @method static \Illuminate\Database\Eloquent\Builder|Product whereDescription($value)
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Shop\PropertyValue[] $properties
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Catalog\PropertyValue[] $properties
  * @property-read int|null $properties_count
  * @property int $active
  * @method static \Illuminate\Database\Eloquent\Builder|Product whereActive($value)
@@ -51,12 +51,12 @@ use Illuminate\Database\Eloquent\Relations\MorphToMany;
  * @method static Builder|Product whereSeoDescription($value)
  * @method static Builder|Product whereSeoKeywords($value)
  * @method static Builder|Product whereSeoTitle($value)
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Shop\Image[] $images
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Catalog\Image[] $images
  * @property-read int|null $images_count
  * @method static Builder|Product filter(\App\Filters\QueryFilter $filter)
  * @method static Builder|Product withProperties()
- * @property-read \App\Models\Shop\Image|null $firstImage
- * @property-read \App\Models\Shop\Offer|null $firstOffer
+ * @property-read \App\Models\Catalog\Image|null $firstImage
+ * @property-read \App\Models\Catalog\Offer|null $firstOffer
  */
 class Product extends Model
 {

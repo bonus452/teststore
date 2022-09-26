@@ -1,4 +1,4 @@
-@php /** @var \App\Models\Shop\PropertyName $property */ @endphp
+@php /** @var \App\Models\Catalog\PropertyName $property */ @endphp
 
 <div class="property-popup-block">
 

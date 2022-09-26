@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@php /** @var \App\Models\Shop\Product $product */ @endphp
+@php /** @var \App\Models\Catalog\Product $product */ @endphp
 
 @section('title', 'Update product "'.$product->name.'"')
 @section('h1', 'Update product "'.$product->name.'"')
@@ -15,7 +15,7 @@
         <a href="{{ route('admin.catalog.product.create') }}" class="btn btn-default">Add new product</a>
         <a href="{{ $product->url }}" class="btn btn-default" target="_blank"><i class="far fa-eye"></i></a>
 
-        @include('popups.confirm', [
+        @include('popups.confirm_delete', [
             'href' => route('admin.catalog.product.delete', $product),
             'message' => 'Are you sure you want to delete this product?'
         ])
@@ -74,7 +74,7 @@
                                                id="active"
                                                name="active"
                                                value="1"
-                                            {{ old('active', $product->active) ? 'checked' : '' }}
+                                                {{ old('active', $product->active) ? 'checked' : '' }}
                                         >
                                         <label for="active" class="custom-control-label">Active</label>
                                     </div>
@@ -96,10 +96,10 @@
                                     <div class="form-group">
                                         <label for="category_id">Parent category</label>
                                         <select class="custom-select" id="category_id" name="category_id">
-                                            @php /** @var \App\Models\Shop\Category $innerCategory */ @endphp
+                                            @php /** @var \App\Models\Catalog\Category $innerCategory */ @endphp
                                             @foreach($categoriesTree as $innerCategory)
                                                 <option
-                                                    value="{{ $innerCategory->id }}" {{ $innerCategory->getCustomProp('selected') }}> {{ $innerCategory->title }}</option>
+                                                        value="{{ $innerCategory->id }}" {{ $innerCategory->getCustomProp('selected') }}> {{ $innerCategory->title }}</option>
                                                 @include('include.recursive_options', ['categories' => $innerCategory->getCustomProp('sub_categories'), 'level' => 1])
                                             @endforeach
                                         </select>
@@ -152,7 +152,6 @@
                         <label for="description">Description</label>
                         <textarea class="form-control" rows="6" name="seo_description"
                                   placeholder="Description ...">{{ old('seo_description', $product->seo_description) }}</textarea>
-
 
 
                     </div>

@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin\Catalog;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CategoryRequest;
-use App\Models\Shop\Category;
+use App\Models\Catalog\Category;
 use App\Repository\Breadcrumbs\Admin\CategoryBreadcrumb;
 use App\Repository\CatalogRepository;
 use App\Repository\CategoryRepository;

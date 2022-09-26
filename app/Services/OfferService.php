@@ -2,8 +2,8 @@
 
 namespace App\Services;
 
-use App\Models\Shop\Offer;
-use App\Models\Shop\Product;
+use App\Models\Catalog\Offer;
+use App\Models\Catalog\Product;
 use Illuminate\Database\Eloquent\Collection as ElCollection;
 use Illuminate\Support\Collection;
 

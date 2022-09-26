@@ -76,7 +76,7 @@ class ProductRequest extends FormRequest
             'properties' => ['bail', 'array', new PropertyExistInDB()],
             'exists_images' => ['bail', 'array', new ImageExistInDB()],
             'new_images' => 'array',
-            'new_images.*' => 'image',
+            'new_images.*' => 'image|mimes:jpg,png,jpeg,gif,svg,bmp',
             'offers' => [
                 'bail',
                 'array',

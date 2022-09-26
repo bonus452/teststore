@@ -2,7 +2,7 @@
 
 namespace App\Rules;
 
-use App\Models\Shop\Offer;
+use App\Models\Catalog\Offer;
 use Illuminate\Contracts\Validation\Rule;
 
 class ArticlesUnique implements Rule

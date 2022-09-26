@@ -2,7 +2,7 @@
 
 namespace App\Rules;
 
-use App\Models\Shop\PropertyName;
+use App\Models\Catalog\PropertyName;
 use Illuminate\Contracts\Validation\Rule;
 
 class PropertyExistInDB implements Rule

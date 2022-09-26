@@ -2,7 +2,7 @@
 
 namespace App\Services;
 
-use App\Models\Shop\Offer;
+use App\Models\Catalog\Offer;
 use App\Traits\CartId;
 use Cart;
 use Illuminate\Database\Eloquent\Collection;

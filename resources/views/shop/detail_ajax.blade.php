@@ -1,4 +1,4 @@
-@php /** @var \App\Models\Shop\Product $product */ @endphp
+@php /** @var \App\Models\Catalog\Product $product */ @endphp
 
 <div class="modal-product product-information" data-product-id="{{ $product->id }}">
     <!-- Start product images -->
@@ -38,8 +38,6 @@
                 });
             </script>
         </div>
-
-
 
 
     </div><!-- .product-info -->

@@ -2,7 +2,7 @@
 
 namespace App\Repository;
 
-use App\Models\Shop\Category;
+use App\Models\Catalog\Category;
 use Illuminate\Support\Collection;
 
 class CategoryRepository

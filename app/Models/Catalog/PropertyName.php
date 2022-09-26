@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Shop;
+namespace App\Models\Catalog;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -21,9 +21,9 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @method static \Illuminate\Database\Eloquent\Builder|PropertyName whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|PropertyName whereUpdatedAt($value)
  * @mixin \Eloquent
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Shop\PropertyValue[] $propertyValues
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Catalog\PropertyValue[] $propertyValues
  * @property-read int|null $property_values_count
- * @method static \Database\Factories\Shop\PropertyNameFactory factory(...$parameters)
+ * @method static \Database\Factories\Catalog\PropertyNameFactory factory(...$parameters)
  */
 class PropertyName extends Model
 {

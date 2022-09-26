@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-use App\Models\Shop\Category;
+use App\Models\Catalog\Category;
 use App\Repository\CategoryRepository;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;

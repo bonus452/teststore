@@ -2,18 +2,22 @@
 
 namespace App\Providers;
 
-use App\Models\Shop\Category;
-use App\Models\Shop\Image;
-use App\Models\Shop\Offer;
-use App\Models\Shop\Product;
+use App\Models\Catalog\Category;
+use App\Models\Catalog\Image;
+use App\Models\Catalog\Offer;
+use App\Models\Catalog\Product;
+use App\Models\Sale\Delivery;
+use App\Models\Sale\Payment;
 use App\Observers\CategoryObserver;
+use App\Observers\DeliveryObserver;
 use App\Observers\ImageObserver;
 use App\Observers\OfferObserver;
+use App\Observers\PaymentObserver;
 use App\Observers\ProductObserver;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
-use Illuminate\Support\Facades\Event;
+
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -39,5 +43,7 @@ class EventServiceProvider extends ServiceProvider
         Image::observe(ImageObserver::class);
         Product::observe(ProductObserver::class);
         Offer::observe(OfferObserver::class);
+        Delivery::observe(DeliveryObserver::class);
+        Payment::observe(PaymentObserver::class);
     }
 }

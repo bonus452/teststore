@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\Shop\CartController;
+use App\Http\Controllers\Sale\CartController;
+use App\Http\Controllers\Sale\OrderController;
 
 Route::group(['as' => 'sale.', 'prefix' => 'sale/'], function () {
 
@@ -14,6 +15,12 @@ Route::group(['as' => 'sale.', 'prefix' => 'sale/'], function () {
             ->name('update');
         Route::delete('delete', [CartController::class, 'delete'])
             ->name('delete');
+
+    });
+
+    Route::group(['as' => 'order.', 'prefix' => 'order/'], function () {
+
+        Route::get('', [OrderController::class, 'show'])->name('show');
 
     });
 

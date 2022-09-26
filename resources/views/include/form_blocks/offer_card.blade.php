@@ -1,4 +1,4 @@
-@php /** @var \App\Models\Shop\Product $product */ @endphp
+@php /** @var \App\Models\Catalog\Product $product */ @endphp
 
 @if(isset($product) && $product->offers->isNotEmpty())
 
@@ -49,11 +49,11 @@
                             <tr class="tr-btn-add-prop">
                                 <td colspan="2">
                                     <button
-                                        type="button"
-                                        class="btn btn-block btn-secondary btn-sm btn-add-prop"
-                                        href="{{ route('admin.catalog.property.get_properties') }}"
-                                        data-context="offer-props"
-                                        data-caption="Add property to offer">
+                                            type="button"
+                                            class="btn btn-block btn-secondary btn-sm btn-add-prop"
+                                            href="{{ route('admin.catalog.property.get_properties') }}"
+                                            data-context="offer-props"
+                                            data-caption="Add property to offer">
                                         Add property
                                     </button>
                                 </td>
@@ -103,13 +103,13 @@
                         <tr class="tr-btn-add-prop">
                             <td colspan="2">
                                 <button
-                                    type="button"
-                                    class="btn btn-block btn-secondary btn-sm btn-add-prop"
-                                    href="{{ route('admin.catalog.property.get_properties') }}"
-                                    data-width="350"
-                                    data-height="150"
-                                    data-context="offer-props"
-                                    data-title="Add property to offer">
+                                        type="button"
+                                        class="btn btn-block btn-secondary btn-sm btn-add-prop"
+                                        href="{{ route('admin.catalog.property.get_properties') }}"
+                                        data-width="350"
+                                        data-height="150"
+                                        data-context="offer-props"
+                                        data-title="Add property to offer">
                                     Add property
                                 </button>
                             </td>

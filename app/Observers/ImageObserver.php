@@ -2,7 +2,7 @@
 
 namespace App\Observers;
 
-use App\Models\Shop\Image;
+use App\Models\Catalog\Image;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
@@ -13,8 +13,8 @@ class ImageObserver
     /**
      * Handle the Category "creating" event.
      *
-     * @param \App\Models\Shop\Image $image
-//     * @return \App\Models\Shop\Image  $category
+     * @param \App\Models\Catalog\Image $image
+* //     * @return \App\Models\Shop\Image  $category
      */
     public function creating(Image $image): Image
     {

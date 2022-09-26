@@ -1,5 +1,4 @@
-
-@php /** @var \App\Models\Shop\PropertyName $property */ @endphp
+@php /** @var \App\Models\Catalog\PropertyName $property */ @endphp
 
 <tr class="prop-tr">
     <td class="prop-name">{{ $property->name }}</td>

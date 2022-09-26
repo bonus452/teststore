@@ -2,9 +2,9 @@
 
 namespace Database\Seeders;
 
-use App\Models\Shop\Offer;
-use App\Models\Shop\Product;
-use App\Models\Shop\PropertyName;
+use App\Models\Catalog\Offer;
+use App\Models\Catalog\Product;
+use App\Models\Catalog\PropertyName;
 use Faker\Factory;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;

@@ -5,7 +5,7 @@
 
 @section('content')
 
-    @php /** @var \App\Models\Shop\Category $item */ @endphp
+    @php /** @var \App\Models\Catalog\Category $item */ @endphp
     @php /** @var Illuminate\Contracts\Pagination\LengthAwarePaginator $items */ @endphp
 
     <div class="row">
@@ -16,8 +16,10 @@
             <div class="card">
                 <div class="card-header">
 
-                    <a href="{{ route('admin.catalog.product.create_form') }}" class="btn btn-primary">Create product</a>
-                    <a href="{{ route('admin.catalog.category.create_form') }}" class="btn btn-default">Create category</a>
+                    <a href="{{ route('admin.catalog.product.create_form') }}" class="btn btn-primary">Create
+                        product</a>
+                    <a href="{{ route('admin.catalog.category.create_form') }}" class="btn btn-default">Create
+                        category</a>
 
                     <div class="card-tools">
                         <div class="input-group input-group-sm" style="width: 150px;">
@@ -82,7 +84,7 @@
                         @endforeach
                         </tbody>
                     </table>
-
+                    <br>
                     {{ $items->onEachSide(1)->links('vendor.pagination.bootstrap-4') }}
 
                 </div>

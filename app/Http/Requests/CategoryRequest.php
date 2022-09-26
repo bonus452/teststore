@@ -39,7 +39,7 @@ class CategoryRequest extends FormRequest
             'seo_title' => 'nullable|string',
             'seo_description' => 'nullable|string',
             'seo_keywords' => 'nullable|string',
-            'img' => 'mimes:jpeg,bmp,png'
+            'image' => 'image|mimes:jpg,png,jpeg,gif,svg,bmp'
         ];
     }
 
@@ -47,7 +47,7 @@ class CategoryRequest extends FormRequest
     {
         return [
             'category_id.required' => 'Parent category does not specified',
-            'img.mimes:jpeg,bmp,png' => 'Image must be a file of type: jpeg, bmp, png'
+            'image.mimes:jpg,png,jpeg,gif,svg,bmp' => 'Image must be a file of type: jpeg, bmp, png'
         ];
     }
 

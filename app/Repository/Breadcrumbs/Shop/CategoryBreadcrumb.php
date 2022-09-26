@@ -2,7 +2,7 @@
 
 namespace App\Repository\Breadcrumbs\Shop;
 
-use App\Models\Shop\Category;
+use App\Models\Catalog\Category;
 use App\Repository\Breadcrumbs\CoreBreadcrumb;
 use App\Repository\CategoryRepository;
 use Illuminate\Database\Eloquent\Model;

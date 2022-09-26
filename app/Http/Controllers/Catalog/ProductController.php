@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Shop;
+namespace App\Http\Controllers\Catalog;
 
 use App\Http\Controllers\Controller;
-use App\Models\Shop\Product;
+use App\Models\Catalog\Product;
 use App\Repository\Breadcrumbs\Shop\ProductBreadcrumb;
 use App\Repository\ProductRepository;
 use Illuminate\Http\Request;

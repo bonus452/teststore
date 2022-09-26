@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Models\Shop;
+namespace App\Models\Catalog;
 
 use App\Interfaces\RowGetteble;
 use App\Traits\CustomProperties;
+use App\Traits\ImagePath;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -55,17 +56,19 @@ use Illuminate\Support\Str;
  * @method static Builder|Category whereSeoDescription($value)
  * @method static Builder|Category whereSeoKeywords($value)
  * @method static Builder|Category whereSeoTitle($value)
+ * @property string|null $image
+ * @method static Builder|Category whereImage($value)
  */
 class Category extends Model
 {
-    use HasFactory, CustomProperties;
+    use HasFactory, CustomProperties, ImagePath;
 
     protected Collection $sub_categories;
     protected $fillable = [
         'title',
         'slug',
         'url',
-        'img',
+        'image',
         'category_id',
         'seo_title',
         'seo_description',
@@ -109,25 +112,5 @@ class Category extends Model
         return '/admin/catalog/category-edit/'.$this->id;
     }
 
-    public function getImgAttribute($value)
-    {
-        $result = $value instanceof UploadedFile
-            ? $value
-            : '/storage/'. $value;
-        return $result;
-    }
 
-    public function getImgPathSystemAttribute()
-    {
-        $src = $this->getRawOriginal('img');
-        if (!empty($src)){
-            $is_windows = strripos(php_uname() ,'windows') !== false;
-            $path = Storage::disk('public')->path($src);
-            return $is_windows ?
-                Str::replace("/", "\\",  $path) :
-                $path;
-        }else{
-            return false;
-        }
-    }
 }

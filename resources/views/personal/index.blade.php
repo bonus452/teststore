@@ -14,7 +14,6 @@
                         <ul class="categore-menu">
                             <li><a href="#"></i>Settings</a></li>
                             <li><a href="#"></i>Orders</a></li>
-                            <li><a href="#"></i>Wishlist</a></li>
                             <li><a href="#"></i>Cart</a></li>
                             <li><a href="{{ route('logout') }}"
                                 onclick="event.preventDefault();

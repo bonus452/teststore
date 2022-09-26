@@ -3,8 +3,8 @@
 namespace App\Repository;
 
 use App\Filters\QueryFilter;
-use App\Models\Shop\Category;
-use App\Models\Shop\Product;
+use App\Models\Catalog\Category;
+use App\Models\Catalog\Product;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;
 use Illuminate\Database\Eloquent\Collection as ElCollection;

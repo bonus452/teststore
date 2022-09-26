@@ -5,7 +5,7 @@
 
 @section('content')
 
-    @php /** @var \App\Models\Shop\Category $parent_category */ @endphp
+    @php /** @var \App\Models\Catalog\Category $parent_category */ @endphp
 
     @include('include.messages.top_error_message')
 
@@ -15,7 +15,6 @@
         @else
             <a href="{{ route('admin.catalog.index') }}" class="btn btn-primary">Back to list</a>
         @endif
-        <a href="{{ route('admin.catalog.category.create') }}" class="btn btn-default">Add new category</a>
     </div>
 
     <div class="card card-primary card-tabs">
@@ -63,7 +62,7 @@
                             <div class="form-group">
                                 <label for="category_id">Parent category</label>
                                 <select class="custom-select" id="category_id" name="category_id">
-                                    @php /** @var \App\Models\Shop\Category $innerCAtegory */ @endphp
+                                    @php /** @var \App\Models\Catalog\Category $innerCAtegory */ @endphp
                                     @foreach($categoriesTree as $innerCAtegory)
                                         <option
                                             value="{{ $innerCAtegory->id }}" {{ $innerCAtegory->getCustomProp('selected') }}> {{ $innerCAtegory->title }}</option>
@@ -72,11 +71,11 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="img">Image</label>
+                                <label for="image">Image</label>
                                 <div class="input-group">
                                     <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="img" name="img">
-                                        <label class="custom-file-label" for="img">Choose image</label>
+                                        <input type="file" class="custom-file-input" id="image" name="image">
+                                        <label class="custom-file-label" for="image">Choose image</label>
                                     </div>
                                 </div>
                             </div>

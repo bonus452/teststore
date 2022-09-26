@@ -2,7 +2,7 @@
 
 namespace App\Helpers;
 
-use App\Models\Shop\Category;
+use App\Models\Catalog\Category;
 use App\Repository\CategoryRepository;
 use Illuminate\Support\Collection as BaseCollection;
 
@@ -19,7 +19,7 @@ class DataCategoryRefresher
 
     private static function setCategoryUrl(BaseCollection $categories, string $url): void
     {
-        /** @var \App\Models\Shop\Category $category */
+        /** @var \App\Models\Catalog\Category $category */
 
         foreach ($categories as $category) {
 

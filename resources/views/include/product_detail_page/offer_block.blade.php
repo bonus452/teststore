@@ -1,5 +1,5 @@
-@php /** @var \App\Models\Shop\Offer $selected_offer */ @endphp
-@php /** @var \App\Models\Shop\Product $product */ @endphp
+@php /** @var \App\Models\Catalog\Offer $selected_offer */ @endphp
+@php /** @var \App\Models\Catalog\Product $product */ @endphp
 
 <div class="offer-block">
 

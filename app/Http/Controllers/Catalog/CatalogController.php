@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Shop;
+namespace App\Http\Controllers\Catalog;
 
 use App\Filters\ProductFilter;
 use App\Http\Controllers\Controller;
-use App\Models\Shop\Category;
+use App\Models\Catalog\Category;
 use App\Repository\Breadcrumbs\Shop\CategoryBreadcrumb;
 use App\Repository\CartRepository;
 use App\Repository\CatalogRepository;

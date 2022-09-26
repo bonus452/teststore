@@ -1,12 +1,12 @@
-
-@php /** @var \App\Models\Shop\Category $menu_item */ @endphp
+@php /** @var \App\Models\Catalog\Category $menu_item */ @endphp
 
 @foreach($catalog_menu as $menu_item)
     @if($last_level)
         <li><a href="{{ $menu_item->url }}"> {{ $menu_item->title }}</a></li>
     @else
         <div class="category-part-1 category-common mb--30">
-            <h4 class="categories-subtitle"><a class="clear-color" href="{{ $menu_item->url }}">{{ $menu_item->title }}</a></h4>
+            <h4 class="categories-subtitle"><a class="clear-color"
+                                               href="{{ $menu_item->url }}">{{ $menu_item->title }}</a></h4>
 
             @if($menu_item->getCustomProp('sub_categories')->IsNotEmpty())
                 <ul>

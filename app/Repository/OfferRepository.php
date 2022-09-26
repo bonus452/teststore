@@ -3,8 +3,8 @@
 namespace App\Repository;
 
 use App\Helpers\OffersSelectBlock;
-use App\Models\Shop\Product;
-use App\Models\Shop\Offer as Model;
+use App\Models\Catalog\Product;
+use App\Models\Catalog\Offer as Model;
 use Illuminate\Database\Eloquent\Collection;
 
 class OfferRepository
